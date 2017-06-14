@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ProjectManagement.ORM.Entities
 {
-    public partial class Role
+    public partial class Role : IdentityRole
     {
-        public int Id { get; set; }
+        //public Role()
+        //    : base() { }
 
-        [Required]
-        public string Name { get; set; }
+        //public Role(string name)
+        //    : base(name) { }
     }
 }

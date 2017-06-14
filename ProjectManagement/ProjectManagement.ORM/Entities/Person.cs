@@ -13,11 +13,6 @@ namespace ProjectManagement.ORM.Entities
         [Required]
         public string Surname { get; set; }
 
-        [Required]
-        public string Email { get; set; }
-
-        public string Telephone { get; set; }
-
         public virtual ICollection<Task> GivenTasks { get; set; }
 
         public virtual ICollection<Task> ReceivedTasks { get; set; }

@@ -1,17 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ProjectManagement.ORM.Entities
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
-
-        [Required]
-        public string Login { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
-        public virtual Role Role { get; set; }
+        public Person WorkAccount { get; set; }
     }
 }

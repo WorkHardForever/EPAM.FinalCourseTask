@@ -1,9 +1,8 @@
-﻿namespace ProjectManagement.BLL.Interfacies.Entities
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace ProjectManagement.BLL.Interfacies.Entities
 {
-    public class BllRole
+    public class BllRole : IdentityRole
     {
-        public int Id { get; set; }
-        
-        public string Name { get; set; }
     }
 }

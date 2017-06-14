@@ -1,17 +1,20 @@
-﻿using ProjectManagement.ORM.Entities;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using ProjectManagement.ORM.Entities;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 
 namespace ProjectManagement.ORM
 {
-    public partial class EntityModel : DbContext
+    public partial class EntityModel : IdentityDbContext<User>
     {
         public EntityModel()
             : base("EntityModel")
         { }
 
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public EntityModel(string conectionString)
+            : base(conectionString)
+        { }
+
+        public virtual DbSet<Task> Tasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -1,0 +1,14 @@
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\ProjectManagement.ORM.dll.config
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\ProjectManagement.ORM.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\ProjectManagement.ORM.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\EntityFramework.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\EntityFramework.SqlServer.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\EntityFramework.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\EntityFramework.SqlServer.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.csprojResolveAssemblyReference.cache
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.pdb

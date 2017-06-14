@@ -1,4 +1,5 @@
-﻿using ProjectManagement.BLL.Interfacies.Entities;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using ProjectManagement.BLL.Interfacies.Entities;
 using ProjectManagement.DAL.Interfacies.DTO;
 
 namespace ProjectManagement.BLL.Mappers
@@ -23,18 +24,8 @@ namespace ProjectManagement.BLL.Mappers
 
         public static DalUser ToDalUser(this BllUser bllUser)
         {
-            return new DalUser()
-            {
-                //Id = bllUser.Id,
-                //UserName = bllUser.UserName,
-                //Name = bllUser.Name,
-                //Surname = bllUser.Surname,
-                //BirthDay = bllUser.BirthDay,
-                //Sex = bllUser.Sex.ToDalSex(),
-                //AboutUser = bllUser.AboutUser,
-                //PasswordHash = bllUser.PasswordHash,
-                //FriendsId = bllUser.FriendsId
-            };
+            var convertObj = (DalUser)(IdentityUser)bllUser;
+            return convertObj;
         }
 
         //public static DalSex? ToDalSex(this BllSex? bllSex)
