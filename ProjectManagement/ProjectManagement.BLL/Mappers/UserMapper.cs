@@ -24,8 +24,22 @@ namespace ProjectManagement.BLL.Mappers
 
         public static DalUser ToDalUser(this BllUser bllUser)
         {
-            var convertObj = (DalUser)(IdentityUser)bllUser;
-            return convertObj;
+            return new DalUser()
+            {
+                Id = bllUser.Id,
+                UserName = bllUser.UserName,
+                PasswordHash = bllUser.PasswordHash,
+                Email = bllUser.Email,
+                EmailConfirmed = bllUser.EmailConfirmed,
+                AccessFailedCount = bllUser.AccessFailedCount,
+                LockoutEnabled = bllUser.LockoutEnabled,
+                LockoutEndDateUtc = bllUser.LockoutEndDateUtc,
+                PhoneNumber = bllUser.PhoneNumber,
+                PhoneNumberConfirmed = bllUser.PhoneNumberConfirmed,
+                TwoFactorEnabled = bllUser.TwoFactorEnabled,
+                SecurityStamp = bllUser.SecurityStamp,
+                //WorkAccount = bllUser.WorkAccount?.ToDalPerson()
+            };
         }
 
         //public static DalSex? ToDalSex(this BllSex? bllSex)

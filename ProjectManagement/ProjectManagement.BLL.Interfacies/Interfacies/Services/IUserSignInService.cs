@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.Owin;
 using ProjectManagement.BLL.Interfacies.Entities;
+using ProjectManagement.ORM.Entities;
 
 namespace ProjectManagement.BLL.Interfacies.Interfacies.Services
 {
@@ -9,6 +10,6 @@ namespace ProjectManagement.BLL.Interfacies.Interfacies.Services
     {
         Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout);
 
-        Task SignInAsync(BllUser user, bool isPersistent, bool rememberBrowser);
+        System.Threading.Tasks.Task SignInAsync(BllUser user, bool isPersistent, bool rememberBrowser);
     }
 }

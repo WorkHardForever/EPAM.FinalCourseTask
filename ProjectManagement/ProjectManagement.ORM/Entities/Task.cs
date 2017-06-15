@@ -20,10 +20,10 @@ namespace ProjectManagement.ORM.Entities
         public string Description { get; set; }
 
         [Required]
-        public Person Manager { get; set; }
+        public Person ManagerPerson { get; set; }
 
         [Required]
-        public Person Employee { get; set; }
+        public Person EmployeePerson { get; set; }
 
         public DateTime StartTime { get; set; }
 

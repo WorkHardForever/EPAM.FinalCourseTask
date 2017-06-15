@@ -6,6 +6,7 @@ using ProjectManagement.BLL.Services;
 using ProjectManagement.DAL.Concrete.Identity;
 using ProjectManagement.DAL.Interfacies.DTO;
 using ProjectManagement.ORM;
+using ProjectManagement.ORM.Entities;
 using System;
 
 namespace ProjectManagement.DependencyResolver.EntitiesExtension
@@ -14,9 +15,9 @@ namespace ProjectManagement.DependencyResolver.EntitiesExtension
     {
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<DalUser>(context.Get<EntityModel>()));
+            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<EntityModel>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<DalUser>(manager)
+            manager.UserValidator = new UserValidator<User>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -39,11 +40,11 @@ namespace ProjectManagement.DependencyResolver.EntitiesExtension
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<DalUser>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User>
             {
                 MessageFormat = "Your security code is {0}"
             });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<DalUser>
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
@@ -55,7 +56,7 @@ namespace ProjectManagement.DependencyResolver.EntitiesExtension
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<DalUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }

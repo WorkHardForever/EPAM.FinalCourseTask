@@ -6,6 +6,8 @@ using ProjectManagement.BLL.Mappers;
 using ProjectManagement.DAL.Concrete.Identity;
 using ProjectManagement.DAL.Interfacies.DTO;
 using ProjectManagement.DAL.Interfacies.Interfacies;
+using ProjectManagement.DAL.Mappers;
+using ProjectManagement.ORM.Entities;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.BLL.Services
@@ -18,13 +20,13 @@ namespace ProjectManagement.BLL.Services
         public UserService(IUnitOfWork uow)
         {
             _uow = uow;
-            _userManager = new ApplicationUserManager(new UserStore<DalUser>(uow.Context));
+            _userManager = new ApplicationUserManager(new UserStore<User>(uow.Context));
         }
 
         public Task<IdentityResult> CreateAsync(BllUser user, string password)
         {
             var dalUser = user.ToDalUser();
-            return _userManager.CreateAsync(dalUser, password);
+            return _userManager.CreateAsync(dalUser.ToDbUser(), password);
         }
 
         //public UserEntity GetUserEntity(int id)

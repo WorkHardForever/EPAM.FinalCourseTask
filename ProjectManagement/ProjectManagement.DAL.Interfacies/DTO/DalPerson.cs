@@ -11,10 +11,6 @@ namespace ProjectManagement.DAL.Interfacies.DTO
 
         public string Surname { get; set; }
 
-        public string Email { get; set; }
-
-        public string Telephone { get; set; }
-
         public IEnumerable<DalTask> GivenTasks { get; set; }
 
         public IEnumerable<DalTask> ReceivedTasks { get; set; }

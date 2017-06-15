@@ -4,5 +4,6 @@ namespace ProjectManagement.BLL.Interfacies.Entities
 {
     public class BllUser : IdentityUser
     {
+        public BllPerson WorkAccount { get; set; }
     }
 }

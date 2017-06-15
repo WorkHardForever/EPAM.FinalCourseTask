@@ -105,6 +105,10 @@
       <Project>{3FE828FE-FDB7-4F3F-8ADD-8A564699694A}</Project>
       <Name>ProjectManagement.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
+      <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>
+      <Name>ProjectManagement.ORM</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

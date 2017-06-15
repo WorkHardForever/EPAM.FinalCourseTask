@@ -62,11 +62,35 @@
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityModel.cs" />
+    <Compile Include="Migrations\201706151212038_InitialCreate.cs" />
+    <Compile Include="Migrations\201706151212038_InitialCreate.Designer.cs">
+      <DependentUpon>201706151212038_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706151257460_FirstMigration.cs" />
+    <Compile Include="Migrations\201706151257460_FirstMigration.Designer.cs">
+      <DependentUpon>201706151257460_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706151451226_SecondMigration.cs" />
+    <Compile Include="Migrations\201706151451226_SecondMigration.Designer.cs">
+      <DependentUpon>201706151451226_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706151212038_InitialCreate.resx">
+      <DependentUpon>201706151212038_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706151257460_FirstMigration.resx">
+      <DependentUpon>201706151257460_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706151451226_SecondMigration.resx">
+      <DependentUpon>201706151451226_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

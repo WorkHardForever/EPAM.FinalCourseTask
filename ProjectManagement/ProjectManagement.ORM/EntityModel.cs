@@ -7,21 +7,32 @@ namespace ProjectManagement.ORM
     public partial class EntityModel : IdentityDbContext<User>
     {
         public EntityModel()
-            : base("EntityModel")
+            : this("EntityModel")
         { }
 
         public EntityModel(string conectionString)
             : base(conectionString)
         { }
 
-        public virtual DbSet<Task> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Role>()
-            //    .HasMany(e => e.Users)
-            //    .WithRequired(e => e.Role)
-            //    .WillCascadeOnDelete(false);
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.GivenTasks)
+                .WithRequired(e => e.ManagerPerson)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.ReceivedTasks)
+                .WithRequired(e => e.EmployeePerson)
+                .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
