@@ -23,8 +23,8 @@ namespace ProjectManagement.BLL.Mappers
                 Id = bllTask.Id,
                 Title = bllTask.Title,
                 Description = bllTask.Description,
-                Employee = bllTask.Employee.ToDalPerson(),
-                Manager = bllTask.Manager.ToDalPerson(),
+                Employee = bllTask.Employee?.ToDalPerson(),
+                Manager = bllTask.Manager?.ToDalPerson(),
                 StartTime = bllTask.StartTime,
                 DeadLine = bllTask.DeadLine,
                 StateId = bllTask.StateId

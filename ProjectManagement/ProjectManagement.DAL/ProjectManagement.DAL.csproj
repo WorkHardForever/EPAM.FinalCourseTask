@@ -85,12 +85,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Identity\ApplicationRoleManager.cs" />
-    <Compile Include="Concrete\Identity\ApplicationUserManager.cs" />
-    <Compile Include="Concrete\Identity\ApplicationUserSignInManager.cs" />
     <Compile Include="Concrete\Repositories\PersonRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
+    <Compile Include="Concrete\Repositories\UserRepository.cs" />
+    <Compile Include="Concrete\Repositories\UserSignInRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
+    <Compile Include="Mappers\DbPersonMapper.cs" />
+    <Compile Include="Mappers\DbTaskMapper.cs" />
     <Compile Include="Mappers\DbUserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\ProjectManagement.DAL.Interfacies\ProjectManagement.DAL.Interface.csproj">
       <Project>{374c9c07-000c-40c7-88fa-a41f79618d61}</Project>
       <Name>ProjectManagement.DAL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.Identity\ProjectManagement.Identity.csproj">
+      <Project>{e4dbf362-ccb1-4ac7-a3b6-129d1ef4d22d}</Project>
+      <Name>ProjectManagement.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
       <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>

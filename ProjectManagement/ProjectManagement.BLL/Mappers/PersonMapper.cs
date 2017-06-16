@@ -21,8 +21,8 @@ namespace ProjectManagement.BLL.Mappers
                 Id = bllRole.Id,
                 Name = bllRole.Name,
                 Surname = bllRole.Surname,
-                GivenTasks = bllRole.GivenTasks.ToDalTaskEnumerable(),
-                ReceivedTasks = bllRole.ReceivedTasks.ToDalTaskEnumerable()
+                GivenTasks = bllRole.GivenTasks?.ToDalTaskEnumerable(),
+                ReceivedTasks = bllRole.ReceivedTasks?.ToDalTaskEnumerable()
             };
         }
     }

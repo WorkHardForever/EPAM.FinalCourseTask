@@ -5,23 +5,23 @@ namespace ProjectManagement.DAL.Mappers
 {
     public static class DbUserMapper
     {
-        public static User ToDbUser(this DalUser bllUser)
+        public static User ToDbUser(this DalUser dalUser)
         {
             return new User()
             {
-                Id = bllUser.Id,
-                UserName = bllUser.UserName,
-                PasswordHash = bllUser.PasswordHash,
-                Email = bllUser.Email,
-                EmailConfirmed = bllUser.EmailConfirmed,
-                AccessFailedCount = bllUser.AccessFailedCount,
-                LockoutEnabled = bllUser.LockoutEnabled,
-                LockoutEndDateUtc = bllUser.LockoutEndDateUtc,
-                PhoneNumber = bllUser.PhoneNumber,
-                PhoneNumberConfirmed = bllUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = bllUser.TwoFactorEnabled,
-                SecurityStamp = bllUser.SecurityStamp,
-                WorkAccount = null// bllUser.WorkAccount?.ToDbPerson()
+                Id = dalUser.Id,
+                UserName = dalUser.UserName,
+                PasswordHash = dalUser.PasswordHash,
+                Email = dalUser.Email,
+                EmailConfirmed = dalUser.EmailConfirmed,
+                AccessFailedCount = dalUser.AccessFailedCount,
+                LockoutEnabled = dalUser.LockoutEnabled,
+                LockoutEndDateUtc = dalUser.LockoutEndDateUtc,
+                PhoneNumber = dalUser.PhoneNumber,
+                PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
+                TwoFactorEnabled = dalUser.TwoFactorEnabled,
+                SecurityStamp = dalUser.SecurityStamp,
+                WorkAccount = dalUser.WorkAccount?.ToDbPerson()
             };
         }
     }

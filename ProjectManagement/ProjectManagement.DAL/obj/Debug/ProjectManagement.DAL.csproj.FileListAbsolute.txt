@@ -29,3 +29,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\Micros
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\Newtonsoft.Json.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\obj\Debug\ProjectManagement.DAL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\obj\Debug\ProjectManagement.DAL.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\ProjectManagement.Identity.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\ProjectManagement.Identity.pdb

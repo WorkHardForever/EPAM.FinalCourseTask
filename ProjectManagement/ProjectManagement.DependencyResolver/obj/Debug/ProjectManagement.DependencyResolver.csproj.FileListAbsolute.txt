@@ -66,5 +66,9 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\b
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.Interfacies.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.Interfacies.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Identity.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Identity.Settings.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Identity.Settings.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Identity.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml

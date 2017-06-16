@@ -41,3 +41,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.ORM.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.Identity.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.Identity.pdb

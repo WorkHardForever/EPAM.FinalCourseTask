@@ -1,27 +1,29 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity.Owin;
 using ProjectManagement.BLL.Interfacies.Entities;
 using ProjectManagement.BLL.Interfacies.Interfacies.Services;
 using ProjectManagement.BLL.Mappers;
-using ProjectManagement.DAL.Concrete.Identity;
-using ProjectManagement.DAL.Interfacies.DTO;
 using ProjectManagement.DAL.Interfacies.Interfacies;
+using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
 using ProjectManagement.DAL.Mappers;
-using ProjectManagement.ORM.Entities;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ProjectManagement.BLL.Services
 {
     public class UserSignInService : IUserSignInService
     {
         private readonly IUnitOfWork _uow;
-        private readonly ApplicationUserSignInManager _userSignInManager;
+        private readonly IUserSignInRepository _userSignInManager;
 
-        public UserSignInService(IUnitOfWork uow)
+        public UserSignInService(IUnitOfWork uow, IUserSignInRepository userSignInManager)
         {
             _uow = uow;
-            _userSignInManager = new ApplicationUserSignInManager(new ApplicationUserManager(new UserStore<User>(uow.Context)), HttpContext.Current.GetOwinContext().Authentication);
+            _userSignInManager = userSignInManager;
+
+
+            //    new ApplicationUserSignInManager<User>(
+            //    new ApplicationUserManager<User>(new UserStore<User>(uow.Context)),
+            //    HttpContext.Current.GetOwinContext().Authentication
+            //);
         }
         
         public Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
@@ -31,7 +33,7 @@ namespace ProjectManagement.BLL.Services
 
         public System.Threading.Tasks.Task SignInAsync(BllUser user, bool isPersistent, bool rememberBrowser)
         {
-            return _userSignInManager.SignInAsync(user.ToDalUser().ToDbUser(), isPersistent: false, rememberBrowser: false);
+            return _userSignInManager.SignInAsync(user.ToDalUser(), isPersistent: false, rememberBrowser: false);
         }
 
         //public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)

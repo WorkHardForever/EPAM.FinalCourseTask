@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using ProjectManagement.BLL.Interfacies.Entities;
 using ProjectManagement.BLL.Interfacies.Interfacies.Services;
 using ProjectManagement.BLL.Mappers;
-using ProjectManagement.DAL.Concrete.Identity;
-using ProjectManagement.DAL.Interfacies.DTO;
 using ProjectManagement.DAL.Interfacies.Interfacies;
-using ProjectManagement.DAL.Mappers;
-using ProjectManagement.ORM.Entities;
+using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.BLL.Services
@@ -15,18 +11,17 @@ namespace ProjectManagement.BLL.Services
     public class UserService : IUserService
     {
         private readonly IUnitOfWork _uow;
-        private readonly ApplicationUserManager _userManager;
+        private readonly IUserRepository _userManager;
 
-        public UserService(IUnitOfWork uow)
+        public UserService(IUnitOfWork uow, IUserRepository userManager)
         {
             _uow = uow;
-            _userManager = new ApplicationUserManager(new UserStore<User>(uow.Context));
+            _userManager = userManager;// new ApplicationUserManager<User>(new UserStore<User>(uow.Context));
         }
 
         public Task<IdentityResult> CreateAsync(BllUser user, string password)
         {
-            var dalUser = user.ToDalUser();
-            return _userManager.CreateAsync(dalUser.ToDbUser(), password);
+            return _userManager.CreateAsync(user.ToDalUser(), password);
         }
 
         //public UserEntity GetUserEntity(int id)
