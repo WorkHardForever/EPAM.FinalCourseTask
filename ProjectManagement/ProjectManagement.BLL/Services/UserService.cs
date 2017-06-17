@@ -24,6 +24,11 @@ namespace ProjectManagement.BLL.Services
             return _userManager.CreateAsync(user.ToDalUser(), password);
         }
 
+        public Task<IdentityResult> AddToDefaultRoleAsync(string userId)
+        {
+            return _userManager.AddToDefaultRoleAsync(userId);
+        }
+
         //public UserEntity GetUserEntity(int id)
         //{
         //    return userRepository.GetById(id).ToBllUser();

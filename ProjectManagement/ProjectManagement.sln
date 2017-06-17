@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Identity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Identity.Settings", "ProjectManagement.Identity.Settings\ProjectManagement.Identity.Settings.csproj", "{230B0011-391E-47EA-BCC4-D0607D622370}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.ORM.Initialize", "ProjectManagement.ORM.Initialize\ProjectManagement.ORM.Initialize.csproj", "{10414AE7-1957-4978-AAF3-C3E06A26AF0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{230B0011-391E-47EA-BCC4-D0607D622370}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{230B0011-391E-47EA-BCC4-D0607D622370}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{230B0011-391E-47EA-BCC4-D0607D622370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10414AE7-1957-4978-AAF3-C3E06A26AF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10414AE7-1957-4978-AAF3-C3E06A26AF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10414AE7-1957-4978-AAF3-C3E06A26AF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10414AE7-1957-4978-AAF3-C3E06A26AF0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

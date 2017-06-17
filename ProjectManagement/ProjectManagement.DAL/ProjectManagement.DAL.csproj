@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\Repositories\PersonRepository.cs" />
+    <Compile Include="Concrete\Repositories\RoleRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\Repositories\UserSignInRepository.cs" />

@@ -229,9 +229,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NInjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GivenTasksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\RecievedTasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -295,14 +297,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\GivenTasks\Index.cshtml" />
+    <Content Include="Views\RecievedTasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +322,10 @@
     <ProjectReference Include="..\ProjectManagement.DependencyResolver\ProjectManagement.DependencyResolver.csproj">
       <Project>{a8c1512e-2e37-42ac-8f3c-756f37d2a378}</Project>
       <Name>ProjectManagement.DependencyResolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.Identity.Settings\ProjectManagement.Identity.Settings.csproj">
+      <Project>{230B0011-391E-47EA-BCC4-D0607D622370}</Project>
+      <Name>ProjectManagement.Identity.Settings</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
       <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>

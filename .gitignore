@@ -3,3 +3,5 @@
 ################################################################################
 
 /ProjectManagement/ProjectManagement.AspNetMvc.PL/App_Data/RepAndUowDemo.mdf
+/ProjectManagement/ProjectManagement.AspNetMvc.PL/App_Data/RepAndUowDemo_log.ldf
+/ProjectManagement/ProjectManagement.AspNetMvc.PL/App_Data/RepAndUowDemo.mdf

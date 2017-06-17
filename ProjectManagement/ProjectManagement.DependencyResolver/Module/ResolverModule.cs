@@ -19,7 +19,6 @@ using ProjectManagement.Identity.Settings.StartConfig;
 using ProjectManagement.ORM;
 using ProjectManagement.ORM.Entities;
 using System;
-using System.Net;
 using System.Web;
 
 namespace ProjectManagement.DependencyResolver.Resolver
@@ -83,6 +82,7 @@ namespace ProjectManagement.DependencyResolver.Resolver
             kernel.Bind<IUserSignInRepository>().To<UserSignInRepository>();
 
             kernel.Bind<ApplicationUserManager>().ToSelf();
+            kernel.Bind<ApplicationRoleManager>().ToSelf();
             kernel.Bind<ApplicationUserSignInManager>().ToSelf();
             kernel.Bind<IUserStore<User>>().To<UserStore<User>>().WithConstructorArgument("context", kernel.Get<EntityModel>());
             kernel.Bind<IAuthenticationManager>().ToMethod(x => HttpContext.Current.GetOwinContext().Authentication);

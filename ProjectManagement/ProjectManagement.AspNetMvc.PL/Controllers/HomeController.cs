@@ -7,31 +7,18 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult OwnTasks()
-        {
-            //ViewBag.Message = "OwnTasks";
+            ViewBag.Message = "Main";
 
             return View();
         }
 
-        [HttpGet]
-        public ActionResult ManageTasks()
-        {
-            //ViewBag.Message = "ManageTasks";
+        //[HttpGet]
+        //[Authorize(Roles = "Default")]
+        //public ActionResult Dashboard()
+        //{
+        //    ViewBag.Message = "Dashboard";
 
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult WorkStatus()
-        {
-            //ViewBag.Message = "WorkStatus";
-
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

@@ -92,6 +92,7 @@
     <Compile Include="DTO\DalUser.cs" />
     <Compile Include="Interfacies\IEntity.cs" />
     <Compile Include="Interfacies\IRepositories\IPersonRepository.cs" />
+    <Compile Include="Interfacies\IRepositories\IRoleRepository.cs" />
     <Compile Include="Interfacies\IRepositories\ITaskRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IUserRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IUserSignInRepository.cs" />

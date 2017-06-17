@@ -61,6 +61,7 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="EntityInitializer.cs" />
     <Compile Include="EntityModel.cs" />
     <Compile Include="Migrations\201706151212038_InitialCreate.cs" />
     <Compile Include="Migrations\201706151212038_InitialCreate.Designer.cs">

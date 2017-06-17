@@ -35,3 +35,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\bi
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\obj\Debug\ProjectManagement.Identity.Settings.csprojResolveAssemblyReference.cache
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\obj\Debug\ProjectManagement.Identity.Settings.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\obj\Debug\ProjectManagement.Identity.Settings.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\bin\Debug\Ninject.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Identity.Settings\bin\Debug\Ninject.xml

@@ -14,6 +14,14 @@ namespace ProjectManagement.ORM
             : base(conectionString)
         { }
 
+        static EntityModel()
+        {
+            //Database.SetInitializer(new EntityInitializer());
+        }
+
+        //public static EntityModel Create() { return new EntityModel(); }
+        //public static void Init() { Create().Database.Initialize(true); }
+
         public DbSet<Task> Tasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

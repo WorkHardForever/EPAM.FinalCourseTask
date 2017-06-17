@@ -91,13 +91,10 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
                 var user = model.RegisterToBllUser();
                 var result = await _userService.CreateAsync(user, model.Password);
 
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                //var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userService.AddToDefaultRoleAsync(user.Id);
                     await _signInService.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     //// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     //// Send an email with this link

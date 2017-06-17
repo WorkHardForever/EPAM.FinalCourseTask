@@ -11,13 +11,4 @@ namespace ProjectManagement.Identity.Managers
         {
         }
     }
-
-    //public class ApplicationRoleManager<TRole> : RoleManager<TRole>
-    //    where TRole : IdentityRole
-    //{
-    //    public ApplicationRoleManager(RoleStore<TRole> store)
-    //        : base(store)
-    //    {
-    //    }
-    //}
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProjectManagement.ORM;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +18,8 @@ namespace ProjectManagement.AspNetMvc.PL
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer(new EntityInitializer());
+            //EntityModel.Init();
         }
     }
 }

@@ -10,5 +10,9 @@ namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
         ApplicationUserManager AppUserManager { get; }
 
         Task<IdentityResult> CreateAsync(DalUser user, string password);
+
+        Task<IdentityResult> AddToRoleAsync(string userId, string role);
+
+        Task<IdentityResult> AddToDefaultRoleAsync(string userId);
     }
 }

@@ -1,0 +1,5 @@
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM.Initialize\bin\Debug\ProjectManagement.ORM.Initialize.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM.Initialize\bin\Debug\ProjectManagement.ORM.Initialize.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM.Initialize\obj\Debug\ProjectManagement.ORM.Initialize.csprojResolveAssemblyReference.cache
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM.Initialize\obj\Debug\ProjectManagement.ORM.Initialize.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM.Initialize\obj\Debug\ProjectManagement.ORM.Initialize.pdb

@@ -8,6 +8,8 @@ namespace ProjectManagement.BLL.Interfacies.Interfacies.Services
     {
         Task<IdentityResult> CreateAsync(BllUser user, string password);
 
+        Task<IdentityResult> AddToDefaultRoleAsync(string userId);
+
         //BllUser GetById(int key);
 
         //BllUser GetByName(string name);
