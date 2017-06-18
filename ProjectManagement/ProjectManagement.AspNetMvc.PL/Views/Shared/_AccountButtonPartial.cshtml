@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.UserProfileButton = Request.IsAuthenticated ? User.Identity.Name : "Sign In";
+}
+@using Microsoft.AspNet.Identity
+<ul class="nav navbar-nav navbar-right">
+    <li class="">
+        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-id-card-o" aria-hidden="true"></i> @ViewBag.UserProfileButton
+
+            <span class="fa fa-angle-down"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-usermenu pull-right">
+            @if (Request.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Profile", "Info", "Person", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                <li>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, null))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
+                    }
+                </li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            }
+        </ul>
+    </li>
+</ul>

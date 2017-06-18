@@ -11,14 +11,5 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
 
             return View();
         }
-
-        //[HttpGet]
-        //[Authorize(Roles = "Default")]
-        //public ActionResult Dashboard()
-        //{
-        //    ViewBag.Message = "Dashboard";
-
-        //    return View();
-        //}
     }
 }

@@ -9,9 +9,6 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Micros
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.Owin.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.Owin.Security.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Newtonsoft.Json.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Owin.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interfacies.dll
