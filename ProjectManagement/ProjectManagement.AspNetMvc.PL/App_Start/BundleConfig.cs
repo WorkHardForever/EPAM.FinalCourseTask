@@ -6,11 +6,20 @@ namespace ProjectManagement.AspNetMvc.PL
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            #region Scripts
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/fastclick").Include(
                         "~/Scripts/fastclick.js"));
@@ -23,13 +32,13 @@ namespace ProjectManagement.AspNetMvc.PL
 
             bundles.Add(new ScriptBundle("~/bundles/Gentelella").Include(
                         "~/Libs/Gentelella/js/custom.js"));
-            
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Dragula").Include(
+                        "~/Libs/Dragula/dist/dragula.js"));
+
+            #endregion
+
+            #region Styles
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -37,8 +46,13 @@ namespace ProjectManagement.AspNetMvc.PL
                       "~/Content/nprogress.css",
                       "~/Content/animate.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Gentella").Include(
-                      "~/Libs/Gentelella/css/custom.min.css"));
+            bundles.Add(new StyleBundle("~/Content/Gentelella").Include(
+                      "~/Libs/Gentelella/css/custom.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Dragula").Include(
+                      "~/Libs/Gentelella/dist/dragula.css"));
+
+            #endregion
         }
     }
 }

@@ -5,7 +5,7 @@ namespace ProjectManagement.DAL.Interfacies.DTO
 {
     public class DalPerson : IEntity
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

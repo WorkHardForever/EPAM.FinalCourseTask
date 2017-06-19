@@ -4,10 +4,8 @@ namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
 {
     public interface ITaskRepository : IRepository<DalTask>
     {
-        //DalUser GetByName(string name);
-        
-        //void AddToFriends(DalUser currentUser, DalUser newFriend);
-        
-        //void RemoveFriend(DalUser currentUser, DalUser newFriend);
+        void AddToManagerTasks(DalPerson person, DalTask task);
+
+        void AddToEmployeeTasks(DalPerson person, DalTask task);
     }
 }

@@ -5,14 +5,17 @@ namespace ProjectManagement.BLL.Mappers
 {
     public static class PersonMapper
     {
-        //public static BllPerson ToDalPerson(this DalPerson dalRole)
-        //{
-        //    return new BllPerson()
-        //    {
-        //        //Id = dalRole.Id,
-        //        //Name = dalRole.Name
-        //    };
-        //}
+        public static BllPerson ToBllPerson(this DalPerson dalRole)
+        {
+            return new BllPerson()
+            {
+                Id = dalRole.Id,
+                Name = dalRole.Name,
+                Surname = dalRole.Surname,
+                GivenTasks = dalRole.GivenTasks?.ToBllTaskEnumerable(),
+                ReceivedTasks = dalRole.ReceivedTasks?.ToBllTaskEnumerable()
+            };
+        }
 
         public static DalPerson ToDalPerson(this BllPerson bllRole)
         {

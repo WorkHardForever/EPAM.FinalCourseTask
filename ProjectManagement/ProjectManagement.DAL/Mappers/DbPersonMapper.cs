@@ -5,6 +5,18 @@ namespace ProjectManagement.DAL.Mappers
 {
     public static class DbPersonMapper
     {
+        public static DalPerson ToDalPerson(this Person dbPerson)
+        {
+            return new DalPerson()
+            {
+                Id = dbPerson.Id,
+                Name = dbPerson.Name,
+                Surname = dbPerson.Surname,
+                GivenTasks = dbPerson.GivenTasks?.ToDalTaskEnumerable(),
+                ReceivedTasks = dbPerson.ReceivedTasks?.ToDalTaskEnumerable()
+            };
+        }
+
         public static Person ToDbPerson(this DalPerson dalPerson)
         {
             return new Person()

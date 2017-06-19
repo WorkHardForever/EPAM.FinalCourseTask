@@ -85,10 +85,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BllContainTasksByState.cs" />
     <Compile Include="Entities\BllPerson.cs" />
     <Compile Include="Entities\BllRole.cs" />
     <Compile Include="Entities\BllTask.cs" />
+    <Compile Include="Entities\BllTaskPercentState.cs" />
     <Compile Include="Entities\BllUser.cs" />
+    <Compile Include="Entities\BllTaskState.cs" />
     <Compile Include="Interfacies\Services\IPersonService.cs" />
     <Compile Include="Interfacies\Services\IRoleService.cs" />
     <Compile Include="Interfacies\Services\ITaskService.cs" />
@@ -113,12 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-2.2.3.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\jquery-2.2.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.3.js" />
-    <Content Include="Scripts\jquery-2.2.3.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

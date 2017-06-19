@@ -5,7 +5,7 @@ namespace ProjectManagement.DAL.Interfacies.DTO
 {
     public class DalTask : IEntity
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
@@ -19,6 +19,6 @@ namespace ProjectManagement.DAL.Interfacies.DTO
 
         public DateTime DeadLine { get; set; }
 
-        public int StateId { get; set; }
+        public DalTaskState State { get; set; }
     }
 }

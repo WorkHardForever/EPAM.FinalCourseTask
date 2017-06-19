@@ -7,6 +7,21 @@ namespace ProjectManagement.DAL.Mappers
 {
     public static class DbTaskMapper
     {
+        public static DalTask ToDalTask(this Task dbTask)
+        {
+            return new DalTask()
+            {
+                Id = dbTask.Id,
+                Title = dbTask.Title,
+                Description = dbTask.Description,
+                Employee = dbTask.EmployeePerson?.ToDalPerson(),
+                Manager = dbTask.ManagerPerson?.ToDalPerson(),
+                StartTime = dbTask.StartTime,
+                DeadLine = dbTask.DeadLine,
+                State = (DalTaskState)dbTask.State
+            };
+        }
+
         public static Task ToDbTask(this DalTask dalTask)
         {
             return new Task()
@@ -18,8 +33,13 @@ namespace ProjectManagement.DAL.Mappers
                 ManagerPerson = dalTask.Manager?.ToDbPerson(),
                 StartTime = dalTask.StartTime,
                 DeadLine = dalTask.DeadLine,
-                State = (TaskState)dalTask.StateId
+                State = (TaskState)dalTask.State
             };
+        }
+
+        public static IEnumerable<DalTask> ToDalTaskEnumerable(this ICollection<Task> dbTasks)
+        {
+            return dbTasks.Select(x => x.ToDalTask());
         }
 
         public static ICollection<Task> ToDbTaskCollection(this IEnumerable<DalTask> dalTasks)

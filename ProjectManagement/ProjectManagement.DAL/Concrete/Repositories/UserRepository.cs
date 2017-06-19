@@ -33,5 +33,17 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             return AppUserManager.AddToRoleAsync(userId, role);
         }
+
+        public async Task<DalUser> FindByIdAsync(string userId)
+        {
+            var user = await AppUserManager.FindByIdAsync(userId);
+            return user.ToDalUser();
+        }
+
+        public async Task<DalUser> FindByEmail(string email)
+        {
+            var user = await AppUserManager.FindByEmailAsync(email);
+            return user.ToDalUser();
+        }
     }
 }

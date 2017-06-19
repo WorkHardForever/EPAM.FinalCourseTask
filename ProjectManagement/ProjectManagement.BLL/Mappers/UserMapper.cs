@@ -6,21 +6,25 @@ namespace ProjectManagement.BLL.Mappers
 {
     public static class UserMapper
     {
-        //public static BllUser ToBllUser(this DalUser dalUser)
-        //{
-        //    return new BllUser()
-        //    {
-        //        Id = dalUser.Id,
-        //        UserName = dalUser.UserName,
-        //        Name = dalUser.Name,
-        //        Surname = dalUser.Surname,
-        //        BirthDay = dalUser.BirthDay,
-        //        Sex = dalUser.Sex != null ? (BllSex?)(int)dalUser.Sex.Value : null,
-        //        AboutUser = dalUser.AboutUser,
-        //        PasswordHash = dalUser.PasswordHash,
-        //        FriendsId = dalUser.FriendsId
-        //    };
-        //}
+        public static BllUser ToBllUser(this DalUser dalUser)
+        {
+            return new BllUser()
+            {
+                Id = dalUser.Id,
+                UserName = dalUser.UserName,
+                PasswordHash = dalUser.PasswordHash,
+                Email = dalUser.Email,
+                EmailConfirmed = dalUser.EmailConfirmed,
+                AccessFailedCount = dalUser.AccessFailedCount,
+                LockoutEnabled = dalUser.LockoutEnabled,
+                LockoutEndDateUtc = dalUser.LockoutEndDateUtc,
+                PhoneNumber = dalUser.PhoneNumber,
+                PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
+                TwoFactorEnabled = dalUser.TwoFactorEnabled,
+                SecurityStamp = dalUser.SecurityStamp,
+                WorkAccount = dalUser.WorkAccount?.ToBllPerson()
+            };
+        }
 
         public static DalUser ToDalUser(this BllUser bllUser)
         {

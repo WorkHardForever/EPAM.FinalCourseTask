@@ -17,7 +17,7 @@
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, null))
                     {
                         @Html.AntiForgeryToken()
-                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
+                        <button style="display: block; padding: 3px 20px; clear: both; font-weight: normal;line-height: 1.42857143;color: #333;white-space: nowrap;text-decoration: none;background-color: transparent;box-sizing: border-box; border-style: none; width: 100%";><i class="fa fa-sign-out pull-right"></i><p class="pull-left">Log Out</p></button>
                     }
                 </li>
             }

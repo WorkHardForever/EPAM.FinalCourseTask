@@ -8,7 +8,7 @@ namespace ProjectManagement.DAL.Interfacies.Interfacies
         where T : IEntity
     {
         IEnumerable<T> GetAll();
-        T GetById(int uniqueId);
+        T GetById(string uniqueId);
         T GetByPredicate(Expression<Func<T, bool>> match);
         void Create(T item);
         void Delete(T item);

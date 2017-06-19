@@ -4,7 +4,7 @@ namespace ProjectManagement.BLL.Interfacies.Entities
 {
     public class BllTask
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
@@ -18,6 +18,6 @@ namespace ProjectManagement.BLL.Interfacies.Entities
 
         public DateTime DeadLine { get; set; }
 
-        public int StateId { get; set; }
+        public BllTaskState State { get; set; }
     }
 }

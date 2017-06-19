@@ -12,7 +12,7 @@ namespace ProjectManagement.ORM.Entities
 
     public class Task
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public string Title { get; set; }

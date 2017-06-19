@@ -1,35 +1,35 @@
-﻿@section LeftColumnDashboard {
-    <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-                <a href="index.html" class="site_title"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <span>@ViewBag.FirmName</span></a>
-            </div>
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                <div class="menu_section">
-                    <br /><br /><br /><br />
-                    <h3>General</h3>
-                    <ul class="nav side-menu">
-                        <li>
-                            <a><i class="fa fa-edit"></i> Recieved tasks <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li>@Html.ActionLink("Show", "ReceivedTasks", "Dashboard")</li>
-                                <li>@Html.ActionLink("Statistics", "Statistics", "Dashboard")</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a><i class="fa fa-sitemap"></i> Given tasks <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li>@Html.ActionLink("Show", "GivenTasks", "Dashboard")</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- sidebar menu -->
+﻿@*@using ProjectManagement.AspNetMvc.PL.HtmlHelpers
+@Html.Resource(@<link rel="stylesheet" href="@Url.Content("~/Libs/Gentelella/css/custom.css")" />, "css")*@
+@{
+    ViewBag.FirmName = "Some Firm";
+}
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="~/Home/Index" class="site_title"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> <span>@ViewBag.FirmName</span></a>
         </div>
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <br /><br /><br /><br />
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-edit"></i> Recieved tasks <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>@Html.ActionLink("Show", "ReceivedTasks", "Dashboard")</li>
+                            <li>@Html.ActionLink("Statistics", "Statistics", "Dashboard")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-sitemap"></i> Given tasks <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>@Html.ActionLink("Show", "GivenTasks", "Dashboard")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- sidebar menu -->
     </div>
-}
-@section Styles {
-    @Styles.Render("~/Content/Gentella")
-}
+</div>

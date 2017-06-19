@@ -14,5 +14,9 @@ namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
         Task<IdentityResult> AddToRoleAsync(string userId, string role);
 
         Task<IdentityResult> AddToDefaultRoleAsync(string userId);
+
+        Task<DalUser> FindByIdAsync(string userId);
+
+        Task<DalUser> FindByEmail(string email);
     }
 }

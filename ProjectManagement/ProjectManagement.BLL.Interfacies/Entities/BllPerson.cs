@@ -4,7 +4,7 @@ namespace ProjectManagement.BLL.Interfacies.Entities
 {
     public class BllPerson
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 
