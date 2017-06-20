@@ -1,7 +1,7 @@
-﻿using ProjectManagement.BLL.Interfacies.Entities;
-using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.DAL.Interface.DTO;
 
-namespace ProjectManagement.BLL.Mappers
+namespace ProjectManagement.BLL.Interface.Mappers
 {
     public static class RoleMapper
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace ProjectManagement.BLL.Interfacies.Entities
+namespace ProjectManagement.BLL.Interface.Entities
 {
     public class BllUser : IdentityUser
     {
-        public BllPerson WorkAccount { get; set; }
+        public BllProfile Profile { get; set; }
     }
 }

@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
-using System.Threading.Tasks;
+﻿using ProjectManagement.DAL.Interface.DTO;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
+namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
 {
-    public interface IRoleRepository
+    public interface IRoleRepository : IRepository<DalRole>
     {
     }
 }

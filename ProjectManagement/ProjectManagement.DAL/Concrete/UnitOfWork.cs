@@ -1,4 +1,4 @@
-﻿using ProjectManagement.DAL.Interfacies.Interfacies;
+﻿using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.ORM;
 using System;
 
@@ -24,7 +24,7 @@ namespace ProjectManagement.DAL.Concrete
             }
             catch (Exception ex)
             {
-                throw new Exception("Database not save data", ex);
+                throw new Exception("Database don't save the data", ex);
             }
         }
 

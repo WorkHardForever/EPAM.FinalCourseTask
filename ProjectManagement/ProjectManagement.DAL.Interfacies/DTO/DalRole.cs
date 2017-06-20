@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProjectManagement.DAL.Interfacies.Interfacies;
+using ProjectManagement.DAL.Interface.Interfacies;
 
-namespace ProjectManagement.DAL.Interfacies.DTO
+namespace ProjectManagement.DAL.Interface.DTO
 {
-    public class DalRole : IdentityRole
+    public class DalRole : IdentityRole, IEntity
     {
     }
 }

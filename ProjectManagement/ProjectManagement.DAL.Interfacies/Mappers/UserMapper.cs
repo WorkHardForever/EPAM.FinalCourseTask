@@ -1,9 +1,9 @@
-﻿using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.ORM.Entities;
 
-namespace ProjectManagement.DAL.Mappers
+namespace ProjectManagement.DAL.Interface.Mappers
 {
-    public static class DbUserMapper
+    public static class UserMapper
     {
         public static DalUser ToDalUser(this User dbUser)
         {
@@ -21,7 +21,7 @@ namespace ProjectManagement.DAL.Mappers
                 PhoneNumberConfirmed = dbUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dbUser.TwoFactorEnabled,
                 SecurityStamp = dbUser.SecurityStamp,
-                WorkAccount = dbUser.WorkAccount?.ToDalPerson()
+                Profile = dbUser.Profile.ToDalProfile()
             };
         }
 
@@ -41,7 +41,7 @@ namespace ProjectManagement.DAL.Mappers
                 PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dalUser.TwoFactorEnabled,
                 SecurityStamp = dalUser.SecurityStamp,
-                WorkAccount = dalUser.WorkAccount?.ToDbPerson()
+                Profile = dalUser.Profile.ToDbProfile()
             };
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagement.ORM
 {
-    public class EntityInitializer : IDatabaseInitializer<EntityModel>
+    public class EntityInitializer : DropCreateDatabaseIfModelChanges<EntityModel>
     {
         public string[] Roles = new string[]
         {
@@ -17,23 +17,27 @@ namespace ProjectManagement.ORM
 
         public static readonly User Admin = new User()
         {
-            UserName = "meneleanat@yandex.ru",
-            Email = "meneleanat@yandex.ru",
-            PhoneNumber = "+375293337740",
+            UserName = "1b97@mail.ru",
+            Email = "1b97@mail.ru",
+            Profile = new Profile()
+            {
+                Name = "Admin",
+                Surname = "Admin",
+            }
         };
 
-        public static readonly string AdminPassword = "admin";
+        public static readonly string AdminPassword = "Admin_123";
 
-        //protected override void Seed(EntityModel context)
-        //{
-        //    var roleManager = new RoleManager<Role>(new RoleStore<Role>(context));
-        //    var userManager = new UserManager<User>(new UserStore<User>(context));
+        protected override void Seed(EntityModel context)
+        {
+            var roleManager = new RoleManager<Role>(new RoleStore<Role>(context));
+            var userManager = new UserManager<User>(new UserStore<User>(context));
 
-        //    SetRolesByEnum(roleManager, typeof(Roles));
-        //    SetInitialAdmin(userManager, Admin, AdminPassword);
+            SetRolesByEnum(roleManager);
+            SetInitialAdmin(userManager, Admin, AdminPassword);
 
-        //    base.Seed(context);
-        //}
+            base.Seed(context);
+        }
 
         public void SetInitialAdmin(UserManager<User> userManager, User admin, string password)
         {
@@ -41,7 +45,7 @@ namespace ProjectManagement.ORM
             if (result.Succeeded)
             {
                 userManager.AddToRole(admin.Id, Roles[0]);
-                //userManager.AddToRoleAsync(admin.Id, Roles[0]);
+                userManager.AddToRole(admin.Id, Roles[1]);
             }
         }
 
@@ -56,16 +60,6 @@ namespace ProjectManagement.ORM
             {
                 SetInitialRoles(roleManager, Roles[i]);
             }
-        }
-
-        public void InitializeDatabase(EntityModel context)
-        {
-            var roleManager = new RoleManager<Role>(new RoleStore<Role>(context));
-            var userManager = new UserManager<User>(new UserStore<User>(context));
-
-            SetRolesByEnum(roleManager);
-            SetInitialAdmin(userManager, Admin, AdminPassword);
-            context.SaveChanges();
         }
     }
 }

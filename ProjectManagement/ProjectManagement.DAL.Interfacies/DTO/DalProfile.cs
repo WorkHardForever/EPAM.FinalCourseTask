@@ -1,9 +1,9 @@
-﻿using ProjectManagement.DAL.Interfacies.Interfacies;
+﻿using ProjectManagement.DAL.Interface.Interfacies;
 using System.Collections.Generic;
 
-namespace ProjectManagement.DAL.Interfacies.DTO
+namespace ProjectManagement.DAL.Interface.DTO
 {
-    public class DalPerson : IEntity
+    public class DalProfile : IEntity
     {
         public string Id { get; set; }
 
@@ -14,5 +14,7 @@ namespace ProjectManagement.DAL.Interfacies.DTO
         public IEnumerable<DalTask> GivenTasks { get; set; }
 
         public IEnumerable<DalTask> ReceivedTasks { get; set; }
+
+        public DalUser User { get; set; }
     }
 }

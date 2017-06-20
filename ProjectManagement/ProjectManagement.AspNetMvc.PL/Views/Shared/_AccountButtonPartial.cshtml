@@ -12,7 +12,7 @@
         <ul class="dropdown-menu dropdown-usermenu pull-right">
             @if (Request.IsAuthenticated)
             {
-                <li>@Html.ActionLink("Profile", "Info", "Person", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                <li>@Html.ActionLink("Profile", "Info", "Profile", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
                 <li>
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, null))
                     {

@@ -92,7 +92,6 @@
     <Compile Include="StartConfig\ApplicationUserManagerHelper.cs" />
     <Compile Include="StartConfig\ApplicationUserSignInManagerHelper.cs" />
     <Compile Include="StartConfig\EntityModelHelper.cs" />
-    <Compile Include="StartConfig\InitializeData.cs" />
     <Compile Include="StartConfig\UserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

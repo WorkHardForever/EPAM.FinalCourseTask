@@ -226,12 +226,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NInjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -449,7 +448,7 @@
     <Content Include="Views\Dashboard\Statistics.cshtml" />
     <Content Include="Views\Dashboard\LeftColumnDashboardPartial.cshtml" />
     <Content Include="Views\Dashboard\ButtonDashboardPartial.cshtml" />
-    <Content Include="Views\Person\Info.cshtml" />
+    <Content Include="Views\Profile\Info.cshtml" />
     <Content Include="Views\Dashboard\CreateTask.cshtml" />
   </ItemGroup>
   <ItemGroup>

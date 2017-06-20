@@ -1,11 +1,11 @@
-﻿using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.DAL.Interface.DTO;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
+namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
 {
     public interface ITaskRepository : IRepository<DalTask>
     {
-        void AddToManagerTasks(DalPerson person, DalTask task);
+        void AddToManagerTasks(DalProfile profile, DalTask task);
 
-        void AddToEmployeeTasks(DalPerson person, DalTask task);
+        void AddToEmployeeTasks(DalProfile profile, DalTask task);
     }
 }

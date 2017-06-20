@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using ProjectManagement.AspNetMvc.PL.Models.DashboardViewModels;
-using ProjectManagement.BLL.Interfacies.Interfacies.Services;
+using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -13,16 +13,16 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserSignInService _signInService;
-        private readonly IPersonService _personService;
+        private readonly IProfileService _profileService;
         private readonly ITaskService _taskService;
         private readonly IIdentityMessageService _messageService;
 
         public DashboardController(IUserService userService, IUserSignInService signInService,
-            IPersonService personService, ITaskService taskService, IIdentityMessageService messageService)
+            IProfileService profileService, ITaskService taskService, IIdentityMessageService messageService)
         {
             _userService = userService;
             _signInService = signInService;
-            _personService = personService;
+            _profileService = profileService;
             _taskService = taskService;
             _messageService = messageService;
         }
@@ -42,7 +42,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         {
             var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
             var employee = await _userService.FindByEmail(newTask.EmployeeEmail);
-            _taskService.CreateTask(user.WorkAccount, employee.WorkAccount, newTask.RegisterToBllUser());
+            _taskService.CreateTask(user.Profile, employee.Profile, newTask.RegisterToBllUser());
 
             _messageService.Send(new IdentityMessage()
             {
@@ -58,7 +58,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         public async Task<ActionResult> ReceivedTasks()
         {
             var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
-            var tasksByState = _personService.DivideToStateReceivedTasks(user.WorkAccount);
+            var tasksByState = _profileService.DivideToStateReceivedTasks(user.Profile);
 
             if (tasksByState != null)
             {
@@ -79,7 +79,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         public async Task<ActionResult> Statistics()
         {
             var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
-            var percentOfWork = _personService.GetStateOfReceivedTasks(user.WorkAccount);
+            var percentOfWork = _profileService.GetStateOfReceivedTasks(user.Profile);
 
             StatisticViewModel staticViewModel;
             if (percentOfWork == null)

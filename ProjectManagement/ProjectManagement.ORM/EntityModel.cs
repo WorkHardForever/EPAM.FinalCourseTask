@@ -16,28 +16,31 @@ namespace ProjectManagement.ORM
 
         static EntityModel()
         {
-            //Database.SetInitializer(new EntityInitializer());
+            Database.SetInitializer(new EntityInitializer());
         }
 
-        //public static EntityModel Create() { return new EntityModel(); }
-        //public static void Init() { Create().Database.Initialize(true); }
-
+        public DbSet<Profile> Profiles { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Firm> Firm { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdentityUserLogin>().HasKey(l => l.UserId);
-            modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
-            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
+            modelBuilder.Entity<Profile>()
+                .HasRequired(p => p.User)
+                .WithRequiredDependent(c => c.Profile);
 
-            modelBuilder.Entity<Person>()
+            modelBuilder.Entity<User>()
+                .HasRequired(c => c.Profile)
+                .WithRequiredPrincipal(p => p.User);
+
+            modelBuilder.Entity<Profile>()
                 .HasMany(e => e.GivenTasks)
-                .WithRequired(e => e.ManagerPerson)
+                .WithRequired(e => e.Manager)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Person>()
+            modelBuilder.Entity<Profile>()
                 .HasMany(e => e.ReceivedTasks)
-                .WithRequired(e => e.EmployeePerson)
+                .WithRequired(e => e.Employee)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);

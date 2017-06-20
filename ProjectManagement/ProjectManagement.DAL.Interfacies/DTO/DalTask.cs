@@ -1,7 +1,7 @@
-﻿using ProjectManagement.DAL.Interfacies.Interfacies;
+﻿using ProjectManagement.DAL.Interface.Interfacies;
 using System;
 
-namespace ProjectManagement.DAL.Interfacies.DTO
+namespace ProjectManagement.DAL.Interface.DTO
 {
     public class DalTask : IEntity
     {
@@ -11,9 +11,9 @@ namespace ProjectManagement.DAL.Interfacies.DTO
 
         public string Description { get; set; }
 
-        public DalPerson Manager { get; set; }
+        public DalProfile Manager { get; set; }
 
-        public DalPerson Employee { get; set; }
+        public DalProfile Employee { get; set; }
 
         public DateTime StartTime { get; set; }
 

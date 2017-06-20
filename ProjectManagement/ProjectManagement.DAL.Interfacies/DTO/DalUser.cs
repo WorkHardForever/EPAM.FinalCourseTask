@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using ProjectManagement.DAL.Interface.Interfacies;
 
-namespace ProjectManagement.DAL.Interfacies.DTO
+namespace ProjectManagement.DAL.Interface.DTO
 {
-    public class DalUser : IdentityUser
+    public class DalUser : IdentityUser, IEntity
     {
-        public DalPerson WorkAccount { get; set; }
+        public DalProfile Profile { get; set; }
     }
 }

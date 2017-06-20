@@ -1,7 +1,7 @@
 ﻿using ProjectManagement.ORM;
 using System;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies
+namespace ProjectManagement.DAL.Interface.Interfacies
 {
     public interface IUnitOfWork : IDisposable
     {

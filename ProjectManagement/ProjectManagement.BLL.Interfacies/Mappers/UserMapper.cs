@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProjectManagement.BLL.Interfacies.Entities;
-using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.DAL.Interface.DTO;
 
-namespace ProjectManagement.BLL.Mappers
+namespace ProjectManagement.BLL.Interface.Mappers
 {
     public static class UserMapper
     {
@@ -22,7 +21,7 @@ namespace ProjectManagement.BLL.Mappers
                 PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dalUser.TwoFactorEnabled,
                 SecurityStamp = dalUser.SecurityStamp,
-                WorkAccount = dalUser.WorkAccount?.ToBllPerson()
+                Profile = dalUser.Profile.ToBllProfile()
             };
         }
 
@@ -42,7 +41,7 @@ namespace ProjectManagement.BLL.Mappers
                 PhoneNumberConfirmed = bllUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = bllUser.TwoFactorEnabled,
                 SecurityStamp = bllUser.SecurityStamp,
-                WorkAccount = bllUser.WorkAccount?.ToDalPerson()
+                Profile = bllUser.Profile.ToDalProfile()
             };
         }
     }

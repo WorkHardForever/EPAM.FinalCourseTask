@@ -1,7 +1,7 @@
 ﻿namespace ProjectManagement.AspNetMvc.PL.Models.DashboardViewModels
 {
-    public class PersonViewModel
+    public class ProfileViewModel
     {
-        public string PersonId { get; set; }
+        public string ProfileId { get; set; }
     }
 }

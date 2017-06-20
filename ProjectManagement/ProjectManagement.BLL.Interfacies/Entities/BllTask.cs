@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectManagement.BLL.Interfacies.Entities
+namespace ProjectManagement.BLL.Interface.Entities
 {
     public class BllTask
     {
@@ -10,9 +10,9 @@ namespace ProjectManagement.BLL.Interfacies.Entities
 
         public string Description { get; set; }
 
-        public BllPerson Manager { get; set; }
+        public BllProfile Manager { get; set; }
 
-        public BllPerson Employee { get; set; }
+        public BllProfile Employee { get; set; }
 
         public DateTime StartTime { get; set; }
 

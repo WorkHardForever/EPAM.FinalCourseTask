@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using ProjectManagement.DAL.Interfacies.DTO;
-using ProjectManagement.Identity.Managers;
+using ProjectManagement.DAL.Interface.DTO;
 using System.Threading.Tasks;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
+namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
 {
     public interface IUserSignInRepository
     {
-        ApplicationUserSignInManager AppUserSignInManager { get; }
-
         Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout);
 
         Task SignInAsync(DalUser user, bool isPersistent, bool rememberBrowser);

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using ProjectManagement.DAL.Interfacies.DTO;
-using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
-using ProjectManagement.DAL.Mappers;
+using ProjectManagement.DAL.Interface.DTO;
+using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
+using ProjectManagement.DAL.Interface.Mappers;
 using ProjectManagement.Identity.Managers;
 using System.Threading.Tasks;
 
@@ -9,21 +9,21 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 {
     public class UserSignInRepository : IUserSignInRepository
     {
-        public ApplicationUserSignInManager AppUserSignInManager { get; private set; }
+        private readonly ApplicationUserSignInManager _appUserSignInManager;
 
         public UserSignInRepository(ApplicationUserSignInManager appUserSignInManager)
         {
-            AppUserSignInManager = appUserSignInManager;
+            _appUserSignInManager = appUserSignInManager;
         }
 
         public Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
         {
-            return AppUserSignInManager.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
+            return _appUserSignInManager.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
         }
 
         public Task SignInAsync(DalUser user, bool isPersistent, bool rememberBrowser)
         {
-            return AppUserSignInManager.SignInAsync(user.ToDbUser(), isPersistent: false, rememberBrowser: false);
+            return _appUserSignInManager.SignInAsync(user.ToDbUser(), isPersistent: false, rememberBrowser: false);
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjectManagement.BLL.Interfacies.Entities
+namespace ProjectManagement.BLL.Interface.Entities
 {
-    public class BllPerson
+    public class BllProfile
     {
         public string Id { get; set; }
 
@@ -13,5 +13,7 @@ namespace ProjectManagement.BLL.Interfacies.Entities
         public IEnumerable<BllTask> GivenTasks { get; set; }
 
         public IEnumerable<BllTask> ReceivedTasks { get; set; }
+
+        public BllUser User { get; set; }
     }
 }

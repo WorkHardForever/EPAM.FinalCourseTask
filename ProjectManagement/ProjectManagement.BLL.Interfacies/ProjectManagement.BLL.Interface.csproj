@@ -86,17 +86,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BllContainTasksByState.cs" />
-    <Compile Include="Entities\BllPerson.cs" />
+    <Compile Include="Entities\BllProfile.cs" />
     <Compile Include="Entities\BllRole.cs" />
     <Compile Include="Entities\BllTask.cs" />
     <Compile Include="Entities\BllTaskPercentState.cs" />
     <Compile Include="Entities\BllUser.cs" />
     <Compile Include="Entities\BllTaskState.cs" />
-    <Compile Include="Interfacies\Services\IPersonService.cs" />
+    <Compile Include="Interfacies\Services\IProfileService.cs" />
     <Compile Include="Interfacies\Services\IRoleService.cs" />
     <Compile Include="Interfacies\Services\ITaskService.cs" />
     <Compile Include="Interfacies\Services\IUserService.cs" />
     <Compile Include="Interfacies\Services\IUserSignInService.cs" />
+    <Compile Include="Mappers\ProfileMapper.cs" />
+    <Compile Include="Mappers\RoleMapper.cs" />
+    <Compile Include="Mappers\TaskMapper.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

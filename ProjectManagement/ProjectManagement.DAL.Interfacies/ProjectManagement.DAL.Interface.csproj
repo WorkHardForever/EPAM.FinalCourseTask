@@ -85,20 +85,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\DalPerson.cs" />
+    <Compile Include="DTO\DalProfile.cs" />
     <Compile Include="DTO\DalRole.cs" />
     <Compile Include="DTO\DalTask.cs" />
-    <Compile Include="DTO\DalTaskPercentState.cs" />
     <Compile Include="DTO\DalTaskState.cs" />
     <Compile Include="DTO\DalUser.cs" />
     <Compile Include="Interfacies\IEntity.cs" />
-    <Compile Include="Interfacies\IRepositories\IPersonRepository.cs" />
+    <Compile Include="Interfacies\IRepositories\IProfileRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IRoleRepository.cs" />
     <Compile Include="Interfacies\IRepositories\ITaskRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IUserRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IUserSignInRepository.cs" />
     <Compile Include="Interfacies\IRepository.cs" />
     <Compile Include="Interfacies\IUnitOfWork.cs" />
+    <Compile Include="Mappers\ProfileMapper.cs" />
+    <Compile Include="Mappers\TaskMapper.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

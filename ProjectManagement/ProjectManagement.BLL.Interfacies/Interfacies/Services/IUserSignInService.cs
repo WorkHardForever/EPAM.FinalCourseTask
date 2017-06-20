@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.Owin;
-using ProjectManagement.BLL.Interfacies.Entities;
+using ProjectManagement.BLL.Interface.Entities;
 
-namespace ProjectManagement.BLL.Interfacies.Interfacies.Services
+namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
     public interface IUserSignInService
     {

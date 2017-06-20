@@ -1,9 +1,9 @@
-﻿using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.ORM.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectManagement.DAL.Mappers
+namespace ProjectManagement.DAL.Interface.Mappers
 {
     public static class DbTaskMapper
     {
@@ -14,8 +14,8 @@ namespace ProjectManagement.DAL.Mappers
                 Id = dbTask.Id,
                 Title = dbTask.Title,
                 Description = dbTask.Description,
-                Employee = dbTask.EmployeePerson?.ToDalPerson(),
-                Manager = dbTask.ManagerPerson?.ToDalPerson(),
+                Employee = dbTask.Employee.ToDalProfile(),
+                Manager = dbTask.Manager.ToDalProfile(),
                 StartTime = dbTask.StartTime,
                 DeadLine = dbTask.DeadLine,
                 State = (DalTaskState)dbTask.State
@@ -29,8 +29,8 @@ namespace ProjectManagement.DAL.Mappers
                 Id = dalTask.Id,
                 Title = dalTask.Title,
                 Description = dalTask.Description,
-                EmployeePerson = dalTask.Employee?.ToDbPerson(),
-                ManagerPerson = dalTask.Manager?.ToDbPerson(),
+                Employee = dalTask.Employee.ToDbProfile(),
+                Manager = dalTask.Manager.ToDbProfile(),
                 StartTime = dalTask.StartTime,
                 DeadLine = dalTask.DeadLine,
                 State = (TaskState)dalTask.State

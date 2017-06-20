@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProjectManagement.DAL.Interfacies.DTO;
-using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
-using ProjectManagement.DAL.Mappers;
+﻿using ProjectManagement.DAL.Interface.Mappers;
+using ProjectManagement.DAL.Interface.DTO;
+using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using ProjectManagement.ORM.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,9 +13,9 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        private readonly IdentityDbContext<User> _context;
+        private readonly DbContext _context;
 
-        public TaskRepository(IdentityDbContext<User> context)
+        public TaskRepository(DbContext context)
         {
             _context = context;
         }
@@ -64,14 +64,14 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             Update(item.ToDbTask());
         }
 
-        public void AddToEmployeeTasks(DalPerson person, DalTask task)
+        public void AddToEmployeeTasks(DalProfile profile, DalTask task)
         {
-            //person.
-            //Update(item.ToDbPerson());
+            //profile.
+            //Update(item.ToDbProfile());
             throw new NotImplementedException();
         }
 
-        public void AddToManagerTasks(DalPerson person, DalTask task)
+        public void AddToManagerTasks(DalProfile profile, DalTask task)
         {
             throw new NotImplementedException();
         }

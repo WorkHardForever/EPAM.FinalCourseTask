@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers;
 using ProjectManagement.AspNetMvc.PL.Models.AccountViewModels;
-using ProjectManagement.BLL.Interfacies.Interfacies.Services;
+using ProjectManagement.BLL.Interface.Interfacies.Services;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -15,11 +15,14 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserSignInService _signInService;
+        private readonly IProfileService _profileService;
 
-        public AccountController(IUserService userService, IUserSignInService signInService)
+        public AccountController(IUserService userService, IUserSignInService signInService,
+            IProfileService profileService)
         {
             _userService = userService;
             _signInService = signInService;
+            _profileService = profileService;
         }
 
         [HttpGet]
@@ -37,19 +40,12 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             if (ModelState.IsValid)
             {
                 var user = model.RegisterToBllUser();
-                var result = await _userService.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    await _userService.AddToDefaultRoleAsync(user.Id);
-                    await _signInService.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    return RedirectToAction("Index", "Home");
-                }
-
-                AddErrors(result);
+                await _userService.Create(user);
+                await _signInService.SignInAsync(user, false, false);
+                return RedirectToAction("Index", "Home");
+                //AddErrors(result);
             }
-            
+
             return View(model);
         }
 
@@ -107,26 +103,6 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        if (_userManager != null)
-        //        {
-        //            _userManager.Dispose();
-        //            _userManager = null;
-        //        }
-
-        //        if (_signInManager != null)
-        //        {
-        //            _signInManager.Dispose();
-        //            _signInManager = null;
-        //        }
-        //    }
-
-        //    base.Dispose(disposing);
-        //}
-
         #region Helpers
 
         private IAuthenticationManager AuthenticationManager
@@ -153,7 +129,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-        
+
         #endregion
     }
 }

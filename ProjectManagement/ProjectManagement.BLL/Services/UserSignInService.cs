@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using ProjectManagement.BLL.Interfacies.Entities;
-using ProjectManagement.BLL.Interfacies.Interfacies.Services;
-using ProjectManagement.BLL.Mappers;
-using ProjectManagement.DAL.Interfacies.Interfacies;
-using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
-using ProjectManagement.DAL.Mappers;
+using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.BLL.Interface.Interfacies.Services;
+using ProjectManagement.BLL.Interface.Mappers;
+using ProjectManagement.DAL.Interface.Interfacies;
+using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.BLL.Services

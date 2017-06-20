@@ -2,7 +2,7 @@
 
 namespace ProjectManagement.AspNetMvc.PL.Controllers
 {
-    public class PersonController : Controller
+    public class ProfileController : Controller
     {
         [HttpGet]
         public ActionResult Info()

@@ -1,4 +1,4 @@
-﻿namespace ProjectManagement.BLL.Interfacies.Entities
+﻿namespace ProjectManagement.BLL.Interface.Entities
 {
     public class BllTaskPercentState
     {

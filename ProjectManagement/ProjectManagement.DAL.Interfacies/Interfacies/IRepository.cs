@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies
+namespace ProjectManagement.DAL.Interface.Interfacies
 {
     public interface IRepository<T>
         where T : IEntity

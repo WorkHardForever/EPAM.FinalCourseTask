@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
-using ProjectManagement.DAL.Interfacies.DTO;
-using ProjectManagement.Identity.Managers;
+using ProjectManagement.DAL.Interface.DTO;
 using System.Threading.Tasks;
 
-namespace ProjectManagement.DAL.Interfacies.Interfacies.IRepositories
+namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<DalUser>
     {
-        ApplicationUserManager AppUserManager { get; }
-
         Task<IdentityResult> CreateAsync(DalUser user, string password);
 
         Task<IdentityResult> AddToRoleAsync(string userId, string role);

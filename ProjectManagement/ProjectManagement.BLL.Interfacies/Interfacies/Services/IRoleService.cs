@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
-namespace ProjectManagement.BLL.Interfacies.Interfacies.Services
+namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
     public interface IRoleService
     {

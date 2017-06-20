@@ -6,18 +6,36 @@ namespace ProjectManagement.AspNetMvc.PL.Models.AccountViewModels
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Email *")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password *")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm password *")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Name *")]
+        public string Name { get; set; }
+
+        [Required]
+        [MaxLength(30, ErrorMessage = "Surname length more then 20 symbols")]
+        [Display(Name = "Surname *")]
+        public string Surname { get; set; }
+        
+        [MaxLength(20, ErrorMessage = "FirmName length more then 20 symbols")]
+        [Display(Name = "Firm")]
+        public string FirmName { get; set; }
+
+        [Phone]
+        [Display(Name = "Phone")]
+        public virtual string PhoneNumber { get; set; }
     }
 }

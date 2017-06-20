@@ -1,4 +1,4 @@
-﻿namespace ProjectManagement.DAL.Interfacies.Interfacies
+﻿namespace ProjectManagement.DAL.Interface.Interfacies
 {
     public interface IEntity
     {

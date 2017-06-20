@@ -1,5 +1,5 @@
 ﻿using ProjectManagement.AspNetMvc.PL.Models.DashboardViewModels;
-using ProjectManagement.BLL.Interfacies.Entities;
+using ProjectManagement.BLL.Interface.Entities;
 
 namespace ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers
 {

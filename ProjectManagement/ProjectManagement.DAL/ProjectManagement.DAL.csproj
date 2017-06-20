@@ -85,15 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Repositories\PersonRepository.cs" />
+    <Compile Include="Concrete\Repositories\ProfileRepository.cs" />
     <Compile Include="Concrete\Repositories\RoleRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\Repositories\UserSignInRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
-    <Compile Include="Mappers\DbPersonMapper.cs" />
-    <Compile Include="Mappers\DbTaskMapper.cs" />
-    <Compile Include="Mappers\DbUserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

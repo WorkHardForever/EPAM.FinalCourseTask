@@ -1,4 +1,4 @@
-﻿namespace ProjectManagement.DAL.Interfacies.DTO
+﻿namespace ProjectManagement.DAL.Interface.DTO
 {
     public enum DalTaskState
     {

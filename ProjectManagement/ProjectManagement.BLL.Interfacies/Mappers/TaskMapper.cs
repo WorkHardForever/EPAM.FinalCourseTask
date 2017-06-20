@@ -1,9 +1,9 @@
-﻿using ProjectManagement.BLL.Interfacies.Entities;
-using ProjectManagement.DAL.Interfacies.DTO;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.DAL.Interface.DTO;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectManagement.BLL.Mappers
+namespace ProjectManagement.BLL.Interface.Mappers
 {
     public static class TaskMapper
     {
@@ -14,8 +14,8 @@ namespace ProjectManagement.BLL.Mappers
                 Id = dalTask.Id,
                 Title = dalTask.Title,
                 Description = dalTask.Description,
-                Employee = dalTask.Employee?.ToBllPerson(),
-                Manager = dalTask.Manager?.ToBllPerson(),
+                Employee = dalTask.Employee?.ToBllProfile(),
+                Manager = dalTask.Manager?.ToBllProfile(),
                 StartTime = dalTask.StartTime,
                 DeadLine = dalTask.DeadLine,
                 State = (BllTaskState)dalTask.State
@@ -29,8 +29,8 @@ namespace ProjectManagement.BLL.Mappers
                 Id = bllTask.Id,
                 Title = bllTask.Title,
                 Description = bllTask.Description,
-                Employee = bllTask.Employee?.ToDalPerson(),
-                Manager = bllTask.Manager?.ToDalPerson(),
+                Employee = bllTask.Employee?.ToDalProfile(),
+                Manager = bllTask.Manager?.ToDalProfile(),
                 StartTime = bllTask.StartTime,
                 DeadLine = bllTask.DeadLine,
                 State = (DalTaskState)bllTask.State

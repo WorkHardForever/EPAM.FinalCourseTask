@@ -1,9 +1,8 @@
-﻿using ProjectManagement.BLL.Interfacies.Entities;
-using ProjectManagement.BLL.Interfacies.Interfacies.Services;
-using ProjectManagement.BLL.Mappers;
-using ProjectManagement.DAL.Interfacies.DTO;
-using ProjectManagement.DAL.Interfacies.Interfacies;
-using ProjectManagement.DAL.Interfacies.Interfacies.IRepositories;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.BLL.Interface.Interfacies.Services;
+using ProjectManagement.BLL.Interface.Mappers;
+using ProjectManagement.DAL.Interface.Interfacies;
+using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 
 namespace ProjectManagement.BLL.Services
 {
@@ -18,7 +17,7 @@ namespace ProjectManagement.BLL.Services
             _taskRepository = taskManager;
         }
 
-        public void CreateTask(BllPerson manager, BllPerson employee, BllTask task)
+        public void CreateTask(BllProfile manager, BllProfile employee, BllTask task)
         {
             _taskRepository.Create(task.ToDalTask());
             AddTaskListAsManager(manager, task);
@@ -26,14 +25,14 @@ namespace ProjectManagement.BLL.Services
             _uow.Commit();
         }
 
-        public void AddTaskListAsManager(BllPerson person, BllTask task)
+        public void AddTaskListAsManager(BllProfile profile, BllTask task)
         {
-            _taskRepository.AddToManagerTasks(person.ToDalPerson(), task.ToDalTask());
+            _taskRepository.AddToManagerTasks(profile.ToDalProfile(), task.ToDalTask());
         }
 
-        public void AddTaskListAsEmployee(BllPerson person, BllTask task)
+        public void AddTaskListAsEmployee(BllProfile profile, BllTask task)
         {
-            _taskRepository.AddToEmployeeTasks(person.ToDalPerson(), task.ToDalTask());
+            _taskRepository.AddToEmployeeTasks(profile.ToDalProfile(), task.ToDalTask());
         }
     }
 }
