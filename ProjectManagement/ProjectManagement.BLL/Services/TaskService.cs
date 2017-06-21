@@ -27,9 +27,9 @@ namespace ProjectManagement.BLL.Services
             _uow.Commit();
         }
 
-        public BllProfile GetEmployee(BllTask item)
-        {
-            return _taskRepository.GetEmployee(item.ToDalTask()).ToBllProfile();
-        }
+        //public BllProfile GetEmployee(BllTask item)
+        //{
+        //    return _taskRepository.GetEmployee(item.ToDalTask()).ToBllProfile();
+        //}
     }
 }

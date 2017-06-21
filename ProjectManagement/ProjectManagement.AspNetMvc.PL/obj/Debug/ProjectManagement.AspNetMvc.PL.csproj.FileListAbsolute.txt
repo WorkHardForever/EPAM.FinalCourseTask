@@ -154,10 +154,6 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\Pro
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.ORM.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.BLL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.BLL.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.Identity.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.Identity.Settings.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.Identity.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ProjectManagement.Identity.Settings.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\csc.exe.config
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\csc.rsp
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\csi.exe

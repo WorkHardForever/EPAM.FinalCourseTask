@@ -1,14 +1,20 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectManagement.ORM.Entities
 {
-    public class User : IdentityUser
+    public class User
     {
-        public Profile Profile { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey("Profile")]
-        public string ProfileId { get; set; }
+        public string Login { get; set; }
+
+        public string PasswordHash { get; set; }
+
+        public virtual Profile Profile { get; set; }
+
+        public int RoleId { get; set; }
+
+        [Required]
+        public virtual Role Role { get; set; }
     }
 }

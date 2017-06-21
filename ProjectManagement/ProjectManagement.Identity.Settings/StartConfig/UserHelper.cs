@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿
 using ProjectManagement.ORM.Entities;
 using System.Security.Claims;
 using System.Threading.Tasks;

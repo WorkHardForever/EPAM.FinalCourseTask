@@ -5,14 +5,14 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
     public interface IProfileService
     {
-        void Create(BllProfile item);
+        //void Create(BllProfile item);
 
-        BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile);
+        //BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile);
 
-        BllContainTasksByState DivideToStateReceivedTasks(BllProfile profile);
+        //BllContainTasksByState DivideToStateReceivedTasks(BllProfile profile);
 
-        IEnumerable<BllProfile> GetEmployees(string managerId);
+        //IEnumerable<BllProfile> GetEmployees(string managerId);
 
-        BllProfile GetById(string id);
+        //BllProfile GetById(string id);
     }
 }

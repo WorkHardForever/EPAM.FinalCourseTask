@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers;
@@ -14,14 +14,11 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IUserSignInService _signInService;
         private readonly IProfileService _profileService;
 
-        public AccountController(IUserService userService, IUserSignInService signInService,
-            IProfileService profileService)
+        public AccountController(IUserService userService, IProfileService profileService)
         {
             _userService = userService;
-            _signInService = signInService;
             _profileService = profileService;
         }
 
@@ -35,13 +32,13 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var user = model.RegisterToBllUser();
-                await _userService.Create(user);
-                await _signInService.SignInAsync(user, false, false);
+                //await _userService.Create(user);
+                //await _signInService.SignInAsync(user, false, false);
                 return RedirectToAction("Index", "Home");                
             }
 
@@ -67,39 +64,40 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var result = await _signInService.PasswordSignInAsync(
-                userName: model.Email,
-                password: model.Password,
-                isPersistent: model.RememberMe,
-                shouldLockout: false);
+            //var result = await _signInService.PasswordSignInAsync(
+            //    userName: model.Email,
+            //    password: model.Password,
+            //    isPersistent: model.RememberMe,
+            //    shouldLockout: false);
 
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            //switch (result)
+            //{
+            //    case SignInStatus.Success:
+            //        return RedirectToLocal(returnUrl);
+            //    case SignInStatus.LockedOut:
+            //        return View("Lockout");
+            //    case SignInStatus.RequiresVerification:
+            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+            //    case SignInStatus.Failure:
+            //    default:
+            //        ModelState.AddModelError("", "Invalid login attempt.");
+            //        return View(model);
+            //}
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            //HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
 

@@ -5,7 +5,7 @@ namespace ProjectManagement.ORM.Entities
 {
     public class Task
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(length: 100, ErrorMessage = "Title length more then 20 symbols")]
@@ -14,11 +14,15 @@ namespace ProjectManagement.ORM.Entities
         [MaxLength(length: 1000, ErrorMessage = "Description length more then 20 symbols")]
         public string Description { get; set; }
 
-        [Required]
-        public Profile Manager { get; set; }
+        public int? ManagerId { get; set; }
 
         [Required]
-        public Profile Employee { get; set; }
+        public virtual Profile Manager { get; set; }
+
+        public int? EmployeeId { get; set; }
+
+        [Required]
+        public virtual Profile Employee { get; set; }
 
         public DateTime StartTime { get; set; }
 
@@ -26,5 +30,9 @@ namespace ProjectManagement.ORM.Entities
 
         [Required]
         public TaskState State { get; set; }
+
+        public int ProfileId { get; set; }
+
+        public Profile Profile { get; set; }
     }
 }

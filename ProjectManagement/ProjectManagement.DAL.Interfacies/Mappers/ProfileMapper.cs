@@ -14,6 +14,7 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 Id = dbProfile.Id,
                 Name = dbProfile.Name,
                 Surname = dbProfile.Surname,
+                Email = dbProfile.Email,
                 GivenTasks = dbProfile.GivenTasks?.ToDalTaskEnumerable(),
                 ReceivedTasks = dbProfile.ReceivedTasks?.ToDalTaskEnumerable()
             };
@@ -26,8 +27,9 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 Id = dalProfile.Id,
                 Name = dalProfile.Name,
                 Surname = dalProfile.Surname,
+                Email = dalProfile.Email,
                 GivenTasks = dalProfile.GivenTasks?.ToDbTaskCollection(),
-                ReceivedTasks = dalProfile.ReceivedTasks?.ToDbTaskCollection()
+                ReceivedTasks = dalProfile.ReceivedTasks?.ToDbTaskCollection(),
             };
         }
 

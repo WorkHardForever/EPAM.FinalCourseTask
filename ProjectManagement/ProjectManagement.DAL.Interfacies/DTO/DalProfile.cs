@@ -5,11 +5,13 @@ namespace ProjectManagement.DAL.Interface.DTO
 {
     public class DalProfile : IEntity
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
         public string Surname { get; set; }
+
+        public string Email { get; set; }
 
         public IEnumerable<DalTask> GivenTasks { get; set; }
 

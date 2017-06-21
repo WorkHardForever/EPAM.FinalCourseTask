@@ -4,6 +4,8 @@ namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
 {
     public interface ITaskRepository : IRepository<DalTask>
     {
-        DalProfile GetEmployee(DalTask dalTask);
+        //DalProfile GetEmployee(DalTask task);
+
+        //DalProfile GetManager(DalTask task);
     }
 }

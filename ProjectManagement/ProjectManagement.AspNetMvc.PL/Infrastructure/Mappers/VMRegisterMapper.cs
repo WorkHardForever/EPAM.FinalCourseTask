@@ -9,9 +9,6 @@ namespace ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers
         {
             return new BllUser()
             {
-                UserName = registerViewModel.Email,
-                Email = registerViewModel.Email,
-                PhoneNumber = registerViewModel.PhoneNumber,
                 PasswordHash = registerViewModel.Password,
                 Profile = new BllProfile()
                 {

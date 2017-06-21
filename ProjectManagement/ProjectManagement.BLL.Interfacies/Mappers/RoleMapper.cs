@@ -10,7 +10,8 @@ namespace ProjectManagement.BLL.Interface.Mappers
             return new BllRole()
             {
                 Id = dalRole.Id,
-                Name = dalRole.Name
+                Name = dalRole.Name,
+                RoleUsers = dalRole.RoleUsers.ToBllUserEnumerable()
             };
         }
         
@@ -19,7 +20,8 @@ namespace ProjectManagement.BLL.Interface.Mappers
             return new DalRole()
             {
                 Id = bllRole.Id,
-                Name = bllRole.Name
+                Name = bllRole.Name,
+                RoleUsers = bllRole.RoleUsers.ToDalUserEnumerable()
             };
         }
     }

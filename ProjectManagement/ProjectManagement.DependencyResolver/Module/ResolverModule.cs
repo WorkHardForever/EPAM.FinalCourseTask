@@ -1,54 +1,41 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.DataProtection;
-using Ninject;
+﻿using Ninject;
 using Ninject.Web.Common;
-using Owin;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.BLL.Services;
 using ProjectManagement.DAL.Concrete;
 using ProjectManagement.DAL.Concrete.Repositories;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
-using ProjectManagement.Identity.Managers;
-using ProjectManagement.Identity.Settings.StartConfig;
 using ProjectManagement.ORM;
-using ProjectManagement.ORM.Entities;
-using System;
 using System.Data.Entity;
-using System.Web;
 
 namespace ProjectManagement.DependencyResolver.Resolver
 {
     public static class ResolverModule
     {
-        private static IAppBuilder _app;
+        //private static IAppBuilder _app;
 
         public static void ConfigurateResolverWeb(this IKernel kernel)
         {
             ConfigureBindings(kernel, true);
         }
 
-        public static void StartupConfig(this IAppBuilder app)
-        {
-            _app = app;
+        //public static void StartupConfig(this IAppBuilder app)
+        //{
+        //    _app = app;
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-                Provider = new CookieAuthenticationProvider
-                {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                }
-            });
-        }
+        //    app.UseCookieAuthentication(new CookieAuthenticationOptions
+        //    {
+        //        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+        //        LoginPath = new PathString("/Account/Login"),
+        //        Provider = new CookieAuthenticationProvider
+        //        {
+        //            OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
+        //                validateInterval: TimeSpan.FromMinutes(30),
+        //                regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+        //        }
+        //    });
+        //}
 
         private static void ConfigureBindings(IKernel kernel, bool isWeb)
         {
@@ -64,22 +51,21 @@ namespace ProjectManagement.DependencyResolver.Resolver
             }
 
             kernel.Bind<IUserService>().To<UserService>();
-            kernel.Bind<IUserSignInService>().To<UserSignInService>();
             kernel.Bind<ITaskService>().To<TaskService>();
             kernel.Bind<IProfileService>().To<ProfileService>();
-            kernel.Bind<IIdentityMessageService>().To<EmailService>();
+            //kernel.Bind<IIdentityMessageService>().To<EmailService>();
 
             kernel.Bind<IUserRepository>().To<UserRepository>();
-            kernel.Bind<IUserSignInRepository>().To<UserSignInRepository>();
+            kernel.Bind<IRoleRepository>().To<RoleRepository>();
             kernel.Bind<ITaskRepository>().To<TaskRepository>();
             kernel.Bind<IProfileRepository>().To<ProfileRepository>();
 
-            kernel.Bind<ApplicationUserManager>().ToSelf();
-            kernel.Bind<ApplicationRoleManager>().ToSelf();
-            kernel.Bind<ApplicationUserSignInManager>().ToSelf();
-            kernel.Bind<IUserStore<User>>().To<UserStore<User>>().WithConstructorArgument("context", kernel.Get<EntityModel>());
-            kernel.Bind<IAuthenticationManager>().ToMethod(x => HttpContext.Current.GetOwinContext().Authentication);
-            kernel.Bind<IDataProtectionProvider>().ToMethod(x => _app.GetDataProtectionProvider());
+            //kernel.Bind<ApplicationUserManager>().ToSelf();
+            //kernel.Bind<ApplicationRoleManager>().ToSelf();
+            //kernel.Bind<ApplicationUserSignInManager>().ToSelf();
+            //kernel.Bind<IUserStore<User>>().To<UserStore<User>>().WithConstructorArgument("context", kernel.Get<EntityModel>());
+            //kernel.Bind<IAuthenticationManager>().ToMethod(x => HttpContext.Current.GetOwinContext().Authentication);
+            //kernel.Bind<IDataProtectionProvider>().ToMethod(x => _app.GetDataProtectionProvider());
         }
     }
 }

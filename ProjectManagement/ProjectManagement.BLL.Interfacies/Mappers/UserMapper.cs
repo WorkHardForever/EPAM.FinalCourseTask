@@ -1,5 +1,7 @@
 ﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.DAL.Interface.DTO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectManagement.BLL.Interface.Mappers
 {
@@ -10,18 +12,10 @@ namespace ProjectManagement.BLL.Interface.Mappers
             return new BllUser()
             {
                 Id = dalUser.Id,
-                UserName = dalUser.UserName,
+                Login = dalUser.Login,
                 PasswordHash = dalUser.PasswordHash,
-                Email = dalUser.Email,
-                EmailConfirmed = dalUser.EmailConfirmed,
-                AccessFailedCount = dalUser.AccessFailedCount,
-                LockoutEnabled = dalUser.LockoutEnabled,
-                LockoutEndDateUtc = dalUser.LockoutEndDateUtc,
-                PhoneNumber = dalUser.PhoneNumber,
-                PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = dalUser.TwoFactorEnabled,
-                SecurityStamp = dalUser.SecurityStamp,
-                Profile = dalUser.Profile?.ToBllProfile()
+                Profile = dalUser.Profile?.ToBllProfile(),
+                RoleId = dalUser.RoleId
             };
         }
 
@@ -30,19 +24,21 @@ namespace ProjectManagement.BLL.Interface.Mappers
             return new DalUser()
             {
                 Id = bllUser.Id,
-                UserName = bllUser.UserName,
+                Login = bllUser.Login,
                 PasswordHash = bllUser.PasswordHash,
-                Email = bllUser.Email,
-                EmailConfirmed = bllUser.EmailConfirmed,
-                AccessFailedCount = bllUser.AccessFailedCount,
-                LockoutEnabled = bllUser.LockoutEnabled,
-                LockoutEndDateUtc = bllUser.LockoutEndDateUtc,
-                PhoneNumber = bllUser.PhoneNumber,
-                PhoneNumberConfirmed = bllUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = bllUser.TwoFactorEnabled,
-                SecurityStamp = bllUser.SecurityStamp,
-                Profile = bllUser.Profile?.ToDalProfile()
+                Profile = bllUser.Profile?.ToDalProfile(),
+                RoleId = bllUser.RoleId
             };
+        }
+
+        public static IEnumerable<BllUser> ToBllUserEnumerable(this IEnumerable<DalUser> dalUsers)
+        {
+            return dalUsers?.Select(x => x.ToBllUser());
+        }
+
+        public static IEnumerable<DalUser> ToDalUserEnumerable(this IEnumerable<BllUser> bllUsers)
+        {
+            return bllUsers?.Select(x => x.ToDalUser());
         }
     }
 }

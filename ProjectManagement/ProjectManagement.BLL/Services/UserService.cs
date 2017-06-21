@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using ProjectManagement.BLL.Interface.Entities;
+﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.BLL.Interface.Mappers;
 using ProjectManagement.DAL.Interface.Interfacies;
@@ -25,47 +24,37 @@ namespace ProjectManagement.BLL.Services
 
             _profileService = profileService;
         }
+        
+        //public async Task<BllUser> FindByIdAsync(string userId)
+        //{
+        //    var user = await _userRepository.FindByIdAsync(userId);
+        //    return user.ToBllUser();
+        //}
 
-        public Task<IdentityResult> CreateAsync(BllUser user, string password)
-        {
-            return _userRepository.CreateAsync(user.ToDalUser(), password);
-        }
-
-        public Task<IdentityResult> AddToDefaultRoleAsync(string userId)
-        {
-            return _userRepository.AddToDefaultRoleAsync(userId);
-        }
-
-        public async Task<BllUser> FindByIdAsync(string userId)
-        {
-            var user = await _userRepository.FindByIdAsync(userId);
-            return user.ToBllUser();
-        }
-
-        public async Task<BllUser> FindByEmail(string email)
-        {
-            var user = await _userRepository.FindByEmail(email);
-            return user.ToBllUser();
-        }
+        //public async Task<BllUser> FindByEmail(string email)
+        //{
+        //    var user = await _userRepository.FindByEmail(email);
+        //    return user.ToBllUser();
+        //}
 
         public IEnumerable<string> GetEmployeesIdByUser(BllUser user)
         {
             throw new NotImplementedException();
         }
 
-        public async Task Create(BllUser item)
-        {
-            await _userRepository.CreateAsync(item.ToDalUser(), item.PasswordHash);
-            await _userRepository.AddToDefaultRoleAsync(item.Id);
-            _profileService.Create(item.Profile);
-            _uow.Commit();
-        }
+        //public async Task Create(BllUser item)
+        //{
+        //    await _userRepository.CreateAsync(item.ToDalUser(), item.PasswordHash);
+        //    await _userRepository.AddToDefaultRoleAsync(item.Id);
+        //    _profileService.Create(item.Profile);
+        //    _uow.Commit();
+        //}
 
-        public async Task<BllUser> GetByIdWithProfile(string uniqueId)
-        {
-            var person = (await _userRepository.FindByIdAsync(uniqueId)).ToBllUser();
-            person.Profile = _profileService.GetById(uniqueId);
-            return person;
-        }
+        //public async Task<BllUser> GetByIdWithProfile(string uniqueId)
+        //{
+        //    var person = (await _userRepository.FindByIdAsync(uniqueId)).ToBllUser();
+        //    person.Profile = _profileService.GetById(uniqueId);
+        //    return person;
+        //}
     }
 }

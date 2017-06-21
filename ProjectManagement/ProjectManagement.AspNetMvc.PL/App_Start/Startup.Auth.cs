@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNet.Identity;
+
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -12,7 +12,7 @@ namespace ProjectManagement.AspNetMvc.PL
     {
         public void ConfigureAuth(IAppBuilder app)
         {
-            app.StartupConfig();
+            //app.StartupConfig();
         }
     }
 }

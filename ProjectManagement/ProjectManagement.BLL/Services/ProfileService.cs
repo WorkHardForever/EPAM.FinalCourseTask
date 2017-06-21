@@ -24,116 +24,116 @@ namespace ProjectManagement.BLL.Services
             _taskService = taskService;
         }
 
-        public BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile)
-        {
-            if (profile == null || profile.ReceivedTasks == null)
-                return null;
+        //public BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile)
+        //{
+        //    if (profile == null || profile.ReceivedTasks == null)
+        //        return null;
 
-            return GetReceivedTaskPercentState(profile);
-        }
+        //    return GetReceivedTaskPercentState(profile);
+        //}
 
-        public void Create(BllProfile item)
-        {
-            _profileRepository.Create(item.ToDalProfile());
-        }
+        //public void Create(BllProfile item)
+        //{
+        //    _profileRepository.Create(item.ToDalProfile());
+        //}
 
-        public BllProfile GetById(string id)
-        {
-            return _profileRepository.GetById(id).ToBllProfile();
-        }
+        //public BllProfile GetById(string id)
+        //{
+        //    return _profileRepository.GetById(id).ToBllProfile();
+        //}
 
-        public IEnumerable<BllProfile> GetEmployees(string managerId)
-        {
-            if (string.IsNullOrEmpty(managerId))
-                throw new ArgumentException(nameof(managerId) + "Null or empty");
+        //public IEnumerable<BllProfile> GetEmployees(string managerId)
+        //{
+        //    if (string.IsNullOrEmpty(managerId))
+        //        throw new ArgumentException(nameof(managerId) + "Null or empty");
 
-            var manager = _profileRepository.GetGivenTasks(managerId).ToBllProfile();
-            if (manager.GivenTasks == null)
-                return null;
+        //    var manager = _profileRepository.GetGivenTasks(managerId).ToBllProfile();
+        //    if (manager.GivenTasks == null)
+        //        return null;
 
-            var employees = new List<BllProfile>();
-            foreach (var item in manager.GivenTasks)
-            {
-                employees.Add(_taskService.GetEmployee(item));
-            }
+        //    var employees = new List<BllProfile>();
+        //    foreach (var item in manager.GivenTasks)
+        //    {
+        //        employees.Add(_taskService.GetEmployee(item));
+        //    }
 
-            return employees;
-        }
+        //    return employees;
+        //}
 
-        public BllContainTasksByState DivideToStateReceivedTasks(BllProfile profile)
-        {
-            if (profile == null)
-                return null;
+        //public BllContainTasksByState DivideToStateReceivedTasks(BllProfile profile)
+        //{
+        //    if (profile == null)
+        //        return null;
 
-            var stateContainer = new BllContainTasksByState();
-            foreach (var item in profile.ReceivedTasks)
-            {
-                switch (item.State)
-                {
-                    case BllTaskState.ToDo:
-                        stateContainer.Todo.Add(item);
-                        break;
-                    case BllTaskState.InProcess:
-                        stateContainer.InProcess.Add(item);
-                        break;
-                    case BllTaskState.Done:
-                        stateContainer.Done.Add(item);
-                        break;
-                    default:
-                        break;
-                }
-            }
+        //    var stateContainer = new BllContainTasksByState();
+        //    foreach (var item in profile.ReceivedTasks)
+        //    {
+        //        switch (item.State)
+        //        {
+        //            case BllTaskState.ToDo:
+        //                stateContainer.Todo.Add(item);
+        //                break;
+        //            case BllTaskState.InProcess:
+        //                stateContainer.InProcess.Add(item);
+        //                break;
+        //            case BllTaskState.Done:
+        //                stateContainer.Done.Add(item);
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
 
-            return stateContainer;
-        }
-
-
+        //    return stateContainer;
+        //}
 
 
 
-        private BllTaskPercentState GetReceivedTaskPercentState(BllProfile profile)
-        {
-            if (profile == null)
-                return null;
 
-            var toDo = 0;
-            var InProcess = 0;
-            var Done = 0;
-            foreach (var item in profile.ReceivedTasks)
-            {
-                switch (item.State)
-                {
-                    case BllTaskState.ToDo:
-                        toDo++;
-                        break;
-                    case BllTaskState.InProcess:
-                        InProcess++;
-                        break;
-                    case BllTaskState.Done:
-                        Done++;
-                        break;
-                    default:
-                        break;
-                }
-            }
 
-            var count = profile.ReceivedTasks.Count();
-            var taskPercentState = new BllTaskPercentState()
-            {
-                ToDo = GetPercent(toDo, count),
-                InProcess = GetPercent(InProcess, count),
-                Done = GetPercent(Done, count)
-            };
+        //private BllTaskPercentState GetReceivedTaskPercentState(BllProfile profile)
+        //{
+        //    if (profile == null)
+        //        return null;
 
-            return taskPercentState;
-        }
+        //    var toDo = 0;
+        //    var InProcess = 0;
+        //    var Done = 0;
+        //    foreach (var item in profile.ReceivedTasks)
+        //    {
+        //        switch (item.State)
+        //        {
+        //            case BllTaskState.ToDo:
+        //                toDo++;
+        //                break;
+        //            case BllTaskState.InProcess:
+        //                InProcess++;
+        //                break;
+        //            case BllTaskState.Done:
+        //                Done++;
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
 
-        private int GetPercent(int part, int total)
-        {
-            if (part > total && total <= 0)
-                throw new ArgumentException("Check arguments that part < total and total > 0");
+        //    var count = profile.ReceivedTasks.Count();
+        //    var taskPercentState = new BllTaskPercentState()
+        //    {
+        //        ToDo = GetPercent(toDo, count),
+        //        InProcess = GetPercent(InProcess, count),
+        //        Done = GetPercent(Done, count)
+        //    };
 
-            return part / total * 100;
-        }
+        //    return taskPercentState;
+        //}
+
+        //private int GetPercent(int part, int total)
+        //{
+        //    if (part > total && total <= 0)
+        //        throw new ArgumentException("Check arguments that part < total and total > 0");
+
+        //    return part / total * 100;
+        //}
     }
 }

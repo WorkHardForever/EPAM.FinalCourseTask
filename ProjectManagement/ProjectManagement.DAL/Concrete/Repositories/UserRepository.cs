@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNet.Identity;
-using ProjectManagement.DAL.Interface.DTO;
+﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using ProjectManagement.DAL.Interface.Mappers;
-using ProjectManagement.Identity.Managers;
-using System.Data.Entity;
-using System.Threading.Tasks;
+using ProjectManagement.ORM.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Linq.Expressions;
-using ProjectManagement.ORM.Entities;
 
 namespace ProjectManagement.DAL.Concrete.Repositories
 {
@@ -16,49 +15,52 @@ namespace ProjectManagement.DAL.Concrete.Repositories
     {
         public static readonly string DefaultRole = "Default";
         private readonly DbContext _context;
-        private readonly ApplicationUserManager _appUserManager;
 
-        public UserRepository(DbContext context, ApplicationUserManager appUserManager)
+        public UserRepository(DbContext context)
         {
-            _appUserManager = appUserManager;
             _context = context;
         }
 
-        public Task<IdentityResult> CreateAsync(DalUser user, string password)
+        public void Create(DalUser item)
         {
-            return _appUserManager.CreateAsync(user.ToDbUser(), password);
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            _context.Set<User>().Add(item.ToDbUser());
         }
 
-        public Task<IdentityResult> AddToDefaultRoleAsync(string userId)
+        public void Update(DalUser item)
         {
-            return AddToRoleAsync(userId, DefaultRole);
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            _context.Set<User>().AddOrUpdate(item.ToDbUser());
         }
 
-        public Task<IdentityResult> AddToRoleAsync(string userId, string role)
+        public void Delete(DalUser item)
         {
-            return _appUserManager.AddToRoleAsync(userId, role);
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            var task = _context.Set<User>().SingleOrDefault(u => u.Id == item.Id);
+            if (task == null)
+                throw new ArgumentException("Such id not found");
+
+            _context.Set<User>().Remove(task);
         }
 
-        public async Task<DalUser> FindByIdAsync(string userId)
+        public DalUser GetById(int uniqueId)
         {
-            var user = await _appUserManager.FindByIdAsync(userId);
-            return user.ToDalUser();
-        }
+            var task = _context.Set<User>().SingleOrDefault(u => u.Id == uniqueId);
+            if (task == null)
+                throw new ArgumentNullException(nameof(uniqueId));
 
-        public async Task<DalUser> FindByEmail(string email)
-        {
-            var user = await _appUserManager.FindByEmailAsync(email);
-            return user.ToDalUser();
+            return task.ToDalUser();
         }
 
         public IEnumerable<DalUser> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public DalUser GetById(string uniqueId)
-        {
-            throw new NotImplementedException();
+            return _context.Set<User>().Select(task => task.ToDalUser());
         }
 
         public DalUser GetByPredicate(Expression<Func<DalUser, bool>> match)
@@ -66,26 +68,9 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             throw new NotImplementedException();
         }
 
-        public void Create(DalUser item)
-        {
-            _appUserManager.Create(item.ToDbUser(), item.PasswordHash);
-        }
-
-        public void Delete(DalUser item)
+        public void AddToRole(string userId, string role)
         {
             throw new NotImplementedException();
-        }
-
-        public void Update(DalUser item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<DalUser> GetByIdWithProfile(string uniqueId)
-        {
-            var person = await _appUserManager.FindByIdAsync(uniqueId);
-            //_context.Entry(person).Property(x => x.Profile);
-            return person.ToDalUser();
         }
     }
 }

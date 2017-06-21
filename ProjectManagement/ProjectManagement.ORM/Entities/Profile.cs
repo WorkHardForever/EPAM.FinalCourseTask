@@ -8,23 +8,24 @@ namespace ProjectManagement.ORM.Entities
     {
         [Key]
         [ForeignKey("User")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        [MaxLength(length: 20, ErrorMessage = "Name length more then 20 symbols")]
+        [MaxLength(length: 20, ErrorMessage = "Name length more then {0} symbols")]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(length: 30, ErrorMessage = "Surname length more then 20 symbols")]
+        [MaxLength(length: 30, ErrorMessage = "Surname length more then {0} symbols")]
         public string Surname { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
 
         public virtual ICollection<Task> GivenTasks { get; set; }
 
         public virtual ICollection<Task> ReceivedTasks { get; set; }
         
-        public User User { get; set; }
-
-        //TODO
-        //public Firm Firm { get; set; }
+        public virtual User User { get; set; }
     }
 }

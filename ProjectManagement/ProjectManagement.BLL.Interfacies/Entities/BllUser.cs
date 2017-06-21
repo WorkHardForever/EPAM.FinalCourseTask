@@ -1,9 +1,15 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-
-namespace ProjectManagement.BLL.Interface.Entities
+﻿namespace ProjectManagement.BLL.Interface.Entities
 {
-    public class BllUser : IdentityUser
+    public class BllUser
     {
+        public int Id { get; set; }
+
+        public string Login { get; set; }
+
+        public string PasswordHash { get; set; }
+
         public BllProfile Profile { get; set; }
+
+        public int RoleId { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿
 using ProjectManagement.ORM.Entities;
 
 namespace ProjectManagement.Identity.Managers

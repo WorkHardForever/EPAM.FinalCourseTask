@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProjectManagement.ORM.Entities;
+﻿using ProjectManagement.ORM.Entities;
 using System.Data.Entity;
 
 namespace ProjectManagement.ORM
 {
-    public partial class EntityModel : IdentityDbContext<User>
+    public partial class EntityModel : DbContext
     {
         public EntityModel()
             : this("EntityModel")
@@ -18,31 +17,34 @@ namespace ProjectManagement.ORM
         {
             Database.SetInitializer(new EntityInitializer());
         }
-
+        
+        public DbSet<User> User { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Task> Tasks { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Profile>()
-                .HasRequired(p => p.User)
-                .WithRequiredDependent(c => c.Profile);
 
-            modelBuilder.Entity<User>()
-                .HasRequired(c => c.Profile)
-                .WithRequiredPrincipal(p => p.User);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Profile>()
+        //        .HasRequired(p => p.User)
+        //        .WithRequiredDependent(c => c.Profile);
 
-            modelBuilder.Entity<Profile>()
-                .HasMany(e => e.GivenTasks)
-                .WithRequired(e => e.Manager)
-                .WillCascadeOnDelete(false);
+        //    modelBuilder.Entity<User>()
+        //        .HasRequired(c => c.Profile)
+        //        .WithRequiredPrincipal(p => p.User);
 
-            modelBuilder.Entity<Profile>()
-                .HasMany(e => e.ReceivedTasks)
-                .WithRequired(e => e.Employee)
-                .WillCascadeOnDelete(false);
+        //    modelBuilder.Entity<Profile>()
+        //        .HasMany(e => e.GivenTasks)
+        //        .WithRequired(e => e.Manager)
+        //        .WillCascadeOnDelete(false);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    modelBuilder.Entity<Profile>()
+        //        .HasMany(e => e.ReceivedTasks)
+        //        .WithRequired(e => e.Employee)
+        //        .WillCascadeOnDelete(false);
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

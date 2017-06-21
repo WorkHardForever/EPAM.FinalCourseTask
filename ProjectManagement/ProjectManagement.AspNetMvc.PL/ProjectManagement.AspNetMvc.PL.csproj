@@ -466,10 +466,6 @@
       <Project>{a8c1512e-2e37-42ac-8f3c-756f37d2a378}</Project>
       <Name>ProjectManagement.DependencyResolver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjectManagement.Identity.Settings\ProjectManagement.Identity.Settings.csproj">
-      <Project>{230B0011-391E-47EA-BCC4-D0607D622370}</Project>
-      <Name>ProjectManagement.Identity.Settings</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
       <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>
       <Name>ProjectManagement.ORM</Name>

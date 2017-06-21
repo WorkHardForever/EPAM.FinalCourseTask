@@ -14,6 +14,7 @@ namespace ProjectManagement.BLL.Interface.Mappers
                 Id = dalRole.Id,
                 Name = dalRole.Name,
                 Surname = dalRole.Surname,
+                Email = dalRole.Email,
                 GivenTasks = dalRole.GivenTasks?.ToBllTaskEnumerable(),
                 ReceivedTasks = dalRole.ReceivedTasks?.ToBllTaskEnumerable()
             };
@@ -26,6 +27,7 @@ namespace ProjectManagement.BLL.Interface.Mappers
                 Id = bllRole.Id,
                 Name = bllRole.Name,
                 Surname = bllRole.Surname,
+                Email = bllRole.Email,
                 GivenTasks = bllRole.GivenTasks?.ToDalTaskEnumerable(),
                 ReceivedTasks = bllRole.ReceivedTasks?.ToDalTaskEnumerable()
             };

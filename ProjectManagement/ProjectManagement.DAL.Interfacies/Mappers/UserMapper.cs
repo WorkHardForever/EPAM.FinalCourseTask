@@ -1,5 +1,7 @@
 ﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.ORM.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectManagement.DAL.Interface.Mappers
 {
@@ -10,18 +12,10 @@ namespace ProjectManagement.DAL.Interface.Mappers
             return new DalUser()
             {
                 Id = dbUser.Id,
-                UserName = dbUser.UserName,
+                Login = dbUser.Login,
                 PasswordHash = dbUser.PasswordHash,
-                Email = dbUser.Email,
-                EmailConfirmed = dbUser.EmailConfirmed,
-                AccessFailedCount = dbUser.AccessFailedCount,
-                LockoutEnabled = dbUser.LockoutEnabled,
-                LockoutEndDateUtc = dbUser.LockoutEndDateUtc,
-                PhoneNumber = dbUser.PhoneNumber,
-                PhoneNumberConfirmed = dbUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = dbUser.TwoFactorEnabled,
-                SecurityStamp = dbUser.SecurityStamp,
-                Profile = dbUser.Profile?.ToDalProfile()
+                Profile = dbUser.Profile?.ToDalProfile(),
+                RoleId = dbUser.RoleId
             };
         }
 
@@ -30,19 +24,21 @@ namespace ProjectManagement.DAL.Interface.Mappers
             return new User()
             {
                 Id = dalUser.Id,
-                UserName = dalUser.UserName,
+                Login = dalUser.Login,
                 PasswordHash = dalUser.PasswordHash,
-                Email = dalUser.Email,
-                EmailConfirmed = dalUser.EmailConfirmed,
-                AccessFailedCount = dalUser.AccessFailedCount,
-                LockoutEnabled = dalUser.LockoutEnabled,
-                LockoutEndDateUtc = dalUser.LockoutEndDateUtc,
-                PhoneNumber = dalUser.PhoneNumber,
-                PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
-                TwoFactorEnabled = dalUser.TwoFactorEnabled,
-                SecurityStamp = dalUser.SecurityStamp,
-                Profile = dalUser.Profile?.ToDbProfile()
+                Profile = dalUser.Profile?.ToDbProfile(),
+                RoleId = dalUser.RoleId
             };
+        }
+
+        public static IEnumerable<DalUser> ToDalUserEnumerable(this ICollection<User> dbUsers)
+        {
+            return dbUsers?.Select(x => x.ToDalUser());
+        }
+
+        public static ICollection<User> ToDbProfileCollection(this IEnumerable<DalUser> dalUsers)
+        {
+            return dalUsers?.Select(x => x.ToDbUser()) as ICollection<User>;
         }
     }
 }

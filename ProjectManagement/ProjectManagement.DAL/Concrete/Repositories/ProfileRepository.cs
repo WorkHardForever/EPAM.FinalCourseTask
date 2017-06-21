@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using ProjectManagement.DAL.Interface.DTO;
+﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using ProjectManagement.DAL.Interface.Mappers;
 using ProjectManagement.ORM.Entities;
@@ -29,27 +28,38 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             _context.Set<Profile>().Add(item.ToDbProfile());
         }
 
+        public void Update(DalProfile item)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            _context.Set<Profile>().AddOrUpdate(item.ToDbProfile());
+        }
+
         public void Delete(DalProfile item)
         {
-            var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == item.Id);
-            if (profile == null)
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            var task = _context.Set<Profile>().SingleOrDefault(u => u.Id == item.Id);
+            if (task == null)
                 throw new ArgumentException("Such id not found");
 
-            _context.Set<Profile>().Remove(profile);
+            _context.Set<Profile>().Remove(task);
+        }
+
+        public DalProfile GetById(int uniqueId)
+        {
+            var task = _context.Set<Profile>().SingleOrDefault(u => u.Id == uniqueId);
+            if (task == null)
+                throw new ArgumentNullException(nameof(uniqueId));
+
+            return task.ToDalProfile();
         }
 
         public IEnumerable<DalProfile> GetAll()
         {
-            return _context.Set<Profile>().Select(profile => profile.ToDalProfile());
-        }
-
-        public DalProfile GetById(string uniqueId)
-        {
-            var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == uniqueId);
-            if (profile == null)
-                throw new ArgumentNullException(nameof(uniqueId));
-
-            return profile.ToDalProfile();
+            return _context.Set<Profile>().Select(task => task.ToDalProfile());
         }
 
         public DalProfile GetByPredicate(Expression<Func<DalProfile, bool>> match)
@@ -57,27 +67,14 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             throw new NotImplementedException();
         }
 
-        public DalProfile GetGivenTasks(string managerId)
-        {
-            var manager = _context.Set<Profile>().SingleOrDefault(u => u.Id == managerId);
-            if (manager == null)
-                throw new ArgumentNullException(nameof(managerId));
+        //public DalProfile GetGivenTasks(int managerId)
+        //{
+        //    var manager = _context.Set<Profile>().SingleOrDefault(u => u.Id == managerId);
+        //    if (manager == null)
+        //        throw new ArgumentNullException(nameof(managerId));
 
-            _context.Entry(manager).Collection(x => x.GivenTasks).Load();
-            return manager.ToDalProfile();
-        }
-
-        public void Update(DalProfile item)
-        {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
-            Update(item.ToDbProfile());
-        }
-
-        private void Update(Profile item)
-        {
-            _context.Set<Profile>().AddOrUpdate(item);
-        }
+        //    _context.Entry(manager).Collection(x => x.GivenTasks).Load();
+        //    return manager.ToDalProfile();
+        //}
     }
 }

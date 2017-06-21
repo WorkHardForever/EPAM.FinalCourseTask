@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using ProjectManagement.BLL.Interface.Interfacies.Services;
+﻿using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using System.Threading.Tasks;
