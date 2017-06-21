@@ -15,5 +15,7 @@ namespace ProjectManagement.DAL.Interface.Interfacies.IRepositories
         Task<DalUser> FindByIdAsync(string userId);
 
         Task<DalUser> FindByEmail(string email);
+
+        Task<DalUser> GetByIdWithProfile(string uniqueId);
     }
 }

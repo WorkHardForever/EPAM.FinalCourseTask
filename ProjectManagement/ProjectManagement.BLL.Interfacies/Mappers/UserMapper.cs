@@ -21,7 +21,7 @@ namespace ProjectManagement.BLL.Interface.Mappers
                 PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dalUser.TwoFactorEnabled,
                 SecurityStamp = dalUser.SecurityStamp,
-                Profile = dalUser.Profile.ToBllProfile()
+                Profile = dalUser.Profile?.ToBllProfile()
             };
         }
 
@@ -41,7 +41,7 @@ namespace ProjectManagement.BLL.Interface.Mappers
                 PhoneNumberConfirmed = bllUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = bllUser.TwoFactorEnabled,
                 SecurityStamp = bllUser.SecurityStamp,
-                Profile = bllUser.Profile.ToDalProfile()
+                Profile = bllUser.Profile?.ToDalProfile()
             };
         }
     }

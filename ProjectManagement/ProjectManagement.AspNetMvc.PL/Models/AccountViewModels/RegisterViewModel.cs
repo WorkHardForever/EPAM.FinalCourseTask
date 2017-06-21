@@ -29,10 +29,6 @@ namespace ProjectManagement.AspNetMvc.PL.Models.AccountViewModels
         [MaxLength(30, ErrorMessage = "Surname length more then 20 symbols")]
         [Display(Name = "Surname *")]
         public string Surname { get; set; }
-        
-        [MaxLength(20, ErrorMessage = "FirmName length more then 20 symbols")]
-        [Display(Name = "Firm")]
-        public string FirmName { get; set; }
 
         [Phone]
         [Display(Name = "Phone")]

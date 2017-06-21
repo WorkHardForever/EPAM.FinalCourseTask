@@ -30,7 +30,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public void Delete(DalTask item)
         {
-            var task = _context.Set<Task>().FirstOrDefault(u => u.Id == item.Id);
+            var task = _context.Set<Task>().SingleOrDefault(u => u.Id == item.Id);
             if (task == null)
                 throw new ArgumentException("Such id not found");
 
@@ -44,7 +44,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public DalTask GetById(string uniqueId)
         {
-            var task = _context.Set<Task>().FirstOrDefault(u => u.Id == uniqueId);
+            var task = _context.Set<Task>().SingleOrDefault(u => u.Id == uniqueId);
             if (task == null)
                 throw new ArgumentNullException(nameof(uniqueId));
 
@@ -64,21 +64,19 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             Update(item.ToDbTask());
         }
 
-        public void AddToEmployeeTasks(DalProfile profile, DalTask task)
-        {
-            //profile.
-            //Update(item.ToDbProfile());
-            throw new NotImplementedException();
-        }
-
-        public void AddToManagerTasks(DalProfile profile, DalTask task)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Update(Task item)
         {
             _context.Set<Task>().AddOrUpdate(item);
+        }
+
+        public DalProfile GetEmployee(DalTask dalTask)
+        {
+            var task = _context.Set<DalTask>().SingleOrDefault(x => x.Id == dalTask.Id);
+
+            if (task == null)
+                throw new ArgumentException("Task has incorrect id");
+
+            return task.Employee;
         }
     }
 }

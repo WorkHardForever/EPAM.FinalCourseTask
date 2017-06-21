@@ -21,7 +21,6 @@ namespace ProjectManagement.ORM
 
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<Firm> Firm { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

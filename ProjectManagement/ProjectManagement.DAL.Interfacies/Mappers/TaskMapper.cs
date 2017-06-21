@@ -14,8 +14,8 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 Id = dbTask.Id,
                 Title = dbTask.Title,
                 Description = dbTask.Description,
-                Employee = dbTask.Employee.ToDalProfile(),
-                Manager = dbTask.Manager.ToDalProfile(),
+                Employee = dbTask.Employee?.ToDalProfile(),
+                Manager = dbTask.Manager?.ToDalProfile(),
                 StartTime = dbTask.StartTime,
                 DeadLine = dbTask.DeadLine,
                 State = (DalTaskState)dbTask.State
@@ -29,8 +29,8 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 Id = dalTask.Id,
                 Title = dalTask.Title,
                 Description = dalTask.Description,
-                Employee = dalTask.Employee.ToDbProfile(),
-                Manager = dalTask.Manager.ToDbProfile(),
+                Employee = dalTask.Employee?.ToDbProfile(),
+                Manager = dalTask.Manager?.ToDbProfile(),
                 StartTime = dalTask.StartTime,
                 DeadLine = dalTask.DeadLine,
                 State = (TaskState)dalTask.State
@@ -39,12 +39,12 @@ namespace ProjectManagement.DAL.Interface.Mappers
 
         public static IEnumerable<DalTask> ToDalTaskEnumerable(this ICollection<Task> dbTasks)
         {
-            return dbTasks.Select(x => x.ToDalTask());
+            return dbTasks?.Select(x => x.ToDalTask());
         }
 
         public static ICollection<Task> ToDbTaskCollection(this IEnumerable<DalTask> dalTasks)
         {
-            return dalTasks.Select(x => x.ToDbTask()) as ICollection<Task>;
+            return dalTasks?.Select(x => x.ToDbTask()) as ICollection<Task>;
         }
     }
 }

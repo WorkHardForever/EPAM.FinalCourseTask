@@ -60,5 +60,12 @@ namespace ProjectManagement.BLL.Services
             _profileService.Create(item.Profile);
             _uow.Commit();
         }
+
+        public async Task<BllUser> GetByIdWithProfile(string uniqueId)
+        {
+            var person = (await _userRepository.FindByIdAsync(uniqueId)).ToBllUser();
+            person.Profile = _profileService.GetById(uniqueId);
+            return person;
+        }
     }
 }

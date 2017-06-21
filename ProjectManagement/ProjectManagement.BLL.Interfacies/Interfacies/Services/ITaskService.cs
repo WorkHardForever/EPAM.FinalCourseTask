@@ -6,8 +6,6 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
     {
         void CreateTask(BllProfile manager, BllProfile employee, BllTask task);
 
-        void AddTaskListAsManager(BllProfile profile, BllTask task);
-
-        void AddTaskListAsEmployee(BllProfile profile, BllTask task);
+        BllProfile GetEmployee(BllTask item);
     }
 }

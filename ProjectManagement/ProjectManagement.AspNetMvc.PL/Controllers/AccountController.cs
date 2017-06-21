@@ -42,10 +42,10 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
                 var user = model.RegisterToBllUser();
                 await _userService.Create(user);
                 await _signInService.SignInAsync(user, false, false);
-                return RedirectToAction("Index", "Home");
-                //AddErrors(result);
+                return RedirectToAction("Index", "Home");                
             }
 
+            //AddErrors(result);
             return View(model);
         }
 
@@ -99,27 +99,19 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
 
         #region Helpers
-
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("", error);
-            }
-        }
+        
+        //private void AddErrors(IdentityResult result)
+        //{
+        //    foreach (var error in result.Errors)
+        //    {
+        //        ModelState.AddModelError("", error);
+        //    }
+        //}
 
         private ActionResult RedirectToLocal(string returnUrl)
         {

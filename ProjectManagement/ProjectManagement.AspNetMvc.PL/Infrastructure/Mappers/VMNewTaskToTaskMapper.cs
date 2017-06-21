@@ -5,7 +5,7 @@ namespace ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers
 {
     public static class VMNewTaskToTaskMapper
     {
-        public static BllTask RegisterToBllUser(this NewTaskViewModel task)
+        public static BllTask NewTaskToBllTask(this NewTaskViewModel task)
         {
             return new BllTask()
             {

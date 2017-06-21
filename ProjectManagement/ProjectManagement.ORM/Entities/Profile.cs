@@ -21,9 +21,6 @@ namespace ProjectManagement.ORM.Entities
         public virtual ICollection<Task> GivenTasks { get; set; }
 
         public virtual ICollection<Task> ReceivedTasks { get; set; }
-
-        //[ForeignKey("User")]
-        //public string UserId { get; set; }
         
         public User User { get; set; }
 

@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using ProjectManagement.ORM.Entities;
 
 namespace ProjectManagement.DAL.Concrete.Repositories
 {
     public class UserRepository : IUserRepository
     {
         public static readonly string DefaultRole = "Default";
-
         private readonly DbContext _context;
-
         private readonly ApplicationUserManager _appUserManager;
 
         public UserRepository(DbContext context, ApplicationUserManager appUserManager)
@@ -80,6 +79,13 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         public void Update(DalUser item)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<DalUser> GetByIdWithProfile(string uniqueId)
+        {
+            var person = await _appUserManager.FindByIdAsync(uniqueId);
+            //_context.Entry(person).Property(x => x.Profile);
+            return person.ToDalUser();
         }
     }
 }

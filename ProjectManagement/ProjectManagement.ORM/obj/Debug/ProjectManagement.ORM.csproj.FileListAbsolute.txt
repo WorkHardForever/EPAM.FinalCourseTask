@@ -12,3 +12,6 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Micros
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.csprojResolveAssemblyReference.cache
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.Migrations.InitialCreate.resources
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.csproj.GenerateResource.Cache
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.Migrations.Frist.resources

@@ -39,12 +39,12 @@ namespace ProjectManagement.BLL.Interface.Mappers
 
         public static IEnumerable<BllTask> ToBllTaskEnumerable(this IEnumerable<DalTask> dalTasks)
         {
-            return dalTasks.Select(x => x.ToBllTask());
+            return dalTasks?.Select(x => x.ToBllTask());
         }
 
         public static IEnumerable<DalTask> ToDalTaskEnumerable(this IEnumerable<BllTask> bllTasks)
         {
-            return bllTasks.Select(x => x.ToDalTask());
+            return bllTasks?.Select(x => x.ToDalTask());
         }
     }
 }

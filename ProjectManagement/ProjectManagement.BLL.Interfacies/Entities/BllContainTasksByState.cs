@@ -4,10 +4,10 @@ namespace ProjectManagement.BLL.Interface.Entities
 {
     public class BllContainTasksByState
     {
-        public IEnumerable<BllTask> Todo { get; set; }
+        public List<BllTask> Todo { get; set; }
 
-        public IEnumerable<BllTask> InProcess { get; set; }
+        public List<BllTask> InProcess { get; set; }
 
-        public IEnumerable<BllTask> Done { get; set; }
+        public List<BllTask> Done { get; set; }
     }
 }

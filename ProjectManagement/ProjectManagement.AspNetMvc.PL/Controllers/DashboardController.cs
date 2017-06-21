@@ -4,7 +4,6 @@ using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Collections.Generic;
 
 namespace ProjectManagement.AspNetMvc.PL.Controllers
 {
@@ -30,25 +29,31 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpGet]
         public ActionResult GivenTasks()
         {
-            //var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
-            //var employees = _userService.GetEmployeesIdByUser(user);
+            var employees = _profileService.GetEmployees(User.Identity.GetUserId());
 
-            //return View(employees);
-            return View();
+            return View(employees);
         }
 
         [HttpGet]
+        public ActionResult CreateTask()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task<ActionResult> CreateTask(NewTaskViewModel newTask)
         {
-            var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
+            var manager = await _userService.GetByIdWithProfile(User.Identity.GetUserId());
             var employee = await _userService.FindByEmail(newTask.EmployeeEmail);
-            _taskService.CreateTask(user.Profile, employee.Profile, newTask.RegisterToBllUser());
+            employee.Profile = _profileService.GetById(employee.Id);
+
+            _taskService.CreateTask(manager.Profile, employee.Profile, newTask.NewTaskToBllTask());
 
             _messageService.Send(new IdentityMessage()
             {
-                Subject = $"Manager \'{user.Email.ToString()}\'",
+                Subject = $"Manager \'{manager.Email.ToString()}\'",
                 Body = $"\n\nTitle: {newTask.Title}\n\nDescription: {newTask.Description}\n\n{newTask.StartTime} - {newTask.DeadLine}",
-                Destination = "email"
+                Destination = newTask.EmployeeEmail
             });
 
             return RedirectToAction("GivenTasks");
@@ -60,19 +65,22 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             var user = await _userService.FindByIdAsync(User.Identity.GetUserId());
             var tasksByState = _profileService.DivideToStateReceivedTasks(user.Profile);
 
+            ReceivedTasksViewModel receivedTasks;
             if (tasksByState != null)
             {
-                var receivedTasks = new ReceivedTasksViewModel()
+                receivedTasks = new ReceivedTasksViewModel()
                 {
                     Todo = tasksByState.Todo.BllTasksToViewModel(),
                     InProcess = tasksByState.InProcess.BllTasksToViewModel(),
                     Done = tasksByState.Done.BllTasksToViewModel()
                 };
-
-                return View(receivedTasks);
+            }
+            else
+            {
+                receivedTasks = new ReceivedTasksViewModel();
             }
 
-            return View();
+            return View(receivedTasks);
         }
 
         [HttpGet]
@@ -117,7 +125,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangeStatusOfWork(int tableId, int itemId)
+        public ActionResult ChangeStatus(int tableId, int itemId)
         {
 
             return View();

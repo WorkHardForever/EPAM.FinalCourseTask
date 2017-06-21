@@ -21,7 +21,7 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 PhoneNumberConfirmed = dbUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dbUser.TwoFactorEnabled,
                 SecurityStamp = dbUser.SecurityStamp,
-                Profile = dbUser.Profile.ToDalProfile()
+                Profile = dbUser.Profile?.ToDalProfile()
             };
         }
 
@@ -41,7 +41,7 @@ namespace ProjectManagement.DAL.Interface.Mappers
                 PhoneNumberConfirmed = dalUser.PhoneNumberConfirmed,
                 TwoFactorEnabled = dalUser.TwoFactorEnabled,
                 SecurityStamp = dalUser.SecurityStamp,
-                Profile = dalUser.Profile.ToDbProfile()
+                Profile = dalUser.Profile?.ToDbProfile()
             };
         }
     }

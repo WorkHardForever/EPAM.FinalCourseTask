@@ -16,5 +16,7 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
         IEnumerable<string> GetEmployeesIdByUser(BllUser user);
 
         Task Create(BllUser item);
+
+        Task<BllUser> GetByIdWithProfile(string uniqueId);
     }
 }
