@@ -1,11 +1,11 @@
-﻿using ProjectManagement.ORM;
-using System;
+﻿using System;
+using System.Data.Entity;
 
 namespace ProjectManagement.DAL.Interface.Interfacies
 {
     public interface IUnitOfWork : IDisposable
     {
-        EntityModel Context { get; }
+        DbContext Context { get; }
 
         void Commit();
     }

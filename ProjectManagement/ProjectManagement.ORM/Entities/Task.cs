@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectManagement.ORM.Entities
 {
@@ -11,15 +12,12 @@ namespace ProjectManagement.ORM.Entities
         [MaxLength(length: 100, ErrorMessage = "Title length more then 20 symbols")]
         public string Title { get; set; }
 
+        [Required]
         [MaxLength(length: 1000, ErrorMessage = "Description length more then 20 symbols")]
         public string Description { get; set; }
 
-        public int? ManagerId { get; set; }
-
         [Required]
         public virtual Profile Manager { get; set; }
-
-        public int? EmployeeId { get; set; }
 
         [Required]
         public virtual Profile Employee { get; set; }
@@ -30,9 +28,5 @@ namespace ProjectManagement.ORM.Entities
 
         [Required]
         public TaskState State { get; set; }
-
-        public int ProfileId { get; set; }
-
-        public Profile Profile { get; set; }
     }
 }

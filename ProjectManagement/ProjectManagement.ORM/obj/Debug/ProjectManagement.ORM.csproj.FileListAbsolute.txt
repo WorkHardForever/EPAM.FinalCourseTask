@@ -8,3 +8,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\Entity
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.csprojResolveAssemblyReference.cache
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\obj\Debug\ProjectManagement.ORM.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\System.Web.Helpers.Crypto.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.ORM\bin\Debug\System.Web.Helpers.Crypto.pdb

@@ -1,14 +1,14 @@
 ﻿using ProjectManagement.DAL.Interface.Interfacies;
-using ProjectManagement.ORM;
 using System;
+using System.Data.Entity;
 
 namespace ProjectManagement.DAL.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public EntityModel Context { get; private set; }
+        public DbContext Context { get; private set; }
 
-        public UnitOfWork(EntityModel context)
+        public UnitOfWork(DbContext context)
         {
             Context = context;
         }

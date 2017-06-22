@@ -8,6 +8,6 @@ namespace ProjectManagement.BLL.Interface.Entities
 
         public string Name { get; set; }
 
-        public IEnumerable<BllUser> RoleUsers { get; set; }
+        public IEnumerable<BllUser> Users { get; set; }
     }
 }

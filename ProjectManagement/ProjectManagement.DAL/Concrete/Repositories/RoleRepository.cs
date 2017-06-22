@@ -1,6 +1,6 @@
 ﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
-using ProjectManagement.DAL.Interface.Mappers;
+using ProjectManagement.DAL.Mappers;
 using ProjectManagement.ORM.Entities;
 using System;
 using System.Collections.Generic;

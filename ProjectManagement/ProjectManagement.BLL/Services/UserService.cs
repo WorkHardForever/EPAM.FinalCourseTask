@@ -1,6 +1,6 @@
 ﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
-using ProjectManagement.BLL.Interface.Mappers;
+using ProjectManagement.BLL.Mappers;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using System;
@@ -40,6 +40,18 @@ namespace ProjectManagement.BLL.Services
         public IEnumerable<string> GetEmployeesIdByUser(BllUser user)
         {
             throw new NotImplementedException();
+        }
+
+        public void Create(BllUser user)
+        {
+            _userRepository.Create(user.ToDalUser());
+            //_profileService.Create(user.Profile);
+            _uow.Commit();
+        }
+
+        public BllUser GetByLogin(string login)
+        {
+            return _userRepository.GetByLogin(login)?.ToBllUser();
         }
 
         //public async Task Create(BllUser item)

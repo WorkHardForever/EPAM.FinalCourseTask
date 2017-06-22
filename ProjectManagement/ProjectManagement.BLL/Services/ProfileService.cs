@@ -4,7 +4,7 @@ using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using System.Collections.Generic;
 using System;
-using ProjectManagement.BLL.Interface.Mappers;
+using ProjectManagement.BLL.Mappers;
 using System.Linq;
 
 namespace ProjectManagement.BLL.Services
@@ -22,6 +22,11 @@ namespace ProjectManagement.BLL.Services
             _uow = uow;
             _profileRepository = profileRepository;
             _taskService = taskService;
+        }
+
+        public void Create(BllProfile profile)
+        {
+            _profileRepository.Create(profile.ToDalProfile());
         }
 
         //public BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile)

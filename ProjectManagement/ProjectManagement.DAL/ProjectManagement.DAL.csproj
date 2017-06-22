@@ -58,6 +58,10 @@
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
+    <Compile Include="Mappers\ProfileMapper.cs" />
+    <Compile Include="Mappers\RoleMapper.cs" />
+    <Compile Include="Mappers\TaskMapper.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

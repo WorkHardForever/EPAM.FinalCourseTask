@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.ORM", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.DependencyResolver", "ProjectManagement.DependencyResolver\ProjectManagement.DependencyResolver.csproj", "{A8C1512E-2E37-42AC-8F3C-756F37D2A378}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Logger", "ProjectManagement.Logger\ProjectManagement.Logger.csproj", "{12571D29-3298-44BF-BE0C-9B114C9729DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement.Logger.Interface", "ProjectManagement.Logger.Interface\ProjectManagement.Logger.Interface.csproj", "{CCA679F6-B77E-414E-869B-61039C1ACDE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{A8C1512E-2E37-42AC-8F3C-756F37D2A378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C1512E-2E37-42AC-8F3C-756F37D2A378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C1512E-2E37-42AC-8F3C-756F37D2A378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12571D29-3298-44BF-BE0C-9B114C9729DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12571D29-3298-44BF-BE0C-9B114C9729DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12571D29-3298-44BF-BE0C-9B114C9729DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12571D29-3298-44BF-BE0C-9B114C9729DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA679F6-B77E-414E-869B-61039C1ACDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA679F6-B77E-414E-869B-61039C1ACDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA679F6-B77E-414E-869B-61039C1ACDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA679F6-B77E-414E-869B-61039C1ACDE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

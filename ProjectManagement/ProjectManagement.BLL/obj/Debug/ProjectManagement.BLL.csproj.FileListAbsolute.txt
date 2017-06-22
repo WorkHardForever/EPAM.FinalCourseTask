@@ -10,7 +10,6 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Projec
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Net.Http.Formatting.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.Owin.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.ORM.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interfacies.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.DAL.Interfacies.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\EntityFramework.xml
@@ -18,6 +17,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Entity
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Net.Http.Formatting.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.Owin.xml
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.ORM.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.pdb

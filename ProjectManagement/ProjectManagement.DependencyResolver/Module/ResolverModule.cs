@@ -17,7 +17,7 @@ namespace ProjectManagement.DependencyResolver.Resolver
 
         public static void ConfigurateResolverWeb(this IKernel kernel)
         {
-            ConfigureBindings(kernel, true);
+            Configure(kernel, true);
         }
 
         //public static void StartupConfig(this IAppBuilder app)
@@ -37,7 +37,7 @@ namespace ProjectManagement.DependencyResolver.Resolver
         //    });
         //}
 
-        private static void ConfigureBindings(IKernel kernel, bool isWeb)
+        private static void Configure(IKernel kernel, bool isWeb)
         {
             if (isWeb)
             {
@@ -51,6 +51,7 @@ namespace ProjectManagement.DependencyResolver.Resolver
             }
 
             kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<IRoleService>().To<RoleService>();
             kernel.Bind<ITaskService>().To<TaskService>();
             kernel.Bind<IProfileService>().To<ProfileService>();
             //kernel.Bind<IIdentityMessageService>().To<EmailService>();

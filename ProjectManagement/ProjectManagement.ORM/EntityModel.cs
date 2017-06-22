@@ -18,33 +18,37 @@ namespace ProjectManagement.ORM
             Database.SetInitializer(new EntityInitializer());
         }
         
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Task> Tasks { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Profile>()
+            //    .HasRequired(p => p.User)
+            //    .WithRequiredDependent(c => c.Profile);
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Profile>()
-        //        .HasRequired(p => p.User)
-        //        .WithRequiredDependent(c => c.Profile);
+            //modelBuilder.Entity<User>()
+            //    .HasRequired(c => c.Profile)
+            //    .WithRequiredPrincipal(p => p.User);
 
-        //    modelBuilder.Entity<User>()
-        //        .HasRequired(c => c.Profile)
-        //        .WithRequiredPrincipal(p => p.User);
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
 
-        //    modelBuilder.Entity<Profile>()
-        //        .HasMany(e => e.GivenTasks)
-        //        .WithRequired(e => e.Manager)
-        //        .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Profile>()
+                .HasMany(e => e.GivenTasks)
+                .WithRequired(e => e.Manager)
+                .WillCascadeOnDelete(false);
 
-        //    modelBuilder.Entity<Profile>()
-        //        .HasMany(e => e.ReceivedTasks)
-        //        .WithRequired(e => e.Employee)
-        //        .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Profile>()
+                .HasMany(e => e.ReceivedTasks)
+                .WithRequired(e => e.Employee)
+                .WillCascadeOnDelete(false);
 
-        //    base.OnModelCreating(modelBuilder);
-        //}
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

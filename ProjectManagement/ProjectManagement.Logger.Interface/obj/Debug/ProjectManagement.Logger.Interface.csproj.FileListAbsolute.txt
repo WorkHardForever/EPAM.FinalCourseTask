@@ -1,0 +1,4 @@
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger.Interface\bin\Debug\ProjectManagement.Logger.Interface.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger.Interface\bin\Debug\ProjectManagement.Logger.Interface.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger.Interface\obj\Debug\ProjectManagement.Logger.Interface.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger.Interface\obj\Debug\ProjectManagement.Logger.Interface.pdb

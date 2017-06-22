@@ -6,6 +6,12 @@ namespace ProjectManagement.ORM.Entities
 {
     public class Profile
     {
+        public Profile()
+        {
+            GivenTasks = new HashSet<Task>();
+            ReceivedTasks = new HashSet<Task>();
+        }
+
         [Key]
         [ForeignKey("User")]
         public int Id { get; set; }

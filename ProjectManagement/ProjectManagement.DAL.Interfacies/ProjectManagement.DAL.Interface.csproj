@@ -61,21 +61,11 @@
     <Compile Include="Interfacies\IRepositories\IUserRepository.cs" />
     <Compile Include="Interfacies\IRepository.cs" />
     <Compile Include="Interfacies\IUnitOfWork.cs" />
-    <Compile Include="Mappers\ProfileMapper.cs" />
-    <Compile Include="Mappers\RoleMapper.cs" />
-    <Compile Include="Mappers\TaskMapper.cs" />
-    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
-      <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>
-      <Name>ProjectManagement.ORM</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

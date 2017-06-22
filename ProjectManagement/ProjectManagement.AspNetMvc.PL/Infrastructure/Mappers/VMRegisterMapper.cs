@@ -1,5 +1,6 @@
 ﻿using ProjectManagement.AspNetMvc.PL.Models.AccountViewModels;
 using ProjectManagement.BLL.Interface.Entities;
+using System.Web.Helpers;
 
 namespace ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers
 {
@@ -9,12 +10,15 @@ namespace ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers
         {
             return new BllUser()
             {
-                PasswordHash = registerViewModel.Password,
-                Profile = new BllProfile()
-                {
-                    Name = registerViewModel.Name,
-                    Surname = registerViewModel.Surname
-                }
+                Login = registerViewModel.Login,
+                PasswordHash = Crypto.HashPassword(registerViewModel.Password),
+                RoleId = 1
+                //Profile = new BllProfile()
+                //{
+                //    Name = registerViewModel.Name,
+                //    Surname = registerViewModel.Surname,
+                //    Email = registerViewModel.Email
+                //}
             };
         }
     }

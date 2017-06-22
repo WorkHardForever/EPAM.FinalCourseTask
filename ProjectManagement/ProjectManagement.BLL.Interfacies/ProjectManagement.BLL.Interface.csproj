@@ -64,17 +64,7 @@
     <Compile Include="Interfacies\Services\IRoleService.cs" />
     <Compile Include="Interfacies\Services\ITaskService.cs" />
     <Compile Include="Interfacies\Services\IUserService.cs" />
-    <Compile Include="Mappers\ProfileMapper.cs" />
-    <Compile Include="Mappers\RoleMapper.cs" />
-    <Compile Include="Mappers\TaskMapper.cs" />
-    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectManagement.DAL.Interfacies\ProjectManagement.DAL.Interface.csproj">
-      <Project>{374C9C07-000C-40C7-88FA-A41F79618D61}</Project>
-      <Name>ProjectManagement.DAL.Interface</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

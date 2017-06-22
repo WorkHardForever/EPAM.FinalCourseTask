@@ -9,6 +9,6 @@ namespace ProjectManagement.DAL.Interface.DTO
 
         public string Name { get; set; }
 
-        public IEnumerable<DalUser> RoleUsers { get; set; }
+        public IEnumerable<DalUser> Users { get; set; }
     }
 }

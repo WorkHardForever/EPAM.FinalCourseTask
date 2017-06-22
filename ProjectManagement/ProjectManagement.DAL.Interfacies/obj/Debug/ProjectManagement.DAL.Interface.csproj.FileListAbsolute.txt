@@ -8,5 +8,3 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\bin\
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\obj\Debug\ProjectManagement.DAL.Interface.csprojResolveAssemblyReference.cache
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\obj\Debug\ProjectManagement.DAL.Interfacies.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\obj\Debug\ProjectManagement.DAL.Interfacies.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\bin\Debug\ProjectManagement.ORM.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL.Interfacies\bin\Debug\ProjectManagement.ORM.pdb

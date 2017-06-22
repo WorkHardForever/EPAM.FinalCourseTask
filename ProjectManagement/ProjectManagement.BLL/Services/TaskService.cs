@@ -1,7 +1,7 @@
 ﻿using System;
 using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
-using ProjectManagement.BLL.Interface.Mappers;
+using ProjectManagement.BLL.Mappers;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 

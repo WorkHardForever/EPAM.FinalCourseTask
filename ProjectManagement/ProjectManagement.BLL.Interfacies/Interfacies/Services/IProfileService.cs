@@ -14,5 +14,6 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
         //IEnumerable<BllProfile> GetEmployees(string managerId);
 
         //BllProfile GetById(string id);
+        void Create(BllProfile profile);
     }
 }

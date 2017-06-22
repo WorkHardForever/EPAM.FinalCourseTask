@@ -1,62 +1,23 @@
 ﻿using ProjectManagement.ORM.Entities;
-using System;
 using System.Data.Entity;
-using System.Threading.Tasks;
+using System.Web.Helpers;
 
 namespace ProjectManagement.ORM
 {
     public class EntityInitializer : DropCreateDatabaseIfModelChanges<EntityModel>
     {
-        public string[] Roles = new string[]
+        protected override void Seed(EntityModel db)
         {
-            "Admin",
-            "Default"
-        };
-
-        public static readonly User Admin = new User()
-        {
-            Login = "admin",
-            PasswordHash = "qwerty",
-            Profile = new Profile()
+            db.Roles.Add(new Role { Id = 1, Name = "admin" });
+            db.Roles.Add(new Role { Id = 2, Name = "default" });
+            db.Users.Add(new User
             {
-                Email = "1b97@mail.ru",
-                Name = "Edgar",
-                Surname = "Mengel"
-            }
-        };
+                Id = 1,
+                PasswordHash = Crypto.HashPassword("admin"),
+                RoleId = 1
+            });
 
-        //protected override void Seed(EntityModel context)
-        //{
-        //    var roleManager = new RoleManager<Role>(new RoleStore<Role>(context));
-        //    var userManager = new UserManager<User>(new UserStore<User>(context));
-
-        //    SetRolesByEnum(roleManager);
-        //    SetInitialAdmin(userManager, Admin, AdminPassword);
-
-        //    base.Seed(context);
-        //}
-
-        //public void SetInitialAdmin(UserManager<User> userManager, User admin, string password)
-        //{
-        //    var result = userManager.Create(admin, password);
-        //    if (result.Succeeded)
-        //    {
-        //        userManager.AddToRole(admin.Id, Roles[0]);
-        //        userManager.AddToRole(admin.Id, Roles[1]);
-        //    }
-        //}
-
-        //public IdentityResult SetInitialRoles(RoleManager<Role> roleManager, string roleName)
-        //{
-        //    return roleManager.Create(new Role { Name = roleName });
-        //}
-
-        //private void SetRolesByEnum(RoleManager<Role> roleManager)
-        //{
-        //    for (int i = 0; i < Roles.Length; i++)
-        //    {
-        //        SetInitialRoles(roleManager, Roles[i]);
-        //    }
-        //}
+            base.Seed(db);
+        }
     }
 }

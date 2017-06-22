@@ -1,6 +1,6 @@
 ﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
-using ProjectManagement.DAL.Interface.Mappers;
+using ProjectManagement.DAL.Mappers;
 using ProjectManagement.ORM.Entities;
 using System;
 using System.Collections.Generic;
@@ -71,6 +71,11 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         public void AddToRole(string userId, string role)
         {
             throw new NotImplementedException();
+        }
+
+        public DalUser GetByLogin(string login)
+        {
+            return _context.Set<User>().SingleOrDefault(x => x.Login == login)?.ToDalUser();
         }
     }
 }
