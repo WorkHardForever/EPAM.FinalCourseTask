@@ -1,26 +1,23 @@
 ﻿using ProjectManagement.AspNetMvc.PL.Models.DashboardViewModels;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers;
-using System.Threading.Tasks;
 using System.Web.Mvc;
+using ProjectManagement.BLL.Interface.Entities;
 
 namespace ProjectManagement.AspNetMvc.PL.Controllers
 {
-    [Authorize(Roles = "Default")]
+    [Authorize(Roles = "default")]
     public class DashboardController : Controller
     {
         private readonly IUserService _userService;
         private readonly IProfileService _profileService;
         private readonly ITaskService _taskService;
-        //private readonly IIdentityMessageService _messageService;
 
-        public DashboardController(IUserService userService,
-            IProfileService profileService, ITaskService taskService/*, IIdentityMessageService messageService*/)
+        public DashboardController(IUserService userService, IProfileService profileService, ITaskService taskService)
         {
             _userService = userService;
             _profileService = profileService;
             _taskService = taskService;
-            //_messageService = messageService;
         }
 
         [HttpGet]
@@ -41,11 +38,17 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpPost]
         public ActionResult CreateTask(NewTaskViewModel newTask)
         {
-            //var manager = await _userService.GetByIdWithProfile(User.Identity.GetUserId());
-            //var employee = await _userService.FindByEmail(newTask.EmployeeEmail);
-            //employee.Profile = _profileService.GetById(employee.Id);
+            var manager = _userService.GetByLogin(User.Identity.Name);
 
-            //_taskService.CreateTask(manager.Profile, employee.Profile, newTask.NewTaskToBllTask());
+
+            var employee = _profileService.GetByEmail(newTask.EmployeeEmail);
+            var task = newTask.NewTaskToBllTask();
+            task.Manager = manager.Profile;
+            task.Employee = employee;
+
+            _taskService.Create(task);
+
+            //_messageService.SendNewTask(manager.Profile, employee);
 
             //_messageService.Send(new IdentityMessage()
             //{

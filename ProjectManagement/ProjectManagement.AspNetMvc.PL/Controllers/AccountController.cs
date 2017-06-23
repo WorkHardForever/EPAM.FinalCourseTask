@@ -82,12 +82,12 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
 
             if (ModelState.IsValid)
             {
-                var membershipProvider = new UserMembershipProvider(_userService);
+                var membershipProvider = new UserMembershipProvider();
                 var membershipUser = membershipProvider.CreateUser(model.RegisterToBllUser());
 
                 if (membershipUser != null)
                 {
-                    Roles.AddUserToRole(model.Login, "Default");
+                    Roles.AddUserToRole(model.Login, "default");
                     FormsAuthentication.SetAuthCookie(model.Login, false);
 
                     return RedirectToAction("Index", "Home");

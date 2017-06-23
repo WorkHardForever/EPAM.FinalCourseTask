@@ -190,5 +190,3 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\ros
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\System.Xml.XPath.XDocument.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\vbc.exe.config
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\roslyn\vbc.rsp
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\System.Web.Helpers.Crypto.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.AspNetMvc.PL\bin\System.Web.Helpers.Crypto.pdb

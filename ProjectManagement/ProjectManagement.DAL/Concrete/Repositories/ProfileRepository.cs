@@ -41,25 +41,25 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            var task = _context.Set<Profile>().SingleOrDefault(u => u.Id == item.Id);
-            if (task == null)
+            var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == item.Id);
+            if (profile == null)
                 throw new ArgumentException("Such id not found");
 
-            _context.Set<Profile>().Remove(task);
+            _context.Set<Profile>().Remove(profile);
         }
 
         public DalProfile GetById(int uniqueId)
         {
-            var task = _context.Set<Profile>().SingleOrDefault(u => u.Id == uniqueId);
-            if (task == null)
+            var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == uniqueId);
+            if (profile == null)
                 throw new ArgumentNullException(nameof(uniqueId));
 
-            return task.ToDalProfile();
+            return profile.ToDalProfile();
         }
 
         public IEnumerable<DalProfile> GetAll()
         {
-            return _context.Set<Profile>().Select(task => task.ToDalProfile());
+            return _context.Set<Profile>().Select(profile => profile.ToDalProfile());
         }
 
         public DalProfile GetByPredicate(Expression<Func<DalProfile, bool>> match)
@@ -67,14 +67,13 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             throw new NotImplementedException();
         }
 
-        //public DalProfile GetGivenTasks(int managerId)
-        //{
-        //    var manager = _context.Set<Profile>().SingleOrDefault(u => u.Id == managerId);
-        //    if (manager == null)
-        //        throw new ArgumentNullException(nameof(managerId));
+        public DalProfile GetByEmail(string email)
+        {
+            var profile = _context.Set<Profile>().SingleOrDefault(u => u.Email == email);
+            if (profile == null)
+                throw new ArgumentNullException(nameof(email));
 
-        //    _context.Entry(manager).Collection(x => x.GivenTasks).Load();
-        //    return manager.ToDalProfile();
-        //}
+            return profile.ToDalProfile();
+        }
     }
 }

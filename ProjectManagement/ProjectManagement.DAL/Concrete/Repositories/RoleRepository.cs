@@ -25,6 +25,10 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
+            var role = _context.Set<Role>().SingleOrDefault(u => u.Name == item.Name);
+            if (role != null)
+                throw new ArgumentException("Such role exist yet.");
+
             _context.Set<Role>().Add(item.ToDbRole());
         }
 
@@ -41,30 +45,62 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            var task = _context.Set<Role>().SingleOrDefault(u => u.Id == item.Id);
-            if (task == null)
-                throw new ArgumentException("Such id not found");
+            var role = _context.Set<Role>().SingleOrDefault(u => u.Name == item.Name);
+            if (role == null)
+                throw new ArgumentException("Such name was not found.");
 
-            _context.Set<Role>().Remove(task);
+            _context.Set<Role>().Remove(role);
         }
 
         public DalRole GetById(int uniqueId)
         {
-            var task = _context.Set<Role>().SingleOrDefault(u => u.Id == uniqueId);
-            if (task == null)
+            var role = _context.Set<Role>().SingleOrDefault(u => u.Id == uniqueId);
+            if (role == null)
                 throw new ArgumentNullException(nameof(uniqueId));
 
-            return task.ToDalRole();
+            return role.ToDalRole();
         }
 
         public IEnumerable<DalRole> GetAll()
         {
-            return _context.Set<Role>().Select(task => task.ToDalRole());
+            return _context.Set<Role>().Select(role => role.ToDalRole());
         }
 
         public DalRole GetByPredicate(Expression<Func<DalRole, bool>> match)
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsUserInRole(DalUser user, string roleName)
+        {
+            return user.Roles.FirstOrDefault(x => x.Name == roleName) != null;
+        }
+
+        public IEnumerable<DalRole> GetUserRoles(DalUser user)
+        {
+            return _context.Set<User>().SingleOrDefault(x => x.Id == user.Id).Roles.ToDalRoleEnumerable();
+        }
+
+        public DalRole GetByName(string roleName)
+        {
+            var role = _context.Set<Role>().SingleOrDefault(u => u.Name == roleName);
+            if (role == null)
+                throw new ArgumentNullException(nameof(roleName));
+
+            return role.ToDalRole();
+        }
+
+        public void AddUser(DalUser user, DalRole role)
+        {
+            var dbUser = _context.Set<User>().FirstOrDefault(x => x.Login == user.Login);
+            if (dbUser == null)
+                throw new ArgumentException($"User '{user.Login}' not found.");
+
+            var dbRole = _context.Set<Role>().FirstOrDefault(x => x.Name == role.Name);
+            if (dbRole == null)
+                throw new ArgumentException($"Role '{role.Name}' not found.");
+
+            dbRole.Users.Add(dbUser);
         }
     }
 }

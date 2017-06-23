@@ -41,5 +41,3 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\b
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.Interfacies.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.Interfacies.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.BLL.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\System.Web.Helpers.Crypto.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\System.Web.Helpers.Crypto.pdb

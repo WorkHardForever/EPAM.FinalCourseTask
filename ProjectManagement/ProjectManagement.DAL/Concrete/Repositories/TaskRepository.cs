@@ -25,7 +25,12 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            _context.Set<Task>().Add(item.ToDbTask());
+            var task = new Task() { Title = item.Title, Description = item.Description, State = (TaskState)item.State, DeadLine = item.DeadLine, StartTime = item.StartTime };
+            var manager = _context.Set<Profile>().FirstOrDefault(x => x.Email == item.Manager.Email);
+            var employee = _context.Set<Profile>().FirstOrDefault(x => x.Email == item.Employee.Email);
+
+            manager.GivenTasks.Add(task);
+            employee.ReceivedTasks.Add(task);
         }
 
         public void Update(DalTask item)
@@ -66,15 +71,5 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             throw new NotImplementedException();
         }
-
-        //public DalProfile GetEmployee(DalTask dalTask)
-        //{
-        //    var task = _context.Set<DalTask>().SingleOrDefault(x => x.Id == dalTask.Id);
-
-        //    if (task == null)
-        //        throw new ArgumentException("Task has incorrect id");
-
-        //    return task.Employee;
-        //}
     }
 }

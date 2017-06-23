@@ -15,9 +15,9 @@ namespace ProjectManagement.ORM
 
         static EntityModel()
         {
-            Database.SetInitializer(new EntityInitializer());
+            //Database.SetInitializer(new EntityInitializer());
         }
-        
+
         public DbSet<User> Users { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -33,10 +33,9 @@ namespace ProjectManagement.ORM
             //    .HasRequired(c => c.Profile)
             //    .WithRequiredPrincipal(p => p.User);
 
-            modelBuilder.Entity<Role>()
-                .HasMany(e => e.Users)
-                .WithRequired(e => e.Role)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<User>()
+                .HasMany(p => p.Roles)
+                .WithMany(c => c.Users);
 
             modelBuilder.Entity<Profile>()
                 .HasMany(e => e.GivenTasks)

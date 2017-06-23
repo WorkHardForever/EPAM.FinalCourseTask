@@ -42,25 +42,25 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            var task = _context.Set<User>().SingleOrDefault(u => u.Id == item.Id);
-            if (task == null)
+            var user = _context.Set<User>().SingleOrDefault(u => u.Id == item.Id);
+            if (user == null)
                 throw new ArgumentException("Such id not found");
 
-            _context.Set<User>().Remove(task);
+            _context.Set<User>().Remove(user);
         }
 
         public DalUser GetById(int uniqueId)
         {
-            var task = _context.Set<User>().SingleOrDefault(u => u.Id == uniqueId);
-            if (task == null)
+            var user = _context.Set<User>().SingleOrDefault(u => u.Id == uniqueId);
+            if (user == null)
                 throw new ArgumentNullException(nameof(uniqueId));
 
-            return task.ToDalUser();
+            return user.ToDalUser();
         }
 
         public IEnumerable<DalUser> GetAll()
         {
-            return _context.Set<User>().Select(task => task.ToDalUser());
+            return _context.Set<User>().Select(user => user.ToDalUser());
         }
 
         public DalUser GetByPredicate(Expression<Func<DalUser, bool>> match)
@@ -75,7 +75,17 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public DalUser GetByLogin(string login)
         {
-            return _context.Set<User>().SingleOrDefault(x => x.Login == login)?.ToDalUser();
+            var user = _context.Set<User>().SingleOrDefault(u => u.Login == login);
+            if (user == null)
+                throw new ArgumentNullException(nameof(login));
+
+            return user.ToDalUser();
+        }
+
+        public bool IsUserLoginExist(string login)
+        {
+            var user = _context.Set<User>().FirstOrDefault(u => u.Login == login);
+            return user != null;
         }
     }
 }

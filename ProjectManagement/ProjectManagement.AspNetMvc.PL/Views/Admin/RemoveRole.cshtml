@@ -1,0 +1,29 @@
+﻿@using ProjectManagement.AspNetMvc.PL.Models.AdminViewModels
+@model RemoveRoleViewModel
+@{
+    ViewBag.Title = "RemoveRole";
+}
+<div class="col-md-8">
+    <h2>@ViewBag.Title.</h2>
+    <section id="removeRole">
+        @using (Html.BeginForm("RemoveRole", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Remove the role.</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10" style="width: 50%;">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-warning" value="Submit" />
+                </div>
+            </div>
+        }
+    </section>
+</div>

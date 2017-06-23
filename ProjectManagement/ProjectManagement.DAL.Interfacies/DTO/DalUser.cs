@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.DAL.Interface.Interfacies;
+using System.Collections.Generic;
 
 namespace ProjectManagement.DAL.Interface.DTO
 {
@@ -11,7 +12,7 @@ namespace ProjectManagement.DAL.Interface.DTO
         public string PasswordHash { get; set; }
 
         public DalProfile Profile { get; set; }
-        
-        public int RoleId { get; set; }
+
+        public IEnumerable<DalRole> Roles { get; set; }
     }
 }

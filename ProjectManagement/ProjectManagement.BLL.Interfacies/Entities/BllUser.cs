@@ -1,4 +1,6 @@
-﻿namespace ProjectManagement.BLL.Interface.Entities
+﻿using System.Collections.Generic;
+
+namespace ProjectManagement.BLL.Interface.Entities
 {
     public class BllUser
     {
@@ -10,6 +12,6 @@
 
         public BllProfile Profile { get; set; }
 
-        public int RoleId { get; set; }
+        public IEnumerable<BllRole> Roles { get; set; }
     }
 }

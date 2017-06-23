@@ -1,5 +1,7 @@
 ﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.ORM.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectManagement.DAL.Mappers
 {
@@ -23,6 +25,16 @@ namespace ProjectManagement.DAL.Mappers
                 Name = dalRole.Name,
                 Users = dalRole.Users.ToDbProfileCollection()
             };
+        }
+
+        public static IEnumerable<DalRole> ToDalRoleEnumerable(this ICollection<Role> dbRoles)
+        {
+            return dbRoles?.Select(x => x.ToDalRole());
+        }
+
+        public static ICollection<Role> ToDbRoleCollection(this IEnumerable<DalRole> dalRoles)
+        {
+            return dalRoles?.Select(x => x.ToDbRole()) as ICollection<Role>;
         }
     }
 }

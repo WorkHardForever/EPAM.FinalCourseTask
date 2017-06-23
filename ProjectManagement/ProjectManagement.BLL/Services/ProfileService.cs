@@ -29,6 +29,16 @@ namespace ProjectManagement.BLL.Services
             _profileRepository.Create(profile.ToDalProfile());
         }
 
+        public BllProfile GetById(int uniqueId)
+        {
+            return _profileRepository.GetById(uniqueId).ToBllProfile();
+        }
+
+        public BllProfile GetByEmail(string email)
+        {
+            return _profileRepository.GetByEmail(email).ToBllProfile();
+        }
+
         //public BllTaskPercentState GetStateOfReceivedTasks(BllProfile profile)
         //{
         //    if (profile == null || profile.ReceivedTasks == null)

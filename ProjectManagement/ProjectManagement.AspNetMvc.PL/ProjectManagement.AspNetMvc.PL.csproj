@@ -228,6 +228,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NInjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -242,6 +243,8 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels\LoginViewModel.cs" />
     <Compile Include="Models\AccountViewModels\RegisterViewModel.cs" />
+    <Compile Include="Models\AdminViewModels\NewRoleViewModel.cs" />
+    <Compile Include="Models\AdminViewModels\RemoveRoleViewModel.cs" />
     <Compile Include="Models\DashboardViewModels\PersonViewModel.cs" />
     <Compile Include="Models\DashboardViewModels\ReceivedTasksViewModel.cs" />
     <Compile Include="Models\DashboardViewModels\StatisticViewModel.cs" />
@@ -452,6 +455,9 @@
     <Content Include="Views\Dashboard\ButtonDashboardPartial.cshtml" />
     <Content Include="Views\Profile\Info.cshtml" />
     <Content Include="Views\Dashboard\CreateTask.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\NewRole.cshtml" />
+    <Content Include="Views\Admin\RemoveRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -463,6 +469,10 @@
     <ProjectReference Include="..\ProjectManagement.BLL.Interfacies\ProjectManagement.BLL.Interface.csproj">
       <Project>{A9A97254-B95F-4CFB-A751-1A65A9F2F2AA}</Project>
       <Name>ProjectManagement.BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.BLL\ProjectManagement.BLL.csproj">
+      <Project>{3F348C19-DC0E-4E3E-87E7-BD2B74A34532}</Project>
+      <Name>ProjectManagement.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectManagement.DependencyResolver\ProjectManagement.DependencyResolver.csproj">
       <Project>{a8c1512e-2e37-42ac-8f3c-756f37d2a378}</Project>

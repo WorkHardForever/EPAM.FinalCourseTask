@@ -5,6 +5,9 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
     public interface IUserService
     {
         void Create(BllUser user);
-        BllUser GetByLogin(string username);
+
+        BllUser GetByLogin(string login);
+
+        bool IsUserLoginExist(string login);
     }
 }

@@ -14,8 +14,7 @@ namespace ProjectManagement.BLL.Mappers
                 Id = dalUser.Id,
                 Login = dalUser.Login,
                 PasswordHash = dalUser.PasswordHash,
-                Profile = dalUser.Profile?.ToBllProfile(),
-                RoleId = dalUser.RoleId
+                Profile = dalUser.Profile?.ToBllProfile()
             };
         }
 
@@ -26,8 +25,7 @@ namespace ProjectManagement.BLL.Mappers
                 Id = bllUser.Id,
                 Login = bllUser.Login,
                 PasswordHash = bllUser.PasswordHash,
-                Profile = bllUser.Profile?.ToDalProfile(),
-                RoleId = bllUser.RoleId
+                Profile = bllUser.Profile?.ToDalProfile()
             };
         }
 

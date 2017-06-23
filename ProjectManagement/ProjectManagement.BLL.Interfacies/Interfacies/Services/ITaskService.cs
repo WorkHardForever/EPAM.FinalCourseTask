@@ -4,8 +4,6 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
     public interface ITaskService
     {
-        //void CreateTask(BllProfile manager, BllProfile employee, BllTask task);
-
-        //BllProfile GetEmployee(BllTask item);
+        void Create(BllTask task);
     }
 }

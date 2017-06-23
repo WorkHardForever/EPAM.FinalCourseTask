@@ -34,6 +34,7 @@ namespace ProjectManagement.DAL.Concrete
                 throw new NullReferenceException(nameof(Context));
 
             Context.Dispose();
+            Context = null;
         }
     }
 }

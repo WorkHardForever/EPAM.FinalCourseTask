@@ -14,5 +14,3 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\Entity
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\Newtonsoft.Json.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\obj\Debug\ProjectManagement.DAL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\obj\Debug\ProjectManagement.DAL.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\System.Web.Helpers.Crypto.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DAL\bin\Debug\System.Web.Helpers.Crypto.pdb

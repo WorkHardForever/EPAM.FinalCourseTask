@@ -14,8 +14,7 @@ namespace ProjectManagement.DAL.Mappers
                 Id = dbUser.Id,
                 Login = dbUser.Login,
                 PasswordHash = dbUser.PasswordHash,
-                Profile = dbUser.Profile?.ToDalProfile(),
-                RoleId = dbUser.RoleId
+                Profile = dbUser.Profile?.ToDalProfile()
             };
         }
 
@@ -26,8 +25,7 @@ namespace ProjectManagement.DAL.Mappers
                 Id = dalUser.Id,
                 Login = dalUser.Login,
                 PasswordHash = dalUser.PasswordHash,
-                Profile = dalUser.Profile?.ToDbProfile(),
-                RoleId = dalUser.RoleId
+                Profile = dalUser.Profile?.ToDbProfile()
             };
         }
 

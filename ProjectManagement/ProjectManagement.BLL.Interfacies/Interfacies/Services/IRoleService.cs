@@ -1,22 +1,26 @@
-﻿
-using System.Threading.Tasks;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using System.Collections.Generic;
 
 namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
     public interface IRoleService
     {
-        //bool IsUserInRole(string username, string roleName);
+        bool IsUserInRole(string username, string roleName);
 
-        //IEnumerable<BllRole> GetUserRoles(string username);
+        IEnumerable<BllRole> GetUserRoles(string username);
 
-        //void AddUserInRole(string username, string roleName);
+        IEnumerable<BllRole> GetAll();
 
-        //void RemoveUserFromRole(string username, string roleName);
+        IEnumerable<BllUser> GetUsersInRole(string roleName);
 
-        //void UpdateUserRoles(string username, IEnumerable<int> rolesIds);
+        void AddUserByName(string username, string roleName);
 
-        //IEnumerable<BllUser> GetUsersInRole(string roleName);
+        void RemoveUserByName(string username, string roleName);
 
-        //IEnumerable<BllRole> GetAllRoles();
+        void CreateByName(string roleName);
+
+        void DeleteByName(string roleName);
+
+        bool IsExistByName(string roleName);
     }
 }

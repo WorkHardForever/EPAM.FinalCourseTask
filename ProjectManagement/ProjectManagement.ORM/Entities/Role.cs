@@ -6,7 +6,7 @@ namespace ProjectManagement.ORM.Entities
     {
         public Role()
         {
-            Users = new HashSet<User>();
+            Users = new List<User>();
         }
 
         public int Id { get; set; }

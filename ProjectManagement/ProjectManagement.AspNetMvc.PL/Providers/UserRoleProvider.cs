@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.BLL.Interface.Interfacies.Services;
+using ProjectManagement.BLL.Services;
 using System;
 using System.Linq;
 using System.Web.Security;
@@ -9,80 +10,93 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
     {
         //private IRoleService _roleService;
 
-        //public UserRoleProvider(IRoleService _roleService)
-        //{
-        //    _roleService = _roleService;
-        //}
+        //private readonly IUserService _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+        //private readonly IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
 
-        public override string ApplicationName { get; set; }
+        // Exist for config initialization
+        public UserRoleProvider() { }
+
+        public UserRoleProvider(IRoleService roleService)
+        {
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            _roleService = roleService;
+        }
 
         public override bool IsUserInRole(string username, string roleName)
         {
-            //if (_roleService.IsUserInRole(username, roleName))
-            //    return true;
-
-            //return false;
-            throw new NotImplementedException();
-        }
-
-        public override string[] GetRolesForUser(string username)
-        {
-            //return _roleService.GetUserRoles(username).Select(x => x.Name).ToArray();
-            throw new NotImplementedException();
-        }
-
-        public override void AddUsersToRoles(string[] usernames, string[] roleNames)
-        {
-            //foreach (string username in usernames)
-            //{
-            //    foreach (string roleName in roleNames)
-            //    {
-            //        _roleService.AddUserInRole(username, roleName);
-            //    }
-            //}
-            throw new NotImplementedException();
-        }
-
-        public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
-        {
-            //foreach (string username in usernames)
-            //{
-            //    foreach (string roleName in roleNames)
-            //    {
-            //        _roleService.RemoveUserFromRole(username, roleName);
-            //    }
-            //}
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            return _roleService.IsUserInRole(username, roleName);
         }
 
         public override string[] GetUsersInRole(string roleName)
         {
-            //return _roleService.GetUsersInRole(roleName).Select(x => x.Name).ToArray();
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            return
+            _roleService.GetUsersInRole(roleName).Select(x => x.Login).ToArray();
+        }
+
+        public override string[] GetRolesForUser(string username)
+        {
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            return
+            _roleService.GetUserRoles(username).Select(x => x.Name).ToArray();
         }
 
         public override string[] GetAllRoles()
         {
-            //return _roleService.GetAllRoles().Select(x => x.Name).ToArray();
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            return
+            _roleService.GetAll().Select(x => x.Name).ToArray();
         }
 
-        #region NotImplemented
+        public override void AddUsersToRoles(string[] usernames, string[] roleNames)
+        {
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            foreach (string username in usernames)
+            {
+                foreach (string roleName in roleNames)
+                {
+                    _roleService.AddUserByName(username, roleName);
+                }
+            }
+        }
+
+        public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
+        {
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            foreach (string username in usernames)
+            {
+                foreach (string roleName in roleNames)
+                {
+                    _roleService.RemoveUserByName(username, roleName);
+                }
+            }
+        }
 
         public override void CreateRole(string roleName)
         {
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            
+            _roleService.CreateByName(roleName);
         }
 
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
         {
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            _roleService.DeleteByName(roleName);
+            return true;
         }
 
         public override bool RoleExists(string roleName)
         {
-            throw new NotImplementedException();
+            IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
+            return
+            _roleService.IsExistByName(roleName);
         }
+
+        #region Not Implemented
+
+        public override string ApplicationName { get; set; }
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {

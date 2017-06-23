@@ -1,5 +1,6 @@
 ﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
+using ProjectManagement.BLL.Services;
 using System;
 using System.Web.Helpers;
 using System.Web.Security;
@@ -8,25 +9,29 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 {
     public class UserMembershipProvider : MembershipProvider
     {
-        private readonly IUserService _userService;
+        //private readonly IUserService _userService;
+
+        //private readonly IUserService _userService;
+        //private readonly IRoleService _roleService;// = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
 
         // Exist for config initialization
         public UserMembershipProvider() { }
 
-        public UserMembershipProvider(IUserService userService)
-        {
-            _userService = userService;
-        }
+        //public UserMembershipProvider(IUserService userService)
+        //{
+        //    _userService = userService;
+        //}
 
         public MembershipUser CreateUser(BllUser user)
         {
-            var membershipUser = GetUser(user.Login, false);
-            if (membershipUser != null)
+            var _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+
+            if (_userService.IsUserLoginExist(user.Login))
                 return null;
 
             _userService.Create(user);
 
-            membershipUser = GetUser(user.Login, false);
+            var membershipUser = GetUser(user.Login, false);
             return membershipUser;
         }
 
@@ -56,6 +61,8 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
+            var _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+
             var user = _userService.GetByLogin(username);
             if (user == null)
                 return null;
@@ -78,6 +85,7 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
         public override bool ValidateUser(string username, string password)
         {
+            IUserService _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
             var user = _userService.GetByLogin(username);
             if (user == null)
                 return false;
