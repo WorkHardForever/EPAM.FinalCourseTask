@@ -1,0 +1,13 @@
+﻿@using ProjectManagement.AspNetMvc.PL.Models.AdminViewModels
+@model IEnumerable<UserAccountViewModel>
+@{
+    ViewBag.Title = "UserAccounts";
+}
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>
+            <p>Id: @item.Id Login: @item.Login</p>
+        </li>
+    }
+</ol>

@@ -52,7 +52,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == uniqueId);
             if (profile == null)
-                throw new ArgumentNullException(nameof(uniqueId));
+                return null;
 
             return profile.ToDalProfile();
         }
@@ -74,6 +74,18 @@ namespace ProjectManagement.DAL.Concrete.Repositories
                 throw new ArgumentNullException(nameof(email));
 
             return profile.ToDalProfile();
+        }
+
+        public IEnumerable<DalTask> GetAllGivenTasks(DalProfile dalProfile)
+        {
+            return _context.Set<Profile>().SingleOrDefault(x => x.Email == dalProfile.Email)
+                .GivenTasks.ToDalTaskEnumerable();
+        }
+
+        public IEnumerable<DalTask> GetAllReceivedTasks(DalProfile dalProfile)
+        {
+            return _context.Set<Profile>().SingleOrDefault(x => x.Email == dalProfile.Email)
+                .ReceivedTasks.ToDalTaskEnumerable();
         }
     }
 }

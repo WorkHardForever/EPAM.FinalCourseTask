@@ -2,6 +2,8 @@
 {
     public class TasksViewModel
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -9,5 +11,7 @@
         public TimeViewModel StartTime { get; set; }
 
         public TimeViewModel DeadLine { get; set; }
+
+        public int State { get; set; }
     }
 }

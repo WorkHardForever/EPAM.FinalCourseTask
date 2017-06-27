@@ -5,13 +5,9 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Projec
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\EntityFramework.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\EntityFramework.SqlServer.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\Owin.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interfacies.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.DAL.Interfacies.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Net.Http.Formatting.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.Owin.dll
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interfacies.pdb
-E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.DAL.Interfacies.pdb
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\EntityFramework.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\EntityFramework.SqlServer.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Net.Http.Formatting.xml
@@ -19,3 +15,12 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\System.Web.Http.Owin.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\obj\Debug\ProjectManagement.BLL.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interface.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.DAL.Interface.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.BLL.Interface.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\ProjectManagement.DAL.Interface.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\BouncyCastle.Crypto.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\MailKit.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\MimeKit.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\MailKit.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.BLL\bin\Debug\MimeKit.xml

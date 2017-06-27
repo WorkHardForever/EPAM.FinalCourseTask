@@ -18,7 +18,7 @@ namespace ProjectManagement.DAL.Mappers
                 Manager = dbTask.Manager?.ToDalProfile(),
                 StartTime = dbTask.StartTime,
                 DeadLine = dbTask.DeadLine,
-                State = (DalTaskState)dbTask.State
+                State = (DalTaskState) dbTask.State
             };
         }
 
@@ -33,7 +33,7 @@ namespace ProjectManagement.DAL.Mappers
                 Manager = dalTask.Manager?.ToDbProfile(),
                 StartTime = dalTask.StartTime,
                 DeadLine = dalTask.DeadLine,
-                State = (TaskState)dalTask.State
+                State = (TaskState) dalTask.State
             };
         }
 

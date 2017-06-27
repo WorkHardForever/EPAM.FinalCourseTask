@@ -28,18 +28,20 @@ namespace ProjectManagement.ORM.Entities
         [EmailAddress]
         public string Email { get; set; }
 
+        //public virtual Avatar Avatar { get; set; }
+
+        //public int FirmId { get; set; }
+
+        //[ForeignKey("Firm")]
+        //public virtual Firm Firm { get; set; }
+
         [InverseProperty("Manager")]
         public virtual ICollection<Task> GivenTasks { get; set; }
 
         [InverseProperty("Employee")]
         public virtual ICollection<Task> ReceivedTasks { get; set; }
 
-        public int FirmId { get; set; }
-
-        [ForeignKey("Firm")]
-        public virtual Firm Firm { get; set; }
-
-        public byte[] Avatar { get; set; }
+        //public ICollection<Project> Projects { get; set; }
 
         public virtual User User { get; set; }
     }

@@ -60,7 +60,19 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public IEnumerable<DalUser> GetAll()
         {
-            return _context.Set<User>().Select(user => user.ToDalUser());
+            return _context.Set<User>().Select(ToDalUserConvertion);
+        }
+
+        public static Expression<Func<User, DalUser>> ToDalUserConvertion
+        {
+            get
+            {
+                return (User user) => new DalUser()
+                {
+                    Id = user.Id,
+                    Login = user.Login
+                };
+            }
         }
 
         public DalUser GetByPredicate(Expression<Func<DalUser, bool>> match)

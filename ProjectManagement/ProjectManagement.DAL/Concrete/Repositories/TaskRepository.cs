@@ -25,7 +25,14 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            var task = new Task() { Title = item.Title, Description = item.Description, State = (TaskState)item.State, DeadLine = item.DeadLine, StartTime = item.StartTime };
+            var task = new Task()
+            {
+                Title = item.Title,
+                Description = item.Description,
+                State = (TaskState) item.State,
+                DeadLine = item.DeadLine,
+                StartTime = item.StartTime
+            };
             var manager = _context.Set<Profile>().FirstOrDefault(x => x.Email == item.Manager.Email);
             var employee = _context.Set<Profile>().FirstOrDefault(x => x.Email == item.Employee.Email);
 
@@ -38,7 +45,8 @@ namespace ProjectManagement.DAL.Concrete.Repositories
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            _context.Set<Task>().AddOrUpdate(item.ToDbTask());
+            Delete(item);
+            Create(item);
         }
 
         public void Delete(DalTask item)
@@ -57,7 +65,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             var task = _context.Set<Task>().SingleOrDefault(u => u.Id == uniqueId);
             if (task == null)
-                throw new ArgumentNullException(nameof(uniqueId));
+                return null;
 
             return task.ToDalTask();
         }
@@ -70,6 +78,19 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         public DalTask GetByPredicate(Expression<Func<DalTask, bool>> match)
         {
             throw new NotImplementedException();
+        }
+
+        public void ChangeStatus(int taskId)
+        {
+            var task = _context.Set<Task>().SingleOrDefault(u => u.Id == taskId);
+            if (task == null)
+                throw new ArgumentException($"Task with id: {taskId} can't be found.");
+
+            if (task.State == TaskState.Done)
+                throw new ArgumentException($"Task already have State = Done and you can't improve it more.");
+
+            task.State++;
+            _context.Set<Task>().AddOrUpdate(task);
         }
     }
 }

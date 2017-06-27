@@ -5,12 +5,14 @@ namespace ProjectManagement.AspNetMvc.PL.Models.AccountViewModels
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(maximumLength: 20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [StringLength(maximumLength: 20, ErrorMessage = "The {0} must be at least {2} characters long.",
+            MinimumLength = 5)]
         [Display(Name = nameof(Login))]
         public string Login { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [StringLength(maximumLength: 20, ErrorMessage = "The {0} must be at least {2} characters long.",
+            MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

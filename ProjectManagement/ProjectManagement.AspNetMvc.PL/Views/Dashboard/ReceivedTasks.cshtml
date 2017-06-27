@@ -20,75 +20,68 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date" style="background-color: green">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <a class="pull-left date" style="background-color: red">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Do my course task</a>
-                                <p>A lot of words about it and i don't have time! A lot of words about it and i don't have time! A lot of words about it and i don't have time!</p>
-                                @using (Html.BeginForm("ChangeStatus", "Dashboard", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <button class="btn btn-primary pull-right">---></button>
-                                }
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date" style="background-color: green">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <a class="pull-left date" style="background-color: red">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Do my course task</a>
-                                <p>A lot of words about it and i don't have time! A lot of words about it and i don't have time! A lot of words about it and i don't have time!</p>
-                                @using (Html.BeginForm("ChangeStatus", "Dashboard", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <button class="btn btn-primary pull-right">---></button>
-                                }
-                            </div>
-                        </article>
+                        @foreach (var item in Model.Todo)
+                        {
+                            <article class="media event">
+                                <a class="pull-left date" style="background-color: green">
+                                    <p class="month">@item.StartTime.Hours</p>
+                                    <p class="month">@item.StartTime.Month</p>
+                                    <p class="day">@item.StartTime.Day</p>
+                                </a>
+                                <a class="pull-left date" style="background-color: red">
+                                    <p class="month">@item.DeadLine.Hours</p>
+                                    <p class="month">@item.DeadLine.Month</p>
+                                    <p class="day">@item.DeadLine.Day</p>
+                                </a>
+                                <div class="media-body">
+                                    @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
+                                    <p>@item.Description</p>
+                                </div>
+                                <div class="media-body pull-right">
+                                    @using (Html.BeginForm("ChangeStatus", "Dashboard", new {taskId = item.Id}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-primary pull-right">---></button>
+                                    }
+                                </div>
+                            </article>
+                        }
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>In process</h2>
+                        <h2>In Process</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date" style="background-color: green">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <a class="pull-left date" style="background-color: red">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Do my course task</a>
-                                <p>A lot of words about it and i don't have time! A lot of words about it and i don't have time! A lot of words about it and i don't have time!</p>
-                                <button class="btn btn-success pull-right">---></button>
-                            </div>
-                        </article>
+                        @foreach (var item in Model.InProcess)
+                        {
+                            <article class="media event">
+                                <a class="pull-left date" style="background-color: green">
+                                    <p class="month">@item.StartTime.Hours</p>
+                                    <p class="month">@item.StartTime.Month</p>
+                                    <p class="day">@item.StartTime.Day</p>
+                                </a>
+                                <a class="pull-left date" style="background-color: red">
+                                    <p class="month">@item.DeadLine.Hours</p>
+                                    <p class="month">@item.DeadLine.Month</p>
+                                    <p class="day">@item.DeadLine.Day</p>
+                                </a>
+                                <div class="media-body">
+                                    @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
+                                    <p>@item.Description</p>
+                                </div>
+                                <div class="media-body pull-right">
+                                    @using (Html.BeginForm("ChangeStatus", "Dashboard", new {taskId = item.Id}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn btn-warning pull-right">---></button>
+                                    }
+                                </div>
+                            </article>
+                        }
                     </div>
                 </div>
             </div>
@@ -99,22 +92,25 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date" style="background-color: green">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <a class="pull-left date" style="background-color: red">
-                                <p class="month">20:22</p>
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Do my course task</a>
-                                <p>A lot of words about it and i don't have time! A lot of words about it and i don't have time! A lot of words about it and i don't have time!</p>
-                            </div>
-                        </article>
+                        @foreach (var item in Model.Done)
+                        {
+                            <article class="media event">
+                                <a class="pull-left date" style="background-color: green">
+                                    <p class="month">@item.StartTime.Hours</p>
+                                    <p class="month">@item.StartTime.Month</p>
+                                    <p class="day">@item.StartTime.Day</p>
+                                </a>
+                                <a class="pull-left date" style="background-color: red">
+                                    <p class="month">@item.DeadLine.Hours</p>
+                                    <p class="month">@item.DeadLine.Month</p>
+                                    <p class="day">@item.DeadLine.Day</p>
+                                </a>
+                                <div class="media-body">
+                                    @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
+                                    <p>@item.Description</p>
+                                </div>
+                            </article>
+                        }
                     </div>
                 </div>
             </div>

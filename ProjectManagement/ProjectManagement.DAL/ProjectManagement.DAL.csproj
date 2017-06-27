@@ -43,21 +43,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Repositories\AvatarRepository.cs" />
     <Compile Include="Concrete\Repositories\ProfileRepository.cs" />
     <Compile Include="Concrete\Repositories\RoleRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
+    <Compile Include="Mappers\AvatarMapper.cs" />
     <Compile Include="Mappers\ProfileMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
     <Compile Include="Mappers\TaskMapper.cs" />

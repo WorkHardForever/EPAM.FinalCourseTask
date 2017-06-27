@@ -7,8 +7,8 @@
     <ProjectGuid>{374C9C07-000C-40C7-88FA-A41F79618D61}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManagement.DAL.Interfacies</RootNamespace>
-    <AssemblyName>ProjectManagement.DAL.Interfacies</AssemblyName>
+    <RootNamespace>ProjectManagement.DAL.Interface</RootNamespace>
+    <AssemblyName>ProjectManagement.DAL.Interface</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,22 +39,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DalAvatar.cs" />
     <Compile Include="DTO\DalProfile.cs" />
     <Compile Include="DTO\DalRole.cs" />
     <Compile Include="DTO\DalTask.cs" />
     <Compile Include="DTO\DalTaskState.cs" />
     <Compile Include="DTO\DalUser.cs" />
     <Compile Include="Interfacies\IEntity.cs" />
+    <Compile Include="Interfacies\IRepositories\IAvatarRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IProfileRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IRoleRepository.cs" />
     <Compile Include="Interfacies\IRepositories\ITaskRepository.cs" />

@@ -14,7 +14,7 @@ namespace ProjectManagement.BLL.Mappers
                 Users = dalRole.Users.ToBllUserEnumerable()
             };
         }
-        
+
         public static DalRole ToDalRole(this BllRole bllRole)
         {
             return new DalRole()

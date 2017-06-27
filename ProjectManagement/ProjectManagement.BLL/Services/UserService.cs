@@ -36,5 +36,15 @@ namespace ProjectManagement.BLL.Services
         {
             return _userRepository.IsUserLoginExist(login);
         }
+
+        public void Delete(string loginName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<BllUser> GetAll()
+        {
+            return _userRepository.GetAll().ToBllUserEnumerable();
+        }
     }
 }

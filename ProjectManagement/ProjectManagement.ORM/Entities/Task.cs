@@ -16,15 +16,15 @@ namespace ProjectManagement.ORM.Entities
         [MaxLength(length: 1000, ErrorMessage = "Description length more then 20 symbols")]
         public string Description { get; set; }
 
+        [Required]
         public int ManagerId { get; set; }
 
+        [Required]
         public int EmployeeId { get; set; }
 
-        [Required]
         [ForeignKey("ManagerId")]
         public virtual Profile Manager { get; set; }
 
-        [Required]
         [ForeignKey("EmployeeId")]
         public virtual Profile Employee { get; set; }
 

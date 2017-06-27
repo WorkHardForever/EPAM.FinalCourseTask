@@ -45,15 +45,9 @@
       <HintPath>..\packages\System.Web.Helpers.Crypto.3.2.3\lib\net40\System.Web.Helpers.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Firm.cs" />
+    <Compile Include="Entities\Avatar.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Task.cs" />

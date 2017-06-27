@@ -7,8 +7,6 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Message = "Main";
-
             return View();
         }
     }

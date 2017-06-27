@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.BLL.Interface.Entities;
+using System.Collections.Generic;
 
 namespace ProjectManagement.BLL.Interface.Interfacies.Services
 {
@@ -6,8 +7,12 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
     {
         void Create(BllUser user);
 
-        BllUser GetByLogin(string login);
-
         bool IsUserLoginExist(string login);
+
+        void Delete(string loginName);
+
+        IEnumerable<BllUser> GetAll();
+
+        BllUser GetByLogin(string login);
     }
 }

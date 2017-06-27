@@ -13,29 +13,10 @@ namespace ProjectManagement.DependencyResolver.Resolver
 {
     public static class ResolverModule
     {
-        //private static IAppBuilder _app;
-
         public static void ConfigurateResolverWeb(this IKernel kernel)
         {
             Configure(kernel, true);
         }
-
-        //public static void StartupConfig(this IAppBuilder app)
-        //{
-        //    _app = app;
-
-        //    app.UseCookieAuthentication(new CookieAuthenticationOptions
-        //    {
-        //        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-        //        LoginPath = new PathString("/Account/Login"),
-        //        Provider = new CookieAuthenticationProvider
-        //        {
-        //            OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
-        //                validateInterval: TimeSpan.FromMinutes(30),
-        //                regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-        //        }
-        //    });
-        //}
 
         private static void Configure(IKernel kernel, bool isWeb)
         {
@@ -54,19 +35,12 @@ namespace ProjectManagement.DependencyResolver.Resolver
             kernel.Bind<IRoleService>().To<RoleService>();
             kernel.Bind<ITaskService>().To<TaskService>();
             kernel.Bind<IProfileService>().To<ProfileService>();
-            //kernel.Bind<IIdentityMessageService>().To<EmailService>();
+            kernel.Bind<IMessageService>().To<EmailService>();
 
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IRoleRepository>().To<RoleRepository>();
             kernel.Bind<ITaskRepository>().To<TaskRepository>();
             kernel.Bind<IProfileRepository>().To<ProfileRepository>();
-
-            //kernel.Bind<ApplicationUserManager>().ToSelf();
-            //kernel.Bind<ApplicationRoleManager>().ToSelf();
-            //kernel.Bind<ApplicationUserSignInManager>().ToSelf();
-            //kernel.Bind<IUserStore<User>>().To<UserStore<User>>().WithConstructorArgument("context", kernel.Get<EntityModel>());
-            //kernel.Bind<IAuthenticationManager>().ToMethod(x => HttpContext.Current.GetOwinContext().Authentication);
-            //kernel.Bind<IDataProtectionProvider>().ToMethod(x => _app.GetDataProtectionProvider());
         }
     }
 }

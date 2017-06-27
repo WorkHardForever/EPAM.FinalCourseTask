@@ -1,9 +1,9 @@
-﻿using System;
-using ProjectManagement.BLL.Interface.Entities;
+﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.BLL.Mappers;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
+using System;
 
 namespace ProjectManagement.BLL.Services
 {
@@ -18,19 +18,21 @@ namespace ProjectManagement.BLL.Services
             _taskRepository = taskManager;
         }
 
-        public void CreateTask(BllProfile manager, BllProfile employee, BllTask task)
-        {
-            task.Manager = manager;
-            task.Employee = employee;
-
-            _taskRepository.Create(task.ToDalTask());
-            _uow.Commit();
-        }
-
         public void Create(BllTask task)
         {
             _taskRepository.Create(task.ToDalTask());
             _uow.Commit();
+        }
+
+        public void ChangeStatus(int taskId)
+        {
+            _taskRepository.ChangeStatus(taskId);
+            _uow.Commit();
+        }
+
+        public BllTask GetById(int taskId)
+        {
+            return _taskRepository.GetById(taskId).ToBllTask();
         }
     }
 }

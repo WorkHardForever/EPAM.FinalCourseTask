@@ -19,11 +19,9 @@ namespace ProjectManagement.AspNetMvc.PL.Models.DashboardViewModels
         public string Description { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime StartTime { get; set; }
+        public string StartTime { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime DeadLine { get; set; }
+        public string DeadLine { get; set; }
     }
 }

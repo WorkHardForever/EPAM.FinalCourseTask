@@ -84,13 +84,13 @@ namespace ProjectManagement.BLL.Services
 
         public void CreateByName(string roleName)
         {
-            _roleRepository.Create(new DalRole() { Name = roleName });
+            _roleRepository.Create(new DalRole() {Name = roleName});
             _uow.Commit();
         }
 
         public void DeleteByName(string roleName)
         {
-            _roleRepository.Delete(new DalRole() { Name = roleName });
+            _roleRepository.Delete(new DalRole() {Name = roleName});
             _uow.Commit();
         }
 
@@ -98,10 +98,6 @@ namespace ProjectManagement.BLL.Services
         {
             throw new NotImplementedException();
         }
-
-
-
-
 
 
         //#region Public Methods

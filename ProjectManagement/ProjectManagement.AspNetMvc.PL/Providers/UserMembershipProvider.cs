@@ -15,7 +15,9 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
         //private readonly IRoleService _roleService;// = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
 
         // Exist for config initialization
-        public UserMembershipProvider() { }
+        public UserMembershipProvider()
+        {
+        }
 
         //public UserMembershipProvider(IUserService userService)
         //{
@@ -24,7 +26,7 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
         public MembershipUser CreateUser(BllUser user)
         {
-            var _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+            var _userService = (UserService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
 
             if (_userService.IsUserLoginExist(user.Login))
                 return null;
@@ -61,7 +63,7 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
-            var _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+            var _userService = (UserService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
 
             var user = _userService.GetByLogin(username);
             if (user == null)
@@ -85,7 +87,8 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
         public override bool ValidateUser(string username, string password)
         {
-            IUserService _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
+            IUserService _userService =
+                (UserService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
             var user = _userService.GetByLogin(username);
             if (user == null)
                 return false;
