@@ -47,13 +47,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Avatar.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\TaskState.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="EntityInitializer.cs" />
     <Compile Include="EntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

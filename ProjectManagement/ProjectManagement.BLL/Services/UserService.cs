@@ -23,17 +23,26 @@ namespace ProjectManagement.BLL.Services
 
         public void Create(BllUser user)
         {
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
             _userRepository.Create(user.ToDalUser());
             _uow.Commit();
         }
 
         public BllUser GetByLogin(string login)
         {
+            if (string.IsNullOrEmpty(login))
+                throw new ArgumentException($"Argument {nameof(login)} is null or empty");
+
             return _userRepository.GetByLogin(login)?.ToBllUser();
         }
 
         public bool IsUserLoginExist(string login)
         {
+            if (string.IsNullOrEmpty(login))
+                throw new ArgumentException($"Argument {nameof(login)} is null or empty");
+
             return _userRepository.IsUserLoginExist(login);
         }
 
@@ -44,7 +53,7 @@ namespace ProjectManagement.BLL.Services
 
         public IEnumerable<BllUser> GetAll()
         {
-            return _userRepository.GetAll().ToBllUserEnumerable();
+            return _userRepository.GetAll()?.ToBllUserEnumerable();
         }
     }
 }

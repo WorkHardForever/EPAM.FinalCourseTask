@@ -9,21 +9,11 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 {
     public class UserMembershipProvider : MembershipProvider
     {
-        //private readonly IUserService _userService;
-
-        //private readonly IUserService _userService;
-        //private readonly IRoleService _roleService;// = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
-
         // Exist for config initialization
         public UserMembershipProvider()
         {
         }
-
-        //public UserMembershipProvider(IUserService userService)
-        //{
-        //    _userService = userService;
-        //}
-
+        
         public MembershipUser CreateUser(BllUser user)
         {
             var _userService = (UserService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
@@ -35,30 +25,6 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 
             var membershipUser = GetUser(user.Login, false);
             return membershipUser;
-        }
-
-        public override bool ChangePassword(string username, string oldPassword, string newPassword)
-        {
-            //logger = (ILogger)DependencyResolver.Current.GetService(typeof(ILogger));
-            //userService =
-            //   (IUserService)DependencyResolver.Current.GetService(typeof(IUserService));
-
-            //BllUser bllUser = userService.GetByName(username);
-            //if (bllUser == null)
-            //{
-            //    logger.Log(LogLevel.Debug, "Try change password not exist user username = {0}", username);
-            //    return false;
-            //}
-
-            //if (!Crypto.VerifyHashedPassword(bllUser.PasswordHash, oldPassword))
-            //{
-            //    logger.Log(LogLevel.Debug, "Try change password with incorrect password user username = {0}", username);
-            //    return false;
-            //}
-            //bllUser.PasswordHash = Crypto.HashPassword(newPassword);
-            //userService.Update(bllUser);
-            //logger.Log(LogLevel.Trace, "Password cnahged. Username = {0}", username);
-            return true;
         }
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
@@ -100,6 +66,11 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
         }
 
         #region Not Implemented
+
+        public override bool ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {

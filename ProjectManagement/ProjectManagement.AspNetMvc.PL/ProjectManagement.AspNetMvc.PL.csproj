@@ -228,6 +228,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -285,7 +286,7 @@
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
     <Content Include="Content\nprogress.css" />
-    <Content Include="404.html" />
+    <Content Include="Content\ProjectManagement-home.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -384,37 +385,7 @@
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Libs\Dragula\classes.js" />
-    <Content Include="Libs\Dragula\dist\dragula.css" />
-    <Content Include="Libs\Dragula\dist\dragula.js" />
-    <Content Include="Libs\Dragula\dist\dragula.min.css" />
-    <Content Include="Libs\Dragula\dist\dragula.min.js" />
-    <Content Include="Libs\Dragula\dragula.js" />
-    <Content Include="Libs\Dragula\example\example.css" />
-    <Content Include="Libs\Dragula\example\example.js" />
-    <Content Include="Libs\Dragula\example\example.min.js" />
-    <Content Include="Libs\Dragula\index.html" />
-    <Content Include="Libs\Dragula\resources\demo.png" />
-    <Content Include="Libs\Dragula\resources\eyes.png" />
-    <Content Include="Libs\Dragula\resources\icon.png" />
-    <Content Include="Libs\Dragula\resources\icon.svg" />
-    <Content Include="Libs\Dragula\resources\logo.png" />
-    <Content Include="Libs\Dragula\resources\logo.svg" />
-    <Content Include="Libs\Dragula\resources\patreon.svg" />
-    <Content Include="Libs\Dragula\test\cancel.js" />
-    <Content Include="Libs\Dragula\test\classes.js" />
-    <Content Include="Libs\Dragula\test\containers.js" />
-    <Content Include="Libs\Dragula\test\defaults.js" />
-    <Content Include="Libs\Dragula\test\destroy.js" />
-    <Content Include="Libs\Dragula\test\drag.js" />
-    <Content Include="Libs\Dragula\test\drake-api.js" />
-    <Content Include="Libs\Dragula\test\end.js" />
-    <Content Include="Libs\Dragula\test\events.js" />
-    <Content Include="Libs\Dragula\test\lib\events.js" />
-    <Content Include="Libs\Dragula\test\public-api.js" />
-    <Content Include="Libs\Dragula\test\remove.js" />
     <Content Include="Libs\Gentelella\css\custom.css" />
-    <Content Include="Libs\Gentelella\css\custom.min.css" />
     <Content Include="Libs\Gentelella\images\back_disabled.png" />
     <Content Include="Libs\Gentelella\images\back_enabled.png" />
     <Content Include="Libs\Gentelella\images\back_enabled_hover.png" />
@@ -423,7 +394,6 @@
     <Content Include="Libs\Gentelella\images\forward_enabled_hover.png" />
     <Content Include="Libs\Gentelella\images\loading.gif" />
     <Content Include="Libs\Gentelella\js\custom.js" />
-    <Content Include="Libs\Gentelella\js\custom.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -539,12 +509,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_AccountButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_NavBarLinks.cshtml" />
     <Content Include="Views\Dashboard\ReceivedTasks.cshtml" />
     <Content Include="Views\Dashboard\GivenTasks.cshtml" />
     <Content Include="Views\Dashboard\Statistics.cshtml" />
-    <Content Include="Views\Dashboard\LeftColumnDashboardPartial.cshtml" />
-    <Content Include="Views\Dashboard\ButtonDashboardPartial.cshtml" />
     <Content Include="Views\Profile\Info.cshtml" />
     <Content Include="Views\Dashboard\CreateTask.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -553,6 +521,8 @@
     <Content Include="Views\Admin\UserAccounts.cshtml" />
     <Content Include="Views\Dashboard\AboutTask.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

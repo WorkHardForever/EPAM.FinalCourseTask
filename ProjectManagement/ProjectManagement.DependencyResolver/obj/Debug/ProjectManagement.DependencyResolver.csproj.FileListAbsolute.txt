@@ -46,3 +46,9 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\b
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\BouncyCastle.Crypto.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\MimeKit.xml
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\MailKit.xml
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Logger.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Logger.Interface.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\NLog.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Logger.Interface.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\ProjectManagement.Logger.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.DependencyResolver\bin\Debug\NLog.xml

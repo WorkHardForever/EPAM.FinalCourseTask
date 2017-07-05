@@ -3,13 +3,7 @@
 @{
     ViewBag.Title = "RecievedTasks";
 }
-@section LeftColumnDashboard {
-    @Html.Action("LeftColumnDashboardPartial")
-}
-@section ButtonDashboard {
-    @Html.Action("ButtonDashboardPartial")
-}
-<div class="right_col" role="main">
+<div role="main">
     <div class="">
         <div class="clearfix"></div>
         <div class="row">
@@ -35,7 +29,7 @@
                                 </a>
                                 <div class="media-body">
                                     @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
-                                    <p>@item.Description</p>
+                                    <p style="word-wrap: break-word;">@item.Description</p>
                                 </div>
                                 <div class="media-body pull-right">
                                     @using (Html.BeginForm("ChangeStatus", "Dashboard", new {taskId = item.Id}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
@@ -71,7 +65,7 @@
                                 </a>
                                 <div class="media-body">
                                     @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
-                                    <p>@item.Description</p>
+                                    <p style="word-wrap: break-word;">@item.Description</p>
                                 </div>
                                 <div class="media-body pull-right">
                                     @using (Html.BeginForm("ChangeStatus", "Dashboard", new {taskId = item.Id}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
@@ -106,8 +100,8 @@
                                     <p class="day">@item.DeadLine.Day</p>
                                 </a>
                                 <div class="media-body">
-                                    @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, null)
-                                    <p>@item.Description</p>
+                                    @Html.ActionLink(item.Title, "AboutTask", new {Id = item.Id}, new AjaxOptions { UpdateTargetId = "ajaxcontent" })
+                                    <p style="word-wrap: break-word;">@item.Description</p>
                                 </div>
                             </article>
                         }
@@ -118,6 +112,3 @@
         <div class="clearfix"></div>
     </div>
 </div>
-@section Styles {
-    @Styles.Render("~/Content/Gentelella")
-}

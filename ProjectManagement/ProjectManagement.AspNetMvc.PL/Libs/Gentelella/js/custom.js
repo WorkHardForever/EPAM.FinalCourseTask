@@ -2302,35 +2302,35 @@ function init_charts() {
 
 
     // Pie chart
-    if ($('#pieChart').length) {
+    //if ($('#pieChart').length) {
 
-        var ctx = document.getElementById("pieChart");
-        var data = {
-            datasets: [{
-                data: [70, 20, 10],
-                backgroundColor: [
-                  "#455C73",
-                  "#9B59B6",
-                  "#BDC3C7"
-                ],
-                label: 'My dataset' // for legend
-            }],
-            labels: [
-              "Blue",
-              "Green",
-              "Red"
-            ]
-        };
+    //    var ctx = document.getElementById("pieChart");
+    //    var data = {
+    //        datasets: [{
+    //            data: [75, 0, 25],
+    //            backgroundColor: [
+    //              "#455C73",
+    //              "#9B59B6",
+    //              "#BDC3C7"
+    //            ],
+    //            label: 'My dataset' // for legend
+    //        }],
+    //        labels: [
+    //          "Blue",
+    //          "Green",
+    //          "Red"
+    //        ]
+    //    };
 
-        var pieChart = new Chart(ctx, {
-            data: data,
-            type: 'pie',
-            otpions: {
-                legend: false
-            }
-        });
+    //    var pieChart = new Chart(ctx, {
+    //        data: data,
+    //        type: 'pie',
+    //        otpions: {
+    //            legend: true
+    //        }
+    //    });
 
-    }
+    //}
 
 
     // PolarArea chart

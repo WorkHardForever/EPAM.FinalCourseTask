@@ -1,6 +1,7 @@
 ﻿using ProjectManagement.AspNetMvc.PL.Infrastructure.Mappers.AdminMappers;
 using ProjectManagement.AspNetMvc.PL.Models.AdminViewModels;
 using ProjectManagement.AspNetMvc.PL.Providers;
+using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
 using System;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpPost]
         public ActionResult NewRole(AddRoleViewModel newRoleViewModel)
         {
-            _roleService.CreateByName(newRoleViewModel.Name);
+            _roleService.Create(new BllRole() { Name = newRoleViewModel.Name });
 
             ModelState.AddModelError("", "New role was added.");
             return View();
@@ -98,7 +99,7 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
         [HttpPost]
         public ActionResult RemoveRole(AddRoleViewModel newRoleViewModel)
         {
-            _roleService.DeleteByName(newRoleViewModel.Name);
+            _roleService.Delete(new BllRole() { Name = newRoleViewModel.Name });
 
             ModelState.AddModelError("", "New role was deleted.");
             return View();

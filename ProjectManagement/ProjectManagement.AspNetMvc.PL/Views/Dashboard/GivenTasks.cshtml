@@ -4,13 +4,7 @@
     ViewBag.Title = "GivenTasks";
     int counter = 1;
 }
-@section LeftColumnDashboard {
-    @Html.Action("LeftColumnDashboardPartial")
-}
-@section ButtonDashboard {
-    @Html.Action("ButtonDashboardPartial")
-}
-<div class="right_col" role="main" style="min-height: 1010px;">
+<div role="main" style="min-height: 1010px;">
     <div class="">
         <div class="clearfix"></div>
         <div class="row">
@@ -69,6 +63,3 @@
         </div>
     </div>
 </div>
-@section Styles {
-    @Styles.Render("~/Content/Gentelella")
-}

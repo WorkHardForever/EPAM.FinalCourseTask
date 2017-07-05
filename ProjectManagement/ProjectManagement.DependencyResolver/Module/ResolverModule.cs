@@ -7,6 +7,8 @@ using ProjectManagement.DAL.Concrete.Repositories;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
 using ProjectManagement.ORM;
+using ProjectManagement.ProjectLogger;
+using ProjectManagement.ProjectLogger.Interface;
 using System.Data.Entity;
 
 namespace ProjectManagement.DependencyResolver.Resolver
@@ -30,6 +32,8 @@ namespace ProjectManagement.DependencyResolver.Resolver
                 kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InSingletonScope();
                 kernel.Bind<DbContext>().To<EntityModel>().InSingletonScope();
             }
+
+            kernel.Bind<IProjectLogger>().To<MainLogger>();
 
             kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IRoleService>().To<RoleService>();

@@ -1,4 +1,5 @@
-﻿using ProjectManagement.BLL.Interface.Interfacies.Services;
+﻿using ProjectManagement.BLL.Interface.Entities;
+using ProjectManagement.BLL.Interface.Interfacies.Services;
 using ProjectManagement.BLL.Services;
 using System;
 using System.Linq;
@@ -8,21 +9,10 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
 {
     public class UserRoleProvider : RoleProvider
     {
-        //private IRoleService _roleService;
-
-        //private readonly IUserService _userService = (UserService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(UserService));
-        //private readonly IRoleService _roleService = (RoleService)System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
-
         // Exist for config initialization
         public UserRoleProvider()
         {
-        }
 
-        public UserRoleProvider(IRoleService roleService)
-        {
-            IRoleService _roleService =
-                (RoleService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
-            _roleService = roleService;
         }
 
         public override bool IsUserInRole(string username, string roleName)
@@ -87,23 +77,15 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
             IRoleService _roleService =
                 (RoleService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
 
-            _roleService.CreateByName(roleName);
+            _roleService.Create(new BllRole() { Name = roleName });
         }
 
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
         {
             IRoleService _roleService =
                 (RoleService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
-            _roleService.DeleteByName(roleName);
+            _roleService.Delete(new BllRole() { Name = roleName });
             return true;
-        }
-
-        public override bool RoleExists(string roleName)
-        {
-            IRoleService _roleService =
-                (RoleService) System.Web.Mvc.DependencyResolver.Current.GetService(typeof(RoleService));
-            return
-                _roleService.IsExistByName(roleName);
         }
 
         #region Not Implemented
@@ -114,6 +96,12 @@ namespace ProjectManagement.AspNetMvc.PL.Providers
         {
             throw new NotImplementedException();
         }
+
+        public override bool RoleExists(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
     }

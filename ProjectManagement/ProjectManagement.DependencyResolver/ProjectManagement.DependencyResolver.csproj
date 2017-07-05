@@ -110,6 +110,14 @@
       <Project>{3FE828FE-FDB7-4F3F-8ADD-8A564699694A}</Project>
       <Name>ProjectManagement.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.Logger.Interface\ProjectManagement.Logger.Interface.csproj">
+      <Project>{CCA679F6-B77E-414E-869B-61039C1ACDE4}</Project>
+      <Name>ProjectManagement.Logger.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement.Logger\ProjectManagement.Logger.csproj">
+      <Project>{12571D29-3298-44BF-BE0C-9B114C9729DE}</Project>
+      <Name>ProjectManagement.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectManagement.ORM\ProjectManagement.ORM.csproj">
       <Project>{1A871E01-D8F1-4D70-9811-278A577D35A7}</Project>
       <Name>ProjectManagement.ORM</Name>

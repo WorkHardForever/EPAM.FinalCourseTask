@@ -9,7 +9,8 @@ namespace ProjectManagement.AspNetMvc.PL
             #region Scripts
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-2.2.3.js"));
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
@@ -18,44 +19,43 @@ namespace ProjectManagement.AspNetMvc.PL
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js",
-                "~/Scripts/daterangepicker.js",
-                "~/Scripts/moment.js",
-                "~/Scripts/bootstrap-datetimepicker.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/fastclick").Include(
-                "~/Scripts/fastclick.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/nprogress").Include(
-                "~/Scripts/nprogress.js"));
+                "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Chart").Include(
                 "~/Scripts/Chart.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/Gentelella").Include(
-                "~/Libs/Gentelella/js/custom.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Datepicker").Include(
+                "~/Scripts/daterangepicker.js",
+                "~/Scripts/bootstrap-datetimepicker.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/Dragula").Include(
-                "~/Libs/Dragula/dist/dragula.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Gentelella").Include(
+                "~/Scripts/fastclick.js",
+                "~/Scripts/nprogress.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/moment.js",
+                "~/Libs/Gentelella/js/custom.js"));
 
             #endregion
 
             #region Styles
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
-                "~/Content/font-awesome.css",
-                "~/Content/nprogress.css",
-                "~/Content/animate.css",
+            bundles.Add(new ScriptBundle("~/Content/Datepicker").Include(
                 "~/Content/daterangepicker.css",
                 "~/Content/bootstrap-datetimepicker.css"));
 
             bundles.Add(new StyleBundle("~/Content/Gentelella").Include(
-                "~/Libs/Gentelella/css/custom.css"));
+                "~/Content/nprogress.css",
+                "~/Content/animate.css",
+                "~/Libs/Gentelella/css/custom.css",
+                "~/Content/daterangepicker.css",
+                "~/Content/bootstrap-datetimepicker.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Dragula").Include(
-                "~/Libs/Gentelella/dist/dragula.css"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/font-awesome.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ProjectManagement-home").Include(
+                "~/Content/ProjectManagement-home.css"));
 
             #endregion
         }

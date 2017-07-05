@@ -29,12 +29,19 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             var manager = _userService.GetByLogin(User.Identity.Name);
             var people = _profileService.GetEmployeesWithTasks(manager.Profile);
             var employees = people.ToEmployeesViewModel();
+
+            if (Request.IsAjaxRequest())
+                return PartialView(employees);
+
             return View(employees);
         }
 
         [HttpGet]
         public ActionResult CreateTask()
         {
+            if (Request.IsAjaxRequest())
+                return PartialView();
+
             return View();
         }
 
@@ -66,6 +73,10 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             var employee = _userService.GetByLogin(User.Identity.Name);
             var tasksByState = _profileService.DivideByStateReceivedTasks(employee.Profile);
             var receivedTasks = tasksByState.ToReceivedTasksViewModel();
+
+            if (Request.IsAjaxRequest())
+                return PartialView(receivedTasks);
+
             return View(receivedTasks);
         }
 
@@ -75,7 +86,18 @@ namespace ProjectManagement.AspNetMvc.PL.Controllers
             var employee = _userService.GetByLogin(User.Identity.Name);
             var percentOfWork = _profileService.GetReceivedTaskPercentState(employee.Profile);
             var statisticViewModel = percentOfWork.ToStatisticViewModel();
+
+            if (Request.IsAjaxRequest())
+                return PartialView(statisticViewModel);
+
             return View(statisticViewModel);
+        }
+
+        [ChildActionOnly]
+        public JsonResult GetChartData(float toDo, float inProcess, float done)
+        {
+            var listOfStats = new float[] { toDo, inProcess, done };
+            return Json(listOfStats, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

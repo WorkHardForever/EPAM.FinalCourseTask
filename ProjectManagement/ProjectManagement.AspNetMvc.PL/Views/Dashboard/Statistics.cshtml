@@ -3,13 +3,7 @@
 @{
     ViewBag.Title = "Statistics";
 }
-@section LeftColumnDashboard {
-    @Html.Action("LeftColumnDashboardPartial")
-}
-@section ButtonDashboard {
-    @Html.Action("ButtonDashboardPartial")
-}
-<div class="right_col" role="main">
+<div role="main">
     <div class="">
         <div class="clearfix"></div>
         <div class="row">
@@ -57,48 +51,48 @@
                     <div class="x_content">
                         <table class="" style="width: 100%">
                             <tbody>
-                            <tr>
-                                <th>
-                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <p class="">Work</p>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                        <p class="">Progress</p>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <table class="tile_info">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p>
-                                                    <i class="fa fa-square blue"></i>ToDo
-                                                </p>
-                                            </td>
-                                            <td>@Model.Todo %</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>
-                                                    <i class="fa fa-square green"></i>InProcess
-                                                </p>
-                                            </td>
-                                            <td>@Model.InProcess %</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>
-                                                    <i class="fa fa-square red"></i>Done
-                                                </p>
-                                            </td>
-                                            <td>@Model.Done %</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th>
+                                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                            <p class="">Work</p>
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <p class="">Progress</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="tile_info">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            <i class="fa fa-square blue"></i>ToDo
+                                                        </p>
+                                                    </td>
+                                                    <td>@Model.Todo %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            <i class="fa fa-square green"></i>InProcess
+                                                        </p>
+                                                    </td>
+                                                    <td>@Model.InProcess %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            <i class="fa fa-square red"></i>Done
+                                                        </p>
+                                                    </td>
+                                                    <td>@Model.Done %</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -108,6 +102,46 @@
         <div class="clearfix"></div>
     </div>
 </div>
-@section Styles {
-    @Styles.Render("~/Content/Gentelella")
+@section Scripts {
+    @Scripts.Render("~/bundles/Chart")
+    <script>
+        $.ajax({
+            url: "@Html.Raw(Url.Action("GetChartData", "Dashboard", new { toDo = Model.Todo, inProcess = Model.InProcess, done = Model.Done }, Request.Url.Scheme))",
+            context: document.body,
+            success: function (data) {
+                DrawPieChart(data)
+            }
+        });
+
+        // Pie chart
+        function DrawPieChart(data) {
+            if ($('#pieChart').length) {
+                var ctx = document.getElementById("pieChart");
+                var data = {
+                    datasets: [{
+                        data: [@Model.Todo, data[1], data[2]],
+                        backgroundColor: [
+                          "#0062FF",
+                          "#52FF00",
+                          "#FF2E00"
+                        ],
+                        label: 'My dataset' // for legend
+                    }],
+                    labels: [
+                      "To Do",
+                      "In Process",
+                      "Done"
+                    ]
+                };
+
+                var pieChart = new Chart(ctx, {
+                    data: data,
+                    type: 'pie',
+                    otpions: {
+                        legend: true
+                    }
+                });
+            }
+        }
+    </script>
 }

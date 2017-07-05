@@ -1,6 +1,7 @@
 ﻿using MimeKit;
 using MailKit.Net.Smtp;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
+using System;
 
 namespace ProjectManagement.BLL.Services
 {
@@ -13,6 +14,20 @@ namespace ProjectManagement.BLL.Services
         private static readonly int senderPort = 25;
 
         public void SendEmail(string email, string subject, string message)
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException(nameof(email));
+
+            if (string.IsNullOrEmpty(subject))
+                throw new ArgumentException(nameof(subject));
+
+            if (string.IsNullOrEmpty(message))
+                throw new ArgumentException(nameof(message));
+
+            Send(email, subject, message);
+        }
+
+        private void Send(string email, string subject, string message)
         {
             var emailMessage = new MimeMessage();
 

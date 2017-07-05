@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace ProjectManagement.DAL.Concrete.Repositories
 {
@@ -22,9 +21,6 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public void Create(DalRole item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             var role = _context.Set<Role>().SingleOrDefault(u => u.Name == item.Name);
             if (role != null)
                 throw new ArgumentException("Such role exist yet.");
@@ -34,20 +30,14 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public void Update(DalRole item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             _context.Set<Role>().AddOrUpdate(item.ToDbRole());
         }
 
         public void Delete(DalRole item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             var role = _context.Set<Role>().SingleOrDefault(u => u.Name == item.Name);
             if (role == null)
-                throw new ArgumentException("Such name was not found.");
+                throw new ArgumentException("Such role name was not found.");
 
             _context.Set<Role>().Remove(role);
         }
@@ -56,17 +46,12 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             var role = _context.Set<Role>().SingleOrDefault(u => u.Id == uniqueId);
             if (role == null)
-                throw new ArgumentNullException(nameof(uniqueId));
+                return null;
 
             return role.ToDalRole();
         }
 
         public IEnumerable<DalRole> GetAll()
-        {
-            return _context.Set<Role>().Select(role => role.ToDalRole());
-        }
-
-        public DalRole GetByPredicate(Expression<Func<DalRole, bool>> match)
         {
             throw new NotImplementedException();
         }
@@ -85,7 +70,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             var role = _context.Set<Role>().SingleOrDefault(u => u.Name == roleName);
             if (role == null)
-                throw new ArgumentNullException(nameof(roleName));
+                return null;
 
             return role.ToDalRole();
         }

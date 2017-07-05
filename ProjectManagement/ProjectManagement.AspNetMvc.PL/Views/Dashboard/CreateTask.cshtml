@@ -3,12 +3,6 @@
 @{
     ViewBag.Title = "CreateTask";
 }
-@section LeftColumnDashboard {
-    @Html.Action("LeftColumnDashboardPartial")
-}
-@section ButtonDashboard {
-    @Html.Action("ButtonDashboardPartial")
-}
 <div class="right_col" role="main" style="min-height: 1010px;">
     <div class="">
         <div class="clearfix"></div>
@@ -25,7 +19,6 @@
                             @using (Html.BeginForm("CreateTask", "Dashboard", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
                             {
                                 @Html.AntiForgeryToken()
-                                <h4>Create a new account.</h4>
                                 <hr/>
                                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
                                 <div class="form-group">
@@ -73,13 +66,6 @@
                                         @Html.ValidationMessageFor(m => m.DeadLine, "", new {@class = "text-danger"})
                                     </div>
                                 </div>
-                                @*<div class="form-group">
-                                    @Html.LabelFor(m => m.DeadLine, new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-10" style="width: 50%;">
-                                        @Html.TextBoxFor(x => x.DeadLine, "{0:yyyy-MM-dd}", new { @class = "dateInput", @placeholder = "plz input date" })
-                                        @Html.ValidationMessageFor(m => m.DeadLine, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>*@
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
                                         <input type="submit" class="btn btn-default" value="Submit"/>
@@ -94,12 +80,9 @@
         <div class="clearfix"></div>
     </div>
 </div>
-@section Styles {
-    @Styles.Render("~/Content/Gentelella")
-    @Scripts.Render("~/bundles/jqueryval")
-}
 @section Scripts {
-    <!-- Initialize datetimepicker -->
+    @Scripts.Render("~/bundles/Datepicker")
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $('#myDatepicker').datetimepicker();
 

@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace ProjectManagement.DAL.Concrete.Repositories
 {
@@ -42,21 +41,14 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public void Update(DalTask item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
-            Delete(item);
-            Create(item);
+            throw new NotImplementedException();
         }
 
         public void Delete(DalTask item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             var task = _context.Set<Task>().SingleOrDefault(u => u.Id == item.Id);
             if (task == null)
-                throw new ArgumentException("Such id not found");
+                throw new ArgumentException("Such id was not found");
 
             _context.Set<Task>().Remove(task);
         }
@@ -72,11 +64,6 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public IEnumerable<DalTask> GetAll()
         {
-            return _context.Set<Task>().Select(task => task.ToDalTask());
-        }
-
-        public DalTask GetByPredicate(Expression<Func<DalTask, bool>> match)
-        {
             throw new NotImplementedException();
         }
 
@@ -87,7 +74,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
                 throw new ArgumentException($"Task with id: {taskId} can't be found.");
 
             if (task.State == TaskState.Done)
-                throw new ArgumentException($"Task already have State = Done and you can't improve it more.");
+                throw new ArgumentException($"Task already have State = 'Done' and you can't improve it more.");
 
             task.State++;
             _context.Set<Task>().AddOrUpdate(task);

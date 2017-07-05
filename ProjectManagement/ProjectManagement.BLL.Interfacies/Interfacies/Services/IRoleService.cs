@@ -17,10 +17,8 @@ namespace ProjectManagement.BLL.Interface.Interfacies.Services
 
         void RemoveUserByName(string username, string roleName);
 
-        void CreateByName(string roleName);
+        void Create(BllRole role);
 
-        void DeleteByName(string roleName);
-
-        bool IsExistByName(string roleName);
+        void Delete(BllRole role);
     }
 }

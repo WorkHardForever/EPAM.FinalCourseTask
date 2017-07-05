@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BllAvatar.cs" />
     <Compile Include="Entities\BllContainTasksByState.cs" />
     <Compile Include="Entities\BllProfile.cs" />
     <Compile Include="Entities\BllRole.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Entities\BllTaskPercentState.cs" />
     <Compile Include="Entities\BllUser.cs" />
     <Compile Include="Entities\BllTaskState.cs" />
-    <Compile Include="Interfacies\Services\IAvatarService.cs" />
     <Compile Include="Interfacies\Services\IMessageService.cs" />
     <Compile Include="Interfacies\Services\IProfileService.cs" />
     <Compile Include="Interfacies\Services\IRoleService.cs" />

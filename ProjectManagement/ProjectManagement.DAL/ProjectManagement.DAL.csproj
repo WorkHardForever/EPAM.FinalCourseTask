@@ -44,15 +44,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Repositories\AvatarRepository.cs" />
     <Compile Include="Concrete\Repositories\ProfileRepository.cs" />
     <Compile Include="Concrete\Repositories\RoleRepository.cs" />
     <Compile Include="Concrete\Repositories\TaskRepository.cs" />
     <Compile Include="Concrete\Repositories\UserRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
-    <Compile Include="Mappers\AvatarMapper.cs" />
     <Compile Include="Mappers\ProfileMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
     <Compile Include="Mappers\TaskMapper.cs" />

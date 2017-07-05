@@ -1,6 +1,7 @@
 ﻿using ProjectManagement.DAL.Interface.Interfacies;
 using System;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace ProjectManagement.DAL.Concrete
 {
@@ -22,9 +23,13 @@ namespace ProjectManagement.DAL.Concrete
             {
                 Context.SaveChanges();
             }
+            catch (DbEntityValidationException ex)
+            {
+                throw new Exception("Validation exception. Try again.", ex);
+            }
             catch (Exception ex)
             {
-                throw new Exception("Database don't save the data", ex);
+                throw new Exception("Database don't save the data.", ex);
             }
         }
 

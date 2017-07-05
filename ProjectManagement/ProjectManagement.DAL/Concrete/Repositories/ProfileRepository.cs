@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace ProjectManagement.DAL.Concrete.Repositories
 {
@@ -22,28 +21,19 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public void Create(DalProfile item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             _context.Set<Profile>().Add(item.ToDbProfile());
         }
 
         public void Update(DalProfile item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             _context.Set<Profile>().AddOrUpdate(item.ToDbProfile());
         }
 
         public void Delete(DalProfile item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-
             var profile = _context.Set<Profile>().SingleOrDefault(u => u.Id == item.Id);
             if (profile == null)
-                throw new ArgumentException("Such id not found");
+                throw new ArgumentException("Such profile id was not found");
 
             _context.Set<Profile>().Remove(profile);
         }
@@ -59,11 +49,6 @@ namespace ProjectManagement.DAL.Concrete.Repositories
 
         public IEnumerable<DalProfile> GetAll()
         {
-            return _context.Set<Profile>().Select(profile => profile.ToDalProfile());
-        }
-
-        public DalProfile GetByPredicate(Expression<Func<DalProfile, bool>> match)
-        {
             throw new NotImplementedException();
         }
 
@@ -71,7 +56,7 @@ namespace ProjectManagement.DAL.Concrete.Repositories
         {
             var profile = _context.Set<Profile>().SingleOrDefault(u => u.Email == email);
             if (profile == null)
-                throw new ArgumentNullException(nameof(email));
+                return null;
 
             return profile.ToDalProfile();
         }

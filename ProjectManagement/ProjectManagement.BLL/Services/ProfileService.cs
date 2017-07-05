@@ -1,10 +1,10 @@
 ﻿using ProjectManagement.BLL.Interface.Entities;
 using ProjectManagement.BLL.Interface.Interfacies.Services;
+using ProjectManagement.BLL.Mappers;
 using ProjectManagement.DAL.Interface.Interfacies;
 using ProjectManagement.DAL.Interface.Interfacies.IRepositories;
-using System.Collections.Generic;
 using System;
-using ProjectManagement.BLL.Mappers;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProjectManagement.BLL.Services
@@ -24,33 +24,25 @@ namespace ProjectManagement.BLL.Services
 
         public BllProfile GetByEmail(string email)
         {
+            if (string.IsNullOrEmpty(email))
+                return null;
+
             return _profileRepository.GetByEmail(email).ToBllProfile();
         }
 
         public IEnumerable<BllProfile> GetEmployeesWithTasks(BllProfile manager)
         {
-            var employees = new List<BllProfile>();
-            foreach (var item in manager.GivenTasks)
-            {
-                var index = employees.FindIndex(x => x.Email == item.Employee.Email);
-                if (index != -1)
-                {
-                    ((List<BllTask>) employees[index].ReceivedTasks).Add(item);
-                }
-                else
-                {
-                    var person = item.Employee;
-                    person.ReceivedTasks = new List<BllTask>();
-                    ((List<BllTask>) person.ReceivedTasks).Add(item);
-                    employees.Add(person);
-                }
-            }
+            if (manager == null)
+                return null;
 
-            return employees;
+            return SortEmployeesByTasks(manager);
         }
 
         public BllProfile GetById(int userId)
         {
+            if (userId < 1)
+                throw new ArgumentOutOfRangeException(nameof(userId));
+
             return _profileRepository.GetById(userId)?.ToBllProfile();
         }
 
@@ -59,6 +51,46 @@ namespace ProjectManagement.BLL.Services
             if (profile == null)
                 return null;
 
+            return SortByStatesTasks(profile);
+        }
+
+        public BllTaskPercentState GetReceivedTaskPercentState(BllProfile profile)
+        {
+            if (profile == null)
+                return null;
+
+            if (profile.ReceivedTasks.Count() == 0)
+                return null;
+
+            return CalculatePercentOfStates(profile);
+        }
+
+
+
+        private IEnumerable<BllProfile> SortEmployeesByTasks(BllProfile manager)
+        {
+            var employees = new List<BllProfile>();
+            foreach (var item in manager.GivenTasks)
+            {
+                var index = employees.FindIndex(x => x.Email == item.Employee.Email);
+                if (index != -1)
+                {
+                    ((List<BllTask>)employees[index].ReceivedTasks).Add(item);
+                }
+                else
+                {
+                    var person = item.Employee;
+                    person.ReceivedTasks = new List<BllTask>();
+                    ((List<BllTask>)person.ReceivedTasks).Add(item);
+                    employees.Add(person);
+                }
+            }
+
+            return employees;
+        }
+
+        private BllContainTasksByState SortByStatesTasks(BllProfile profile)
+        {
             var stateContainer = new BllContainTasksByState()
             {
                 Todo = new List<BllTask>(),
@@ -86,19 +118,27 @@ namespace ProjectManagement.BLL.Services
             return stateContainer;
         }
 
-        public BllTaskPercentState GetReceivedTaskPercentState(BllProfile profile)
+        private BllTaskPercentState CalculatePercentOfStates(BllProfile profile)
         {
-            if (profile == null)
-                return null;
-
             var count = profile.ReceivedTasks.Count();
-            if (count == 0)
-                return null;
+            var tupleStates = CalculateStates(profile.ReceivedTasks);
 
+            var taskPercentState = new BllTaskPercentState()
+            {
+                ToDo = GetPercent(tupleStates.Item1, count),
+                InProcess = GetPercent(tupleStates.Item2, count),
+                Done = GetPercent(tupleStates.Item3, count)
+            };
+
+            return taskPercentState;
+        }
+
+        private Tuple<int, int, int> CalculateStates(IEnumerable<BllTask> tasks)
+        {
             var toDo = 0;
             var InProcess = 0;
             var Done = 0;
-            foreach (var item in profile.ReceivedTasks)
+            foreach (var item in tasks)
             {
                 switch (item.State)
                 {
@@ -116,22 +156,12 @@ namespace ProjectManagement.BLL.Services
                 }
             }
 
-            var taskPercentState = new BllTaskPercentState()
-            {
-                ToDo = GetPercent(toDo, count),
-                InProcess = GetPercent(InProcess, count),
-                Done = GetPercent(Done, count)
-            };
-
-            return taskPercentState;
+            return new Tuple<int, int, int>(toDo, InProcess, Done);
         }
 
         private float GetPercent(int part, int total)
         {
-            if (part > total && total <= 0)
-                throw new ArgumentException("Check arguments that part < total and total > 0");
-
-            return (float) part / total * 100;
+            return (float)part / total * 100;
         }
     }
 }

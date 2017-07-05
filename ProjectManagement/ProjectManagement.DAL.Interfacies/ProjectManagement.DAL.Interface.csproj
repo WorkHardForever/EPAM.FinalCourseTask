@@ -42,14 +42,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\DalAvatar.cs" />
     <Compile Include="DTO\DalProfile.cs" />
     <Compile Include="DTO\DalRole.cs" />
     <Compile Include="DTO\DalTask.cs" />
     <Compile Include="DTO\DalTaskState.cs" />
     <Compile Include="DTO\DalUser.cs" />
     <Compile Include="Interfacies\IEntity.cs" />
-    <Compile Include="Interfacies\IRepositories\IAvatarRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IProfileRepository.cs" />
     <Compile Include="Interfacies\IRepositories\IRoleRepository.cs" />
     <Compile Include="Interfacies\IRepositories\ITaskRepository.cs" />

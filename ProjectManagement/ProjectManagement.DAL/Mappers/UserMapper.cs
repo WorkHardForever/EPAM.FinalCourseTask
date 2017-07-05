@@ -1,7 +1,9 @@
 ﻿using ProjectManagement.DAL.Interface.DTO;
 using ProjectManagement.ORM.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ProjectManagement.DAL.Mappers
 {
@@ -37,6 +39,18 @@ namespace ProjectManagement.DAL.Mappers
         public static ICollection<User> ToDbProfileCollection(this IEnumerable<DalUser> dalUsers)
         {
             return dalUsers?.Select(x => x.ToDbUser()) as ICollection<User>;
+        }
+
+        public static Expression<Func<User, DalUser>> ExpressionToDalUser
+        {
+            get
+            {
+                return (User user) => new DalUser()
+                {
+                    Id = user.Id,
+                    Login = user.Login
+                };
+            }
         }
     }
 }

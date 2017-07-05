@@ -15,11 +15,6 @@ namespace ProjectManagement.ORM
         {
         }
 
-        static EntityModel()
-        {
-            //Database.SetInitializer(new EntityInitializer());
-        }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -27,21 +22,9 @@ namespace ProjectManagement.ORM
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Profile>()
-            //    .HasRequired(p => p.User)
-            //    .WithRequiredDependent(c => c.Profile);
-
-            //modelBuilder.Entity<User>()
-            //    .HasRequired(c => c.Profile)
-            //    .WithRequiredPrincipal(p => p.User);
-
             modelBuilder.Entity<User>()
                 .HasMany(p => p.Roles)
                 .WithMany(c => c.Users);
-
-            //modelBuilder.Entity<Profile>()
-            //    .HasMany(p => p.Projects)
-            //    .WithMany(c => c.People);
 
             modelBuilder.Entity<Profile>()
                 .HasMany(e => e.GivenTasks)

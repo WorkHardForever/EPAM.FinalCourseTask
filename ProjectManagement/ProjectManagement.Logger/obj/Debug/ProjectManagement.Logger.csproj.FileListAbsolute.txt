@@ -5,3 +5,5 @@ E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\bin\Debug\Pro
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\obj\Debug\ProjectManagement.Logger.csprojResolveAssemblyReference.cache
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\obj\Debug\ProjectManagement.Logger.dll
 E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\obj\Debug\ProjectManagement.Logger.pdb
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\bin\Debug\NLog.dll
+E:\EPAM.FinalCourseTask\ProjectManagement\ProjectManagement.Logger\bin\Debug\NLog.xml
